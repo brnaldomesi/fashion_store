@@ -12,7 +12,7 @@
 ### Mandatory
 
 - MacOS
-- [Xcode](https://itunes.apple.com/br/app/xcode/id497799835?mt=12), [Android Studio](https://developer.android.com/studio/index.html) and [Atom](https://atom.io/)
+- [Xcode](https://itunes.apple.com/br/app/xcode/id497799835?mt=12) and [Android Studio](https://developer.android.com/studio/index.html)
 - [Homebrew](https://brew.sh/)
 - [Node](https://nodejs.org), [Watchman](https://facebook.github.io/watchman/) and [React Native](https://facebook.github.io/react-native/)
 
@@ -71,7 +71,7 @@ react-native run-android
 
 ## Change-log
 
-A brief summary of each [FastBuy for Managers](https://github.com/Bruno-Furtado/fastbuy-app) release can be found on the [releases](https://github.com/Bruno-Furtado/fastbuy-app/releases).
+A brief summary of each [FastBuy](https://github.com/Bruno-Furtado/fastbuy-app) release can be found on the [releases](https://github.com/Bruno-Furtado/fastbuy-app/releases).
 
 
 ## License

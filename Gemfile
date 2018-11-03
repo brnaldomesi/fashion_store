@@ -30,7 +30,8 @@ if [ ! -d 'node_modules/react-native/third-party' ]; then
 	fi
 fi
 
-echo '\n👉👉👉 Please open the project in Android Studio (necessary to automatically generate `local.properties` file). 👈👈👈 \n'
+echo '\n👉👉👉 Please open the project in Android Studio.'
+echo '👉👉👉 It is necessary to generate the `local.properties` and find your Android SDK path.\n'
 
 echo '########## 🎉 DONE. HAVE FUN! 🎉 ##########'
 echo '###########################################\n'

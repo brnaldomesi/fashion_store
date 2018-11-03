@@ -4,22 +4,24 @@
 
 [![React Native][react_native-badge]][react_native-url]
 [![iOS Platform][ios_platform-badge]][ios_platform-url]
+[![Xcode][xcode-badge]][xcode-url]
 [![Android Platform][android_platform-badge]][android_platform-url]
+[![Android Studio][android_studio-badge]][android_studio-url]
 
 
 ## Requirements
 
 ### Mandatory
 
-- MacOS
-- [Xcode](https://itunes.apple.com/br/app/xcode/id497799835?mt=12) and [Android Studio](https://developer.android.com/studio/index.html)
-- [Homebrew](https://brew.sh/)
-- [Node](https://nodejs.org), [Watchman](https://facebook.github.io/watchman/) and [React Native](https://facebook.github.io/react-native/)
+- MacOS.
+- [Xcode](https://itunes.apple.com/br/app/xcode/id497799835?mt=12) and [Android Studio](https://developer.android.com/studio/index.html).
+- [Homebrew](https://brew.sh/).
+- [Node](https://nodejs.org), [Watchman](https://facebook.github.io/watchman/) and [React Native](https://facebook.github.io/react-native/).
 
 ### Optional
 
-- [Atom](https://atom.io/), [Linter](https://atom.io/packages/linter) and [ESLinter](https://atom.io/packages/linter-eslint)
-- [Oh My ZSH!](http://ohmyz.sh/) (add the line `source ~/.bash_profile` to **~/.zshrc** file)
+- [Atom](https://atom.io/), [Linter](https://atom.io/packages/linter) and [ESLinter](https://atom.io/packages/linter-eslint).
+- [Oh My ZSH!](http://ohmyz.sh/) (add the line `source ~/.bash_profile` to **~/.zshrc** file).
 
 
 ## Enviroment Settings
@@ -96,5 +98,9 @@ This code is distributed under the terms and conditions of the [MIT](https://git
 [react_native-url]: https://facebook.github.io/react-native/
 [ios_platform-badge]: https://img.shields.io/badge/iOS-9.0+-lightgrey.svg
 [ios_platform-url]: https://developer.apple.com/
+[xcode-badge]: https://img.shields.io/badge/Xcode-10.1+-lightgrey.svg
+[xcode-url]: https://developer.apple.com/xcode/
 [android_platform-badge]: https://img.shields.io/badge/Android-4.1+-green.svg
 [android_platform-url]: https://developer.android.com/index.html
+[android_studio-badge]: https://img.shields.io/badge/Android%20Studio-3.2.1+-green.svg
+[android_studio-url]: https://developer.android.com/studio/install

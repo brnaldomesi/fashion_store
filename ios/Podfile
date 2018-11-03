@@ -1,7 +1,8 @@
 platform :ios, '9.0'
 
 target 'fastbuy' do
-
+    use_frameworks!
+    
     pod 'Crashlytics', '~> 3.10.7'
     pod 'GoogleAppMeasurement', '~> 5.2.0'
     pod 'Fabric', '~> 1.7.11'

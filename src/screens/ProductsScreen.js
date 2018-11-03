@@ -1,0 +1,40 @@
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import fonts from '../fonts';
+import i18n from '../i18n';
+
+
+type Props = {};
+class ProductsScreen extends Component<Props> {
+
+  componentWillMount() {
+    this.props.navigator.setTitle({
+      title: i18n.t('products.title')
+    });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>{i18n.t('title')}</Text>
+      </View>
+    );
+  }
+
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+    paddingHorizontal: 10,
+    paddingVertical: 30
+  },
+  title: {
+    fontFamily: fonts.regular,
+    fontSize: 20,
+    marginBottom: 10
+  }
+});
+
+export default ProductsScreen;

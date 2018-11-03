@@ -56,7 +56,7 @@ git clone git@github.com:Bruno-Furtado/fastbuy-app.git && cd fastbuy-app && bund
 
 **2.** Open the project in Android Studio. It is necessary to generate to find your Android SDK.
 
-*Press 'OK' on first alert, and do not update gradle plugin on second.*
+> Press 'OK' on first alert, and do not update gradle plugin on second.
 
 ```
 open -a /Applications/Android\ Studio.app android
@@ -77,7 +77,7 @@ react-native run-ios --simulator "My Simulator (12.1)"
 
 **5.** Make sure you have installed and started an emulator and run the app on Android emulator
 
-*At first time, you have to enable the overlay permission.*
+> At first time, you have to enable the overlay permission.
 
 ```
 react-native run-android

@@ -12,14 +12,14 @@ import imgGoogleIcon from '../../assets/images/google-icon.png';
 
 
 type Props = {};
-class LoginScreen extends Component<Props> {
+export default class LoginScreen extends Component<Props> {
 
   static navigatorStyle = {
     navBarHidden: true
   };
 
   onPressButton() {
-    startSingleScreenApp(PRODUCTS_SCREEN);
+    startSingleScreenApp(PRODUCTS_SCREEN, 'fade');
   }
 
   render() {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: colors.while,
+    backgroundColor: colors.white,
     margin
   },
   welcomeViewStyle: {
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     fontFamily: fonts.regular,
-    color: colors.black,
+    color: colors.grayDark,
     fontSize: 24,
     margin
   },
@@ -83,5 +83,3 @@ const styles = StyleSheet.create({
     bottom: 0
   }
 });
-
-export default LoginScreen;

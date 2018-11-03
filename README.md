@@ -96,7 +96,7 @@ This code is distributed under the terms and conditions of the [MIT](https://git
 
 [react_native-badge]: https://img.shields.io/badge/React%20Native-0.57.4-blue.svg?style=flat
 [react_native-url]: https://facebook.github.io/react-native/
-[ios_platform-badge]: https://img.shields.io/badge/iOS-9.0+-lightgrey.svg
+[ios_platform-badge]: https://img.shields.io/badge/iOS-10.0+-lightgrey.svg
 [ios_platform-url]: https://developer.apple.com/
 [xcode-badge]: https://img.shields.io/badge/Xcode-10.1+-lightgrey.svg
 [xcode-url]: https://developer.apple.com/xcode/

@@ -35,10 +35,10 @@
 - Install [Node](https://nodejs.org), [Watchman](https://facebook.github.io/watchman/) and [React Native](https://facebook.github.io/react-native/):
 
 ```
-> brew update
-> brew install node
-> brew install watchman
-> npm install -g react-native-cli
+brew update
+brew install node
+brew install watchman
+npm install -g react-native-cli
 ```
 
 ### Optional
@@ -51,32 +51,36 @@
 **1.** Clone project and install the dependencies
 
 ```
-> git clone git@github.com:Bruno-Furtado/fastbuy-app.git && cd fastbuy-app && bundle install
+git clone git@github.com:Bruno-Furtado/fastbuy-app.git && cd fastbuy-app && bundle install
 ```
 
-**2.** Open the project in Android Studio. It is necessary to generate the `local.properties` and find your Android SDK path (press 'OK' on first alert, and do not update gradle plugin on second).
+**2.** Open the project in Android Studio. It is necessary to generate to find your Android SDK.
+
+*Press 'OK' on first alert, and do not update gradle plugin on second.*
 
 ```
-> open -a /Applications/Android\ Studio.app android
+open -a /Applications/Android\ Studio.app android
 ```
 
 **3.** Start the server
 
 ```
-> react-native start
+react-native start
 ```
 
 **4.** Make sure you have a simulator installed and run the app on iOS simulator.
 
 ```
-> react-native run-ios
-> react-native run-ios --simulator "My Simulator (12.1)"
+react-native run-ios
+react-native run-ios --simulator "My Simulator (12.1)"
 ```
 
-**5.** Make sure you have installed and started an emulator and run the app on Android emulator (at first time, you have to enable the overlay permission).
+**5.** Make sure you have installed and started an emulator and run the app on Android emulator
+
+*At first time, you have to enable the overlay permission.*
 
 ```
-> react-native run-android
+react-native run-android
 ```
 
 

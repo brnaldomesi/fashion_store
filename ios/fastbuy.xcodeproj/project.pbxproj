@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -32,6 +31,9 @@
 		F0452156008227D81D69D66B /* libPods-fastbuy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FDFD1A3B868B872324C18C /* libPods-fastbuy.a */; };
 		F82A2048218CD5C5000E89E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */; };
 		F8F04DAC218CABB60073B832 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F04DAB218CAB850073B832 /* libReactNativeNavigation.a */; };
+		E09D2263A0FB4B0CB6A7E07C /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9326419F2284405B92E8C167 /* Exo-Bold.ttf */; };
+		E37283A49208432A9800DBC4 /* Exo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2A8191212E1450294D6FA9F /* Exo-Light.ttf */; };
+		8BDF14E10E5647B6BC30378A /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47218356F57A4EB480F383CA /* Exo-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +386,9 @@
 		F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8F04DA6218CAB850073B832 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNLanguages.xcodeproj; path = "../node_modules/react-native-languages/ios/RNLanguages.xcodeproj"; sourceTree = "<group>"; };
+		9326419F2284405B92E8C167 /* Exo-Bold.ttf */ = {isa = PBXFileReference; name = "Exo-Bold.ttf"; path = "../assets/fonts/Exo-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A2A8191212E1450294D6FA9F /* Exo-Light.ttf */ = {isa = PBXFileReference; name = "Exo-Light.ttf"; path = "../assets/fonts/Exo-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		47218356F57A4EB480F383CA /* Exo-Regular.ttf */ = {isa = PBXFileReference; name = "Exo-Regular.ttf"; path = "../assets/fonts/Exo-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -610,6 +615,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				F8F04D78218C97C50073B832 /* Recovered References */,
 				93980375FF8087ACC40492AB /* Pods */,
+				63A674DD17D94E0F94520E78 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -688,6 +694,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		63A674DD17D94E0F94520E78 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				9326419F2284405B92E8C167 /* Exo-Bold.ttf */,
+				A2A8191212E1450294D6FA9F /* Exo-Light.ttf */,
+				47218356F57A4EB480F383CA /* Exo-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1149,6 +1166,9 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				F82A2048218CD5C5000E89E0 /* GoogleService-Info.plist in Resources */,
+				E09D2263A0FB4B0CB6A7E07C /* Exo-Bold.ttf in Resources */,
+				E37283A49208432A9800DBC4 /* Exo-Light.ttf in Resources */,
+				8BDF14E10E5647B6BC30378A /* Exo-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

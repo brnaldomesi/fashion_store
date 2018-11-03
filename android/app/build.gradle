@@ -145,6 +145,10 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-navigation')
+    compile project(':react-native-languages')
+    compile project(':react-native-firebase')
+    compile project(':react-native-device-info')
     implementation project(':react-native-firebase')
     implementation project(':react-native-firebase')
     implementation project(':react-native-device-info')

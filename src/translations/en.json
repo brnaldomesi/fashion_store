@@ -1,3 +1,10 @@
 {
-  "title": "FastBuy"
+  "login": {
+    "title": "Login",
+    "welcome": "Welcome to FastBuy",
+    "button": "Connect with Google"
+  },
+  "products": {
+    "title": "Products"
+  }
 }

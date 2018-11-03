@@ -50,18 +50,21 @@ npm install -g react-native-cli
 
 ```
 # clone project and install the dependencies
-git clone git@github.com:Bruno-Furtado/fastbuy-app.git && cd fastbuy-app && bundle install
+> git clone git@github.com:Bruno-Furtado/fastbuy-app.git && cd fastbuy-app && bundle install
 
-# open the project in Android Studio to generate `local.properties` (do not upgrade gradle version)
+# open the project in Android Studio to generate `local.properties`
+# press 'OK' on first alert
+# do not update gradle plugin on second alert
+> open -a /Applications/Android\ Studio.app android
 
 # start the server
-react-native start
+> react-native start
 
 # run on iOS simulator
-react-native run-ios
+> react-native run-ios
 
 # start the emulator and run on Android
-react-native run-android
+> react-native run-android
 ```
 
 

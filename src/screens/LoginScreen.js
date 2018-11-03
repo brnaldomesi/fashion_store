@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import fonts from '../fonts';
 import i18n from '../i18n';
 
 type Props = {};
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     paddingVertical: 30
   },
   title: {
+    fontFamily: fonts.regular,
     fontSize: 20,
     marginBottom: 10
   }

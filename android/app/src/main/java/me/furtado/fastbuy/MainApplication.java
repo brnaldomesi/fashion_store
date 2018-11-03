@@ -5,6 +5,7 @@ import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import com.facebook.react.ReactPackage;
 import com.reactnativenavigation.NavigationApplication;
+import com.reactnativenavigation.bridge.NavigationReactPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,6 +32,7 @@ public class MainApplication extends NavigationApplication {
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new NavigationReactPackage(),
             new RNDeviceInfo(),
             new RNFirebasePackage(),
             new RNLanguagesPackage()

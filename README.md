@@ -61,6 +61,7 @@ git clone git@github.com:Bruno-Furtado/fastbuy-app.git && cd fastbuy-app && bund
 open -a /Applications/Android\ Studio.app android
 ```
 > Press 'OK' on first alert, and do not update gradle plugin on second.
+
 &nbsp;
 
 **3.** Start the server.
@@ -85,6 +86,7 @@ react-native run-android
 ```
 > For the first build, you must enable the overlay permission.
 
+&nbsp;
 
 ## Change-log
 

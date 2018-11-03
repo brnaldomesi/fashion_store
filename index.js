@@ -1,12 +1,4 @@
-import { Navigation } from 'react-native-navigation';
-import { registerScreens, screenUniqueName } from './src/screens';
+import { LOGIN_SCREEN, registerScreens, startSingleScreenApp } from './src/screens';
 
 registerScreens();
-
-Navigation.startSingleScreenApp({
-  screen: {
-    screen: screenUniqueName('LoginScreen'),
-    title: 'Login'
-  },
-  animationType: 'none'
-});
+startSingleScreenApp(LOGIN_SCREEN, 'none');

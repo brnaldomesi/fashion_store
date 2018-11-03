@@ -48,13 +48,13 @@ npm install -g react-native-cli
 
 ## Steps to Run
 
-**1.** Clone project and install the dependencies
+**1.** Clone project and install the dependencies.
 
 ```
 git clone git@github.com:Bruno-Furtado/fastbuy-app.git && cd fastbuy-app && bundle install
 ```
 
-**2.** Open the project in Android Studio. It is necessary to generate to find your Android SDK.
+**2.** Open the project in Android Studio.
 
 > Press 'OK' on first alert, and do not update gradle plugin on second.
 
@@ -62,22 +62,22 @@ git clone git@github.com:Bruno-Furtado/fastbuy-app.git && cd fastbuy-app && bund
 open -a /Applications/Android\ Studio.app android
 ```
 
-**3.** Start the server
+**3.** Start the server.
 
 ```
 react-native start
 ```
 
-**4.** Make sure you have a simulator installed and run the app on iOS simulator.
+**4.** Make sure you have a simulator installed and run the app on iOS.
 
 ```
 react-native run-ios
 react-native run-ios --simulator "My Simulator (12.1)"
 ```
 
-**5.** Make sure you have installed and started an emulator and run the app on Android emulator
+**5.** Make sure you have started an emulator and run the app on Android.
 
-> At first time, you have to enable the overlay permission.
+> For the first build, you must enable the overlay permission.
 
 ```
 react-native run-android

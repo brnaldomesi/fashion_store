@@ -23,7 +23,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		23B546867701EF204F3974D8 /* libPods-fastbuyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC5079C2B3F2DE622BA8B07 /* libPods-fastbuyTests.a */; };
+		183E412DFB9D68A371FE05C3 /* Pods_fastbuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2DBCAB5E6986F0D99E27AC /* Pods_fastbuy.framework */; };
+		77F0604EBA9DDB02DBC73247 /* Pods_fastbuyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CF96E0886230DB087B8F34 /* Pods_fastbuyTests.framework */; };
 		782F3D075F76486B907FECA3 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFD37719FC64057B90C36E5 /* libRNDeviceInfo.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BDF14E10E5647B6BC30378A /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47218356F57A4EB480F383CA /* Exo-Regular.ttf */; };
@@ -32,7 +33,6 @@
 		E09D2263A0FB4B0CB6A7E07C /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9326419F2284405B92E8C167 /* Exo-Bold.ttf */; };
 		E37283A49208432A9800DBC4 /* Exo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2A8191212E1450294D6FA9F /* Exo-Light.ttf */; };
 		EB4DA0CD01B6458187EF2FE1 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C547753F741F47C5B9A07B6F /* libRNFirebase.a */; };
-		F0452156008227D81D69D66B /* libPods-fastbuy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FDFD1A3B868B872324C18C /* libPods-fastbuy.a */; };
 		F82A2048218CD5C5000E89E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */; };
 		F8F04DAC218CABB60073B832 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F04DAB218CAB850073B832 /* libReactNativeNavigation.a */; };
 /* End PBXBuildFile section */
@@ -372,6 +372,7 @@
 		270F44B83B17EAFFCA68A591 /* Pods-fastbuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuyTests/Pods-fastbuyTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A0114BEBD71CE2F19C65C3 /* Pods-fastbuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy.debug.xcconfig"; sourceTree = "<group>"; };
+		44CF96E0886230DB087B8F34 /* Pods_fastbuyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fastbuyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45163C6FA3B8206CC2919363 /* Pods-fastbuyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuyTests/Pods-fastbuyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		47218356F57A4EB480F383CA /* Exo-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo-Regular.ttf"; path = "../assets/fonts/Exo-Regular.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -381,11 +382,10 @@
 		84A0819FD2E6481F95971B96 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		9326419F2284405B92E8C167 /* Exo-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo-Bold.ttf"; path = "../assets/fonts/Exo-Bold.ttf"; sourceTree = "<group>"; };
 		A2A8191212E1450294D6FA9F /* Exo-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo-Light.ttf"; path = "../assets/fonts/Exo-Light.ttf"; sourceTree = "<group>"; };
-		ABC5079C2B3F2DE622BA8B07 /* libPods-fastbuyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fastbuyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B6309E08929F4735B652CFE1 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
-		C1FDFD1A3B868B872324C18C /* libPods-fastbuy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fastbuy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C547753F741F47C5B9A07B6F /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
+		CE2DBCAB5E6986F0D99E27AC /* Pods_fastbuy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fastbuy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEFD37719FC64057B90C36E5 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8F04DA6218CAB850073B832 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				23B546867701EF204F3974D8 /* libPods-fastbuyTests.a in Frameworks */,
+				77F0604EBA9DDB02DBC73247 /* Pods_fastbuyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +422,7 @@
 				F8F04DAC218CABB60073B832 /* libReactNativeNavigation.a in Frameworks */,
 				782F3D075F76486B907FECA3 /* libRNDeviceInfo.a in Frameworks */,
 				EB4DA0CD01B6458187EF2FE1 /* libRNFirebase.a in Frameworks */,
-				F0452156008227D81D69D66B /* libPods-fastbuy.a in Frameworks */,
+				183E412DFB9D68A371FE05C3 /* Pods_fastbuy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,8 +550,8 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				C1FDFD1A3B868B872324C18C /* libPods-fastbuy.a */,
-				ABC5079C2B3F2DE622BA8B07 /* libPods-fastbuyTests.a */,
+				CE2DBCAB5E6986F0D99E27AC /* Pods_fastbuy.framework */,
+				44CF96E0886230DB087B8F34 /* Pods_fastbuyTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -738,6 +738,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				F8D22469218DD1240044F2AE /* Google Firebase Crashlytics Script */,
+				927D7B355097622A45C71415 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1210,6 +1211,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		927D7B355097622A45C71415 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F445A7ADC97BF76C449034B4 /* [CP] Check Pods Manifest.lock */ = {

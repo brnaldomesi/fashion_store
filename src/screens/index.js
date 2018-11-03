@@ -2,11 +2,69 @@ import DeviceInfo from 'react-native-device-info';
 import { Navigation } from 'react-native-navigation';
 
 import LoginScreen from './LoginScreen';
+import ProductsScreen from './ProductsScreen';
+
+import { NAVBAR_VIEW } from '../components';
+
+import colors from '../colors';
+import fonts from '../fonts';
+import imgAppBack from '../../assets/images/app-back.png';
+
+
+// Public
+
+export const LOGIN_SCREEN = screenUniqueName('LoginScreen');
+export const PRODUCTS_SCREEN = screenUniqueName('ProductsScreen');
 
 export function registerScreens() {
-  Navigation.registerComponent(screenUniqueName('LoginScreen'), () => LoginScreen);
+  Navigation.registerComponent(LOGIN_SCREEN, () => LoginScreen);
+  Navigation.registerComponent(PRODUCTS_SCREEN, () => ProductsScreen);
 }
 
-export function screenUniqueName(name) {
+export function startSingleScreenApp(screenName, animationType = 'slide-down') {
+  Navigation.startSingleScreenApp({
+    screen: {
+      screen: screenName,
+      navigatorStyle
+    },
+    appStyle: {
+      ...appStyle
+    },
+    animationType
+  });
+}
+
+export function navigatorPush(navigator, screen, passProps = {}) {
+  navigator.push({
+    screen,
+    navigatorStyle,
+    backButtonTitle: '',
+    passProps
+  });
+}
+
+// Private
+
+function screenUniqueName(name) {
   return `${DeviceInfo.getBundleId()}.${name}`;
 }
+
+const appStyle = {
+  orientation: 'portrait',
+  statusBarColor: colors.purple,
+  backButtonImage: imgAppBack
+};
+
+const navigatorStyle = {
+  // Android and iOS
+  navBarTextFontFamily: fonts.regular,
+  navBarTextFontSize: 18,
+  navBarBackgroundColor: colors.white,
+  navBarButtonColor: colors.black,
+  navBarCustomView: NAVBAR_VIEW,
+  topBarElevationShadowEnabled: false,
+  navBarNoBorder: true,
+  // Android only
+  navBarHeight: 53,
+  navBarTitleTextCentered: true
+};

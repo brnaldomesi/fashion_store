@@ -65,7 +65,5 @@ const navigatorStyle = {
   topBarElevationShadowEnabled: true,
   navBarNoBorder: true,
   // Android only
-  navBarTitleTextCentered: true,
-  // iOS only
-  largeTitle: true
+  navBarTitleTextCentered: true
 };

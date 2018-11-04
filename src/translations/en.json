@@ -26,6 +26,10 @@
       "ok": "Yes, delete"
     }
   },
+  "productItem": {
+    "color": "Color",
+    "size": "Size"
+  },
   "products": {
     "title": "Products",
     "logout": {

@@ -58,9 +58,9 @@ export default class ProductScreen extends Component<Props> {
   onPressDelete() {
     Alert.alert(
       i18n.t('app.attention'),
-      i18n.t('product.delete.message'),
+      i18n.t('app.deleteMessage'),
       [
-        { text: i18n.t('product.delete.ok'), onPress: () => this.onConfirmDelete() },
+        { text: i18n.t('app.deleteOk'), onPress: () => this.onConfirmDelete() },
         { text: i18n.t('app.cancel'), style: 'cancel' }
       ],
       { cancelable: true }

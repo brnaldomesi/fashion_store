@@ -1,3 +1,5 @@
+import firebase from 'react-native-firebase';
+
 import React, { Component } from 'react';
 import { Alert, FlatList, StyleSheet } from 'react-native';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
@@ -23,6 +25,13 @@ export default class ProductsScreen extends Component<Props> {
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+
+    this.ref = firebase.firestore().collection('products');
+    this.unsubscribe = null;
+
+    this.state = {
+        products: []
+    };
   }
 
   componentWillMount() {
@@ -31,9 +40,28 @@ export default class ProductsScreen extends Component<Props> {
     });
   }
 
+  componentDidMount() {
+    this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
   onConfirmLogout() {
     ProductsBusiness.signOut();
     startSingleScreenApp(LOGIN_SCREEN, 'fade');
+  }
+
+  onCollectionUpdate = (querySnapshot) => {
+    const products = [];
+
+    querySnapshot.forEach((doc) => {
+      const { thumbnailUrl, name, price, color, size } = doc.data();
+      products.push({ key: doc.id, thumbnailUrl, name, price, color, size });
+    });
+
+    this.setState({ products });
   }
 
   onNavigatorEvent(event) {
@@ -77,8 +105,7 @@ export default class ProductsScreen extends Component<Props> {
       <FlatList
         style={containerStyle}
         contentContainerStyle={flatListContainerStyle}
-        data={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
-        keyExtractor={(item, index) => index.toString()}
+        data={this.state.products}
         renderItem={({ item }) =>
           <ProductItem
             margin={padding}

@@ -1,28 +1,151 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import { Button, KeyboardView, ImageButton, Input } from '../components';
+
+import colors from '../colors';
+import i18n from '../i18n';
+import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
+import imgAppDelete from '../../assets/images/app-delete.png';
+
+const DELETE_BUTTON_ID = 'delete';
 
 
 type Props = {};
 export default class ProductScreen extends Component<Props> {
 
+  static navigatorButtons = {
+    rightButtons: [
+      {
+        id: DELETE_BUTTON_ID,
+        icon: imgAppDelete
+      }
+    ]
+  };
+
+  constructor(props) {
+    super(props);
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+
+  componentWillMount() {
+    this.props.navigator.setTitle({
+      title: i18n.t('product.title')
+    });
+  }
+
+  onNavigatorEvent(event) {
+    if (event.type === 'NavBarButtonPress') {
+      if (event.id === DELETE_BUTTON_ID) {
+        this.onPressDelete();
+      }
+    }
+  }
+
+  onPressAddPhoto() {
+
+  }
+
+  onPressSave() {
+
+  }
+
+  onPressDelete() {
+
+  }
+
   render() {
     const {
-      containerStyle
+      containerStyle,
+      backgroundImageStyle,
+      imageButtonStyle,
+      formStyle,
+      subFormStyle,
+      inputStyle,
+      spaceViewStyle
     } = styles;
 
     return (
-      <View style={containerStyle}>
-        <Text>OK</Text>
-      </View>
+      <KeyboardView style={containerStyle}>
+        <ScrollView>
+          <ImageBackground style={backgroundImageStyle}>
+            <ImageButton
+              style={imageButtonStyle}
+              size={45}
+              source={imgAppAddPhoto}
+              onPress={() => this.onPressAddPhoto()}
+            />
+          </ImageBackground>
+
+          <View style={formStyle}>
+            <Input
+              style={inputStyle}
+              title={i18n.t('product.form.product_name')}
+            />
+
+            <Input
+              style={inputStyle}
+              title={i18n.t('product.form.price')}
+              value={'Bruno'}
+              keyboardType={'numeric'}
+            />
+
+            <View style={subFormStyle}>
+              <Input
+                style={inputStyle}
+                title={i18n.t('product.form.color')}
+              />
+
+              <View style={spaceViewStyle} />
+
+              <Input
+                style={inputStyle}
+                title={i18n.t('product.form.size')}
+              />
+            </View>
+
+            <Button
+              backgroundColor={colors.purple}
+              textColor={colors.white}
+              title={i18n.t('product.form.save')}
+              onPress={() => this.onPressSave()}
+            />
+          </View>
+        </ScrollView>
+      </KeyboardView>
     );
   }
 
 }
 
 const margin = 14;
+const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   containerStyle: {
+    flex: 1
+  },
+
+  backgroundImageStyle: {
+    backgroundColor: colors.grayLight,
+    height: width * (3 / 4),
+    width
+  },
+  imageButtonStyle: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20
+  },
+
+  formStyle: {
+    margin,
+  },
+  subFormStyle: {
+    flexDirection: 'row',
+    marginBottom: margin
+  },
+  inputStyle: {
     flex: 1,
-    margin
+  },
+  spaceViewStyle: {
+    margin: margin / 2
   }
 });

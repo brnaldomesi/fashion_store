@@ -1,7 +1,9 @@
 {
   "app": {
     "attention": "Attention",
+    "deleteMessage": "Do you really want to delete?",
     "ok": "Ok",
+    "deleteOk": "Yes, delete",
     "cancel": "Cancel"
   },
   "login": {
@@ -20,10 +22,6 @@
       "color": "Color",
       "size": "Size",
       "save": "Save"
-    },
-    "delete": {
-      "message": "Do you really want to delete?",
-      "ok": "Yes, delete"
     }
   },
   "productItem": {

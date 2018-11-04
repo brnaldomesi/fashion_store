@@ -5,7 +5,7 @@ import { ImageButton } from './../../components';
 import colors from '../../colors';
 import fonts from '../../fonts';
 import i18n from '../../i18n';
-import imgAppDelete from '../../../assets/images/app-delete.png';
+import imgListDelete from '../../../assets/images/list-delete.png';
 
 
 const ProductItem = ({ item, margin, onPress, onPressDelete }) => {
@@ -44,7 +44,7 @@ const ProductItem = ({ item, margin, onPress, onPressDelete }) => {
 
             <ImageButton
               size={25}
-              source={imgAppDelete}
+              source={imgListDelete}
               onPress={onPressDelete}
             />
           </View>

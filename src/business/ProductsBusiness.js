@@ -11,15 +11,8 @@ export default class ProductBusiness {
     const products = [];
 
     querySnapshot.forEach((doc) => {
-      const { thumbnailUrl, name, price, color, size } = doc.data();
-      products.push({
-        key: doc.id,
-        thumbnailUrl,
-        name,
-        price,
-        color,
-        size
-      });
+      const { thumbnailUrl, name, price, color, size, imageUrl } = doc.data();
+      products.push({ id: doc.id, thumbnailUrl, name, price, color, size, imageUrl });
     });
 
     return products;

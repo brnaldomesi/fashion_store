@@ -1,15 +1,15 @@
-import GoogleService from './src/services/GoogleService';
 import {
   LOGIN_SCREEN,
   PRODUCTS_SCREEN,
   registerScreens, startSingleScreenApp
 } from './src/screens';
 
+import AppBusiness from './src/business/AppBusiness';
 
 registerScreens();
 
-GoogleService.configure();
-GoogleService.signInSilentlyIfNeeded()
+AppBusiness.configure();
+AppBusiness.signInSilentlyIfNeeded()
   .then(() => {
     startSingleScreenApp(PRODUCTS_SCREEN, 'none');
   })

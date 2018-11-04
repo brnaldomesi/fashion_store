@@ -12,9 +12,13 @@ export default class FirebaseService {
   }
 
   static addProduct(name, price, color, size) {
-    products.add({ name, price, color, size });
+    productsCollection.add({ name, price, color, size });
+  }
+
+  static productsCollection() {
+    return productsCollection;
   }
 
 }
 
-const products = firebase.firestore().collection('products');
+const productsCollection = firebase.firestore().collection('products');

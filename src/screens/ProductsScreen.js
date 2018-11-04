@@ -1,5 +1,3 @@
-import firebase from 'react-native-firebase';
-
 import React, { Component } from 'react';
 import { Alert, FlatList, StyleSheet } from 'react-native';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
@@ -24,9 +22,9 @@ export default class ProductsScreen extends Component<Props> {
 
   constructor(props) {
     super(props);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
 
-    this.ref = firebase.firestore().collection('products');
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    this.collection = ProductsBusiness.productsCollection();
     this.unsubscribe = null;
 
     this.state = {
@@ -41,7 +39,7 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   componentDidMount() {
-    this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    this.unsubscribe = this.collection.onSnapshot(this.onCollectionUpdate);
   }
 
   componentWillUnmount() {
@@ -54,13 +52,7 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   onCollectionUpdate = (querySnapshot) => {
-    const products = [];
-
-    querySnapshot.forEach((doc) => {
-      const { thumbnailUrl, name, price, color, size } = doc.data();
-      products.push({ key: doc.id, thumbnailUrl, name, price, color, size });
-    });
-
+    const products = ProductsBusiness.onProductsCollectionUpdate(querySnapshot);
     this.setState({ products });
   }
 

@@ -5,6 +5,7 @@ target 'fastbuy' do
     pod 'GoogleAppMeasurement', '~> 5.2.0'
     pod 'GoogleSignIn'
     pod 'Fabric', '~> 1.7.11'
+    pod 'Firebase/Auth', '~> 5.9.0'
     pod 'Firebase/Core', '~> 5.9.0'
     pod 'Firebase/Performance', '~> 5.9.0'
 

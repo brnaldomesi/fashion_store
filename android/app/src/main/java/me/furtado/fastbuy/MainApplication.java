@@ -10,6 +10,7 @@ import com.reactnativenavigation.bridge.NavigationReactPackage;
 import java.util.Arrays;
 import java.util.List;
 
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
 import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
@@ -41,6 +42,7 @@ public class MainApplication extends NavigationApplication {
             new RNFirebaseAnalyticsPackage(),
             new RNFirebaseCrashlyticsPackage(),
             new RNFirebasePerformancePackage(),
+            new RNGoogleSigninPackage(),
             new RNLanguagesPackage()
     );
   }

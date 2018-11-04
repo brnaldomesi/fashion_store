@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { Alert, FlatList, StyleSheet } from 'react-native';
 
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
 import { ProductItem } from '../components';
+
+import GoogleService from '../services/GoogleService';
 
 import colors from '../colors';
 import i18n from '../i18n';
@@ -42,13 +44,20 @@ export default class ProductsScreen extends Component<Props> {
     });
   }
 
+  onConfirmLogout() {
+    GoogleService.signOut();
+    startSingleScreenApp(LOGIN_SCREEN, 'fade');
+  }
+
   onNavigatorEvent(event) {
-    if (event.type === 'NavBarButtonPress') {
-      if (event.id === LOGOUT_BUTTON_ID) {
-        this.onPressLogout();
-      } else if (event.id === ADD_BUTTON_ID) {
-        this.onPressAdd();
-      }
+    if (event.type !== 'NavBarButtonPress') {
+      return;
+    }
+
+    if (event.id === LOGOUT_BUTTON_ID) {
+      this.onPressLogout();
+    } else if (event.id === ADD_BUTTON_ID) {
+      this.onPressAdd();
     }
   }
 
@@ -57,7 +66,15 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   onPressLogout() {
-    startSingleScreenApp(LOGIN_SCREEN, 'fade');
+    Alert.alert(
+      i18n.t('products.logout.title'),
+      i18n.t('products.logout.message'),
+      [
+        { text: i18n.t('products.logout.ok'), onPress: () => this.onConfirmLogout() },
+        { text: i18n.t('app.cancel'), style: 'cancel' }
+      ],
+      { cancelable: true }
+    );
   }
 
   onPressItem(item) {

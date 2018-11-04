@@ -1,8 +1,16 @@
 {
+  "app": {
+    "attention": "Attention",
+    "ok": "Ok",
+    "cancel": "Cancel"
+  },
   "login": {
     "title": "Login",
     "welcome": "Welcome to FastBuy",
-    "button": "Connect with Google"
+    "button": "Connect with Google",
+    "enter": {
+      "message": "Could not log in. Try again later."
+    }
   },
   "product": {
     "title": "Product",
@@ -12,9 +20,18 @@
       "color": "Color",
       "size": "Size",
       "save": "Save"
+    },
+    "delete": {
+      "message": "Do you really want to delete?",
+      "ok": "Yes, delete"
     }
   },
   "products": {
-    "title": "Products"
+    "title": "Products",
+    "logout": {
+      "title": "What a pity...",
+      "message": "Do you really want to exit?",
+      "ok": "Yes, exit"
+    }
   }
 }

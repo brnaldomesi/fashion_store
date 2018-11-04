@@ -23,13 +23,14 @@ export default class ProductScreen extends Component<Props> {
   }
 
   componentWillMount() {
-    this.props.navigator.setTitle({
-      title: i18n.t('product.title')
-    });
+    this.props.navigator.setTitle({ title: i18n.t('product.title') });
+
+    const { id, imageUrl, name, price, color, size } = this.props;
+    this.setState({ id, imageUrl, name, price, color, size });
   }
 
   onConfirmDelete() {
-
+    ProductBusiness.deleteProduct(this.state.id);
   }
 
   onNavigatorEvent(event) {
@@ -46,7 +47,12 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onPressSave() {
-    ProductBusiness.addProduct('Name', '9.99', 'Blue', 'M');
+    const { id, name, price, color, size } = this.state;
+    if (id === null) {
+      ProductBusiness.addProduct(name, price, color, size);
+    } else {
+      ProductBusiness.setProduct(id, name, price, color, size);
+    }
   }
 
   onPressDelete() {
@@ -62,6 +68,8 @@ export default class ProductScreen extends Component<Props> {
   }
 
   render() {
+    const { imageUrl, name, price, color, size } = this.state;
+
     const {
       containerStyle,
       backgroundImageStyle,
@@ -75,7 +83,7 @@ export default class ProductScreen extends Component<Props> {
     return (
       <KeyboardView style={containerStyle}>
         <ScrollView>
-          <ImageBackground style={backgroundImageStyle}>
+          <ImageBackground style={backgroundImageStyle} source={{ uri: imageUrl }}>
             <ImageButton
               style={imageButtonStyle}
               size={45}
@@ -88,19 +96,24 @@ export default class ProductScreen extends Component<Props> {
             <Input
               style={inputStyle}
               title={i18n.t('product.form.product_name')}
+              value={name}
+              onChangeText={text => this.setState({ name: text })}
             />
 
             <Input
               style={inputStyle}
               title={i18n.t('product.form.price')}
-              value={'Bruno'}
+              value={`${price}`}
               keyboardType={'numeric'}
+              onChangeText={text => this.setState({ price: text })}
             />
 
             <View style={subFormStyle}>
               <Input
                 style={inputStyle}
                 title={i18n.t('product.form.color')}
+                value={color}
+                onChangeText={text => this.setState({ color: text })}
               />
 
               <View style={spaceViewStyle} />
@@ -108,6 +121,8 @@ export default class ProductScreen extends Component<Props> {
               <Input
                 style={inputStyle}
                 title={i18n.t('product.form.size')}
+                value={size}
+                onChangeText={text => this.setState({ size: text })}
               />
             </View>
 

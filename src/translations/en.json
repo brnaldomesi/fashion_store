@@ -4,6 +4,16 @@
     "welcome": "Welcome to FastBuy",
     "button": "Connect with Google"
   },
+  "product": {
+    "title": "Product",
+    "form": {
+      "product_name": "Product Name",
+      "price": "Price",
+      "color": "Color",
+      "size": "Size",
+      "save": "Save"
+    }
+  },
   "products": {
     "title": "Products"
   }

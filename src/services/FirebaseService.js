@@ -11,4 +11,22 @@ export default class FirebaseService {
     return await firebase.auth().signOut();
   }
 
+  static addProduct(name, price, color, size) {
+    productsCollection.add({ name, price, color, size });
+  }
+
+  static setProduct(id, name, price, color, size) {
+    productsCollection.doc(id).set({ name, price, color, size });
+  }
+
+  static deleteProduct(id) {
+    productsCollection.doc(id).delete();
+  }
+
+  static productsCollection() {
+    return productsCollection;
+  }
+
 }
+
+const productsCollection = firebase.firestore().collection('products');

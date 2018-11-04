@@ -15,6 +15,7 @@ import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
 import io.invertase.firebase.perf.RNFirebasePerformancePackage;
 
 public class MainApplication extends NavigationApplication {
@@ -43,6 +44,7 @@ public class MainApplication extends NavigationApplication {
             new RNFirebaseAnalyticsPackage(),
             new RNFirebaseAuthPackage(),
             new RNFirebaseCrashlyticsPackage(),
+            new RNFirebaseFirestorePackage(),
             new RNFirebasePerformancePackage(),
             new RNGoogleSigninPackage(),
             new RNLanguagesPackage()

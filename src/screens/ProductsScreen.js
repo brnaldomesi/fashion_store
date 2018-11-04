@@ -22,7 +22,14 @@ export default class ProductsScreen extends Component<Props> {
 
   constructor(props) {
     super(props);
+
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    this.collection = ProductsBusiness.productsCollection();
+    this.unsubscribe = null;
+
+    this.state = {
+        products: []
+    };
   }
 
   componentWillMount() {
@@ -31,9 +38,26 @@ export default class ProductsScreen extends Component<Props> {
     });
   }
 
+  componentDidMount() {
+    this.unsubscribe = this.collection.onSnapshot(this.onCollectionUpdate);
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  onConfirmDelete(id) {
+    ProductsBusiness.deleteProduct(id);
+  }
+
   onConfirmLogout() {
     ProductsBusiness.signOut();
     startSingleScreenApp(LOGIN_SCREEN, 'fade');
+  }
+
+  onCollectionUpdate = (querySnapshot) => {
+    const products = ProductsBusiness.onProductsCollectionUpdate(querySnapshot);
+    this.setState({ products });
   }
 
   onNavigatorEvent(event) {
@@ -67,6 +91,18 @@ export default class ProductsScreen extends Component<Props> {
     navigatorPush(this.props.navigator, PRODUCT_SCREEN, item);
   }
 
+  onPressItemDelete(item) {
+    Alert.alert(
+      i18n.t('app.deleteMessage'),
+      item.name,
+      [
+        { text: i18n.t('app.deleteOk'), onPress: () => this.onConfirmDelete(item.id) },
+        { text: i18n.t('app.cancel'), style: 'cancel' }
+      ],
+      { cancelable: true }
+    );
+  }
+
   render() {
     const {
       containerStyle,
@@ -77,13 +113,14 @@ export default class ProductsScreen extends Component<Props> {
       <FlatList
         style={containerStyle}
         contentContainerStyle={flatListContainerStyle}
-        data={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        data={this.state.products}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) =>
           <ProductItem
             margin={padding}
             item={item}
             onPress={() => this.onPressItem(item)}
+            onPressDelete={() => this.onPressItemDelete(item)}
           />
         }
       />

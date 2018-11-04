@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, Alert, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, StyleSheet } from 'react-native';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
-import { ProductItem } from '../components';
+import { LoadingView, ProductItem } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAdd from '../../assets/images/app-add.png';
@@ -104,16 +104,6 @@ export default class ProductsScreen extends Component<Props> {
     );
   }
 
-  renderLoading() {
-    const { containerStyle, containerLoadingStyle } = styles;
-
-    return (
-      <View style={[containerStyle, containerLoadingStyle]}>
-        <ActivityIndicator size="large" color={colors.gray} />
-      </View>
-    );
-  }
-
   renderList() {
     const {
       containerStyle,
@@ -140,7 +130,7 @@ export default class ProductsScreen extends Component<Props> {
 
   render() {
     return (
-      this.state.isLoading ? this.renderLoading() : this.renderList()
+      this.state.isLoading ? <LoadingView /> : this.renderList()
     );
   }
 
@@ -151,10 +141,6 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     backgroundColor: colors.white
-  },
-  containerLoadingStyle: {
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   flatListContainerStyle: {
     paddingTop: padding / 2,

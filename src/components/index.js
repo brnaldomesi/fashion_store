@@ -4,3 +4,4 @@ export * from './buttons/SocialButton';
 export * from './inputs/Input';
 export * from './items/ProductItem';
 export * from './views/KeyboardView';
+export * from './views/LoadingView';

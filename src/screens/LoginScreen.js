@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, Alert, StyleSheet, Image, Text, View } from 'react-native';
+import { Alert, StyleSheet, Image, Text, View } from 'react-native';
 import { PRODUCTS_SCREEN, startSingleScreenApp } from './';
-import { SocialButton } from '../components';
+import { LoadingView, SocialButton } from '../components';
 import colors from '../colors';
 import fonts from '../fonts';
 import i18n from '../i18n';
@@ -42,18 +42,6 @@ export default class LoginScreen extends Component<Props> {
       });
   }
 
-  renderLoading() {
-    const {
-      containerStyle
-    } = styles;
-
-    return (
-      <View style={containerStyle}>
-        <ActivityIndicator size="large" color={colors.gray} />
-      </View>
-    );
-  }
-
   renderWelcome() {
     const {
       containerStyle,
@@ -86,7 +74,7 @@ export default class LoginScreen extends Component<Props> {
 
   render() {
     return (
-      this.state.isLoading ? this.renderLoading() : this.renderWelcome()
+      this.state.isLoading ? <LoadingView /> : this.renderWelcome()
     );
   }
 
@@ -96,7 +84,6 @@ const margin = 14;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.white,
     margin

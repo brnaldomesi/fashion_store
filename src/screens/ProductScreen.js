@@ -1,25 +1,18 @@
 import React, { Component } from 'react';
-import { Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
-
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
 import imgAppDelete from '../../assets/images/app-delete.png';
 
+
 const DELETE_BUTTON_ID = 'delete';
-
-
 type Props = {};
 export default class ProductScreen extends Component<Props> {
 
   static navigatorButtons = {
-    rightButtons: [
-      {
-        id: DELETE_BUTTON_ID,
-        icon: imgAppDelete
-      }
-    ]
+    rightButtons: [{ id: DELETE_BUTTON_ID, icon: imgAppDelete }]
   };
 
   constructor(props) {
@@ -33,11 +26,17 @@ export default class ProductScreen extends Component<Props> {
     });
   }
 
+  onConfirmDelete() {
+
+  }
+
   onNavigatorEvent(event) {
-    if (event.type === 'NavBarButtonPress') {
-      if (event.id === DELETE_BUTTON_ID) {
-        this.onPressDelete();
-      }
+    if (event.type !== 'NavBarButtonPress') {
+      return;
+    }
+
+    if (event.id === DELETE_BUTTON_ID) {
+      this.onPressDelete();
     }
   }
 
@@ -50,7 +49,15 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onPressDelete() {
-
+    Alert.alert(
+      i18n.t('app.attention'),
+      i18n.t('product.delete.message'),
+      [
+        { text: i18n.t('product.delete.ok'), onPress: () => this.onConfirmDelete() },
+        { text: i18n.t('app.cancel'), style: 'cancel' }
+      ],
+      { cancelable: true }
+    );
   }
 
   render() {

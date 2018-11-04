@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, FlatList, StyleSheet } from 'react-native';
+import { ActivityIndicator, Alert, FlatList, StyleSheet, View } from 'react-native';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
 import { ProductItem } from '../components';
 import colors from '../colors';
@@ -22,20 +22,18 @@ export default class ProductsScreen extends Component<Props> {
 
   constructor(props) {
     super(props);
-
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     this.collection = ProductsBusiness.productsCollection();
     this.unsubscribe = null;
-
-    this.state = {
-        products: []
-    };
   }
 
+  state = {
+      isLoading: true,
+      products: []
+  };
+
   componentWillMount() {
-    this.props.navigator.setTitle({
-      title: i18n.t('products.title')
-    });
+    this.props.navigator.setTitle({ title: i18n.t('products.title') });
   }
 
   componentDidMount() {
@@ -57,7 +55,10 @@ export default class ProductsScreen extends Component<Props> {
 
   onCollectionUpdate = (querySnapshot) => {
     const products = ProductsBusiness.onProductsCollectionUpdate(querySnapshot);
-    this.setState({ products });
+    this.setState({
+      isLoading: false,
+      products
+    });
   }
 
   onNavigatorEvent(event) {
@@ -103,7 +104,17 @@ export default class ProductsScreen extends Component<Props> {
     );
   }
 
-  render() {
+  renderLoading() {
+    const { containerStyle, containerLoadingStyle } = styles;
+
+    return (
+      <View style={[containerStyle, containerLoadingStyle]}>
+        <ActivityIndicator size="large" color={colors.gray} />
+      </View>
+    );
+  }
+
+  renderList() {
     const {
       containerStyle,
       flatListContainerStyle
@@ -127,6 +138,12 @@ export default class ProductsScreen extends Component<Props> {
     );
   }
 
+  render() {
+    return (
+      this.state.isLoading ? this.renderLoading() : this.renderList()
+    );
+  }
+
 }
 
 const padding = 14;
@@ -134,6 +151,10 @@ const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     backgroundColor: colors.white
+  },
+  containerLoadingStyle: {
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   flatListContainerStyle: {
     paddingTop: padding / 2,

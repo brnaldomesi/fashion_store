@@ -98,6 +98,7 @@ export default class ProductsScreen extends Component<Props> {
         style={containerStyle}
         contentContainerStyle={flatListContainerStyle}
         data={this.state.products}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) =>
           <ProductItem
             margin={padding}

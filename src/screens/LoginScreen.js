@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { Alert, StyleSheet, Image, Text, View } from 'react-native';
-
 import { PRODUCTS_SCREEN, startSingleScreenApp } from './';
 import { SocialButton } from '../components';
-
-import GoogleService from '../services/GoogleService';
-
 import colors from '../colors';
 import fonts from '../fonts';
 import i18n from '../i18n';
 import imgAppIcon from '../../assets/images/app-icon.png';
 import imgGoogleIcon from '../../assets/images/google-icon.png';
 
+import LoginBusiness from '../business/LoginBusiness';
 
 type Props = {};
 export default class LoginScreen extends Component<Props> {
@@ -21,20 +18,14 @@ export default class LoginScreen extends Component<Props> {
   };
 
   onPressButton() {
-    GoogleService.signIn()
-      .then(() => {
-        setTimeout(() => {
-          startSingleScreenApp(PRODUCTS_SCREEN, 'fade');
-        }, 250);
-      })
+    LoginBusiness.signIn()
+      .then(() => startSingleScreenApp(PRODUCTS_SCREEN, 'fade'))
       .catch(error => {
         if (error) {
           Alert.alert(
             i18n.t('app.attention'),
             i18n.t('login.enter.message'),
-            [
-              { text: i18n.t('app.ok') },
-            ],
+            [{ text: i18n.t('app.ok') }],
             { cancelable: true }
           );
         }

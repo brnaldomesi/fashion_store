@@ -1,15 +1,16 @@
 import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { ImageButton } from './../../components';
 
 import colors from '../../colors';
 import fonts from '../../fonts';
 import i18n from '../../i18n';
+import imgAppDelete from '../../../assets/images/app-delete.png';
 
 
-const ProductItem = ({ item, margin, onPress }) => {
+const ProductItem = ({ item, margin, onPress, onPressDelete }) => {
   const {
     containerStyle,
-    touchableStyle,
     imageStyle,
     productViewStyle,
     nameTextStyle,
@@ -22,8 +23,8 @@ const ProductItem = ({ item, margin, onPress }) => {
   } = styles;
 
   return (
-    <View style={[{ marginTop: margin / 2, marginBottom: margin / 2 }, containerStyle]}>
-      <TouchableOpacity style={touchableStyle} onPress={onPress}>
+    <View style={{ marginTop: margin / 2, marginBottom: margin / 2 }}>
+      <TouchableOpacity style={containerStyle} onPress={onPress}>
         <Image style={[{ marginRight: margin }, imageStyle]} source={{ uri: item.thumbnailUrl }} />
 
         <View style={productViewStyle}>
@@ -40,6 +41,12 @@ const ProductItem = ({ item, margin, onPress }) => {
               <Text style={subviewTitleTextStyle}>{i18n.t('productItem.size')}</Text>
               <Text style={subviewValueTextStyle}>{item.size}</Text>
             </View>
+
+            <ImageButton
+              size={25}
+              source={imgAppDelete}
+              onPress={onPressDelete}
+            />
           </View>
         </View>
       </TouchableOpacity>
@@ -53,10 +60,6 @@ const higherMargin = 5;
 const lowerMargin = 2.5;
 const styles = {
   containerStyle: {
-
-  },
-
-  touchableStyle: {
     flexDirection: 'row',
     alignItems: 'center'
   },
@@ -79,7 +82,7 @@ const styles = {
     marginBottom: higherMargin
   },
   priceTextStyle: {
-    fontFamily: fonts.regular,
+    fontFamily: fonts.bold,
     color: colors.purple,
     fontSize: 16,
     marginBottom: higherMargin
@@ -90,7 +93,7 @@ const styles = {
     flexDirection: 'row',
   },
   productDetailsSubviewStyle: {
-    flex: 1,
+    flex: 1
   },
   subviewTitleTextStyle: {
     fontFamily: fonts.light,

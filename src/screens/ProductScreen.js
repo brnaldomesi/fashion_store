@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
 
 import colors from '../colors';
@@ -33,11 +33,17 @@ export default class ProductScreen extends Component<Props> {
     });
   }
 
+  onConfirmDelete() {
+
+  }
+
   onNavigatorEvent(event) {
-    if (event.type === 'NavBarButtonPress') {
-      if (event.id === DELETE_BUTTON_ID) {
-        this.onPressDelete();
-      }
+    if (event.type !== 'NavBarButtonPress') {
+      return;
+    }
+
+    if (event.id === DELETE_BUTTON_ID) {
+      this.onPressDelete();
     }
   }
 
@@ -50,7 +56,15 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onPressDelete() {
-
+    Alert.alert(
+      i18n.t('app.attention'),
+      i18n.t('product.delete.message'),
+      [
+        { text: i18n.t('product.delete.ok'), onPress: () => this.onConfirmDelete() },
+        { text: i18n.t('app.cancel'), style: 'cancel' }
+      ],
+      { cancelable: true }
+    );
   }
 
   render() {

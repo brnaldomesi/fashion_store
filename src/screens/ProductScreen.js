@@ -6,6 +6,8 @@ import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
 import imgAppDelete from '../../assets/images/app-delete.png';
 
+import ProductBusiness from '../business/ProductBusiness';
+
 
 const DELETE_BUTTON_ID = 'delete';
 type Props = {};
@@ -41,11 +43,10 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onPressAddPhoto() {
-
   }
 
   onPressSave() {
-
+    ProductBusiness.addProduct('Name', '9.99', 'Blue', 'M');
   }
 
   onPressDelete() {

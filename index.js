@@ -1,4 +1,18 @@
-import { LOGIN_SCREEN, registerScreens, startSingleScreenApp } from './src/screens';
+import GoogleService from './src/services/GoogleService';
+import {
+  LOGIN_SCREEN,
+  PRODUCTS_SCREEN,
+  registerScreens, startSingleScreenApp
+} from './src/screens';
+
 
 registerScreens();
-startSingleScreenApp(LOGIN_SCREEN, 'none');
+
+GoogleService.configure();
+GoogleService.signInSilentlyIfNeeded()
+  .then(() => {
+    startSingleScreenApp(PRODUCTS_SCREEN, 'none');
+  })
+  .catch(() => {
+    startSingleScreenApp(LOGIN_SCREEN, 'none');
+  });

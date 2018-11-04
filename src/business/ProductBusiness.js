@@ -6,4 +6,13 @@ export default class ProductBusiness {
     FirebaseService.addProduct(name, price, color, size);
   }
 
+  static setProduct(id, name, price, color, size) {
+    FirebaseService.setProduct(id, name, price, color, size);
+  }
+
+  static deleteProduct(id) {
+    FirebaseService.deleteProduct(id);
+  }
+
+
 }

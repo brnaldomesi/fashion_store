@@ -1,36 +1,23 @@
 import React, { Component } from 'react';
 import { Alert, FlatList, StyleSheet } from 'react-native';
-
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
 import { ProductItem } from '../components';
-
-import GoogleService from '../services/GoogleService';
-
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAdd from '../../assets/images/app-add.png';
 import imgAppLogout from '../../assets/images/app-logout.png';
 
+import ProductsBusiness from '../business/ProductsBusiness';
+
+
 const LOGOUT_BUTTON_ID = 'logout';
 const ADD_BUTTON_ID = 'add';
-
-
 type Props = {};
 export default class ProductsScreen extends Component<Props> {
 
   static navigatorButtons = {
-    leftButtons: [
-      {
-        id: LOGOUT_BUTTON_ID,
-        icon: imgAppLogout
-      }
-    ],
-    rightButtons: [
-      {
-        id: ADD_BUTTON_ID,
-        icon: imgAppAdd
-      }
-    ]
+    leftButtons: [{ id: LOGOUT_BUTTON_ID, icon: imgAppLogout }],
+    rightButtons: [{ id: ADD_BUTTON_ID, icon: imgAppAdd }]
   };
 
   constructor(props) {
@@ -45,7 +32,7 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   onConfirmLogout() {
-    GoogleService.signOut();
+    ProductsBusiness.signOut();
     startSingleScreenApp(LOGIN_SCREEN, 'fade');
   }
 
@@ -72,8 +59,7 @@ export default class ProductsScreen extends Component<Props> {
       [
         { text: i18n.t('products.logout.ok'), onPress: () => this.onConfirmLogout() },
         { text: i18n.t('app.cancel'), style: 'cancel' }
-      ],
-      { cancelable: true }
+      ], { cancelable: true }
     );
   }
 

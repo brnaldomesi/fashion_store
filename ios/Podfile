@@ -3,6 +3,7 @@ platform :ios, '10.0'
 target 'fastbuy' do
     pod 'Crashlytics', '~> 3.10.7'
     pod 'GoogleAppMeasurement', '~> 5.2.0'
+    pod 'GoogleSignIn'
     pod 'Fabric', '~> 1.7.11'
     pod 'Firebase/Core', '~> 5.9.0'
     pod 'Firebase/Performance', '~> 5.9.0'

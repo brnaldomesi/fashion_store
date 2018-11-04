@@ -46,6 +46,10 @@ export default class ProductsScreen extends Component<Props> {
     this.unsubscribe();
   }
 
+  onConfirmDelete(id) {
+    ProductsBusiness.deleteProduct(id);
+  }
+
   onConfirmLogout() {
     ProductsBusiness.signOut();
     startSingleScreenApp(LOGIN_SCREEN, 'fade');
@@ -87,6 +91,18 @@ export default class ProductsScreen extends Component<Props> {
     navigatorPush(this.props.navigator, PRODUCT_SCREEN, item);
   }
 
+  onPressItemDelete(item) {
+    Alert.alert(
+      i18n.t('app.deleteMessage'),
+      item.name,
+      [
+        { text: i18n.t('app.deleteOk'), onPress: () => this.onConfirmDelete(item.id) },
+        { text: i18n.t('app.cancel'), style: 'cancel' }
+      ],
+      { cancelable: true }
+    );
+  }
+
   render() {
     const {
       containerStyle,
@@ -104,6 +120,7 @@ export default class ProductsScreen extends Component<Props> {
             margin={padding}
             item={item}
             onPress={() => this.onPressItem(item)}
+            onPressDelete={() => this.onPressItemDelete(item)}
           />
         }
       />

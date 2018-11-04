@@ -3,6 +3,10 @@ import FirebaseService from '../services/FirebaseService';
 
 export default class ProductBusiness {
 
+  static deleteProduct(id) {
+    FirebaseService.deleteProduct(id);
+  }
+
   static productsCollection() {
     return FirebaseService.productsCollection();
   }

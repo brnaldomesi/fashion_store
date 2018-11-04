@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, Image, Text, View } from 'react-native';
+import { ActivityIndicator, Alert, StyleSheet, Image, Text, View } from 'react-native';
 import { PRODUCTS_SCREEN, startSingleScreenApp } from './';
 import { SocialButton } from '../components';
 import colors from '../colors';
@@ -17,10 +17,20 @@ export default class LoginScreen extends Component<Props> {
     navBarHidden: true
   };
 
+  state = {
+    isLoading: false
+  };
+
   onPressButton() {
+    this.setState({ isLoading: true });
+
     LoginBusiness.signIn()
-      .then(() => startSingleScreenApp(PRODUCTS_SCREEN, 'fade'))
+      .then(() => {
+        startSingleScreenApp(PRODUCTS_SCREEN, 'fade');
+      })
       .catch(error => {
+        this.setState({ isLoading: false });
+
         if (error) {
           Alert.alert(
             i18n.t('app.attention'),
@@ -32,7 +42,19 @@ export default class LoginScreen extends Component<Props> {
       });
   }
 
-  render() {
+  renderLoading() {
+    const {
+      containerStyle
+    } = styles;
+
+    return (
+      <View style={containerStyle}>
+        <ActivityIndicator size="large" color={colors.gray} />
+      </View>
+    );
+  }
+
+  renderWelcome() {
     const {
       containerStyle,
       welcomeViewStyle,
@@ -62,12 +84,19 @@ export default class LoginScreen extends Component<Props> {
     );
   }
 
+  render() {
+    return (
+      this.state.isLoading ? this.renderLoading() : this.renderWelcome()
+    );
+  }
+
 }
 
 const margin = 14;
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.white,
     margin

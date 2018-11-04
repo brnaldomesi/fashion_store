@@ -1,25 +1,18 @@
 import React, { Component } from 'react';
 import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
-
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
 import imgAppDelete from '../../assets/images/app-delete.png';
 
+
 const DELETE_BUTTON_ID = 'delete';
-
-
 type Props = {};
 export default class ProductScreen extends Component<Props> {
 
   static navigatorButtons = {
-    rightButtons: [
-      {
-        id: DELETE_BUTTON_ID,
-        icon: imgAppDelete
-      }
-    ]
+    rightButtons: [{ id: DELETE_BUTTON_ID, icon: imgAppDelete }]
   };
 
   constructor(props) {

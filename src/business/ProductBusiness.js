@@ -2,16 +2,17 @@ import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 
 import CameraService from '../services/CameraService';
+import GalleryService from '../services/GalleryService';
 import FirebaseService from '../services/FirebaseService';
 
 export default class ProductBusiness {
 
   static checkDeviceCameraAuthorizationStatus() {
-    return CameraService.checkDeviceCameraAuthorizationStatus();
+    return CameraService.checkDeviceAuthorizationStatus();
   }
 
   static checkDevicePhotosAuthorizationStatus() {
-    return CameraService.checkDevicePhotosAuthorizationStatus();
+    return GalleryService.checkDeviceAuthorizationStatus();
   }
 
   static isSimulator() {

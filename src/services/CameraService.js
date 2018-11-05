@@ -1,13 +1,9 @@
-import { CameraKitCamera, CameraKitGallery } from 'react-native-camera-kit';
+import { CameraKitCamera } from 'react-native-camera-kit';
 
-export default class FirebaseService {
+export default class CameraService {
 
-  static checkDeviceCameraAuthorizationStatus() {
+  static checkDeviceAuthorizationStatus() {
     return CameraKitCamera.checkDeviceCameraAuthorizationStatus();
-  }
-
-  static checkDevicePhotosAuthorizationStatus() {
-    return CameraKitGallery.checkDevicePhotosAuthorizationStatus();
   }
 
 }

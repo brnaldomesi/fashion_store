@@ -2,6 +2,11 @@
   <img src="https://fastbuy-fd9d7.firebaseapp.com/images/cover.png" alt="FastBuy" title="FastBuy">
 </p>
 
+<p align="center">
+  👉👉 <a href="https://youtu.be/mxLl_HvANt8">Click to view a video demonstration.</a> 👈👈
+  <br/><br/><br/>
+</p>
+
 [![React Native][react_native-badge]][react_native-url]
 [![iOS Platform][ios_platform-badge]][ios_platform-url]
 [![Xcode][xcode-badge]][xcode-url]

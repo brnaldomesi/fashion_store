@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
-import { dismissLightBox, navigatorPop, showLightBox } from './';
+import { CAMERA_SCREEN, dismissLightBox, navigatorPop, showModal, showLightBox } from './';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
@@ -77,6 +77,29 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onPressAddPhoto() {
+    if (ProductBusiness.isSimulator()) {
+      Alert.alert(
+        i18n.t('permissions.titleFailure'),
+        i18n.t('permissions.simulatorFailureMessage'),
+        [{ text: i18n.t('app.ok') }],
+        { cancelable: true }
+      );
+      return;
+    }
+
+    ProductBusiness.checkDeviceCameraAuthorizationStatus()
+      .then(success => {
+        if (success) {
+          showModal(this.props.navigator, CAMERA_SCREEN);
+        } else {
+          Alert.alert(
+            i18n.t('permissions.titleFailure'),
+            i18n.t('permissions.cameraFailureMessage'),
+            [{ text: i18n.t('app.ok') }],
+            { cancelable: true }
+          );
+        }
+      });
   }
 
   onPressSave() {

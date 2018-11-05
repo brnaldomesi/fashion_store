@@ -6,6 +6,7 @@ import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import com.facebook.react.ReactPackage;
 import com.reactnativenavigation.NavigationApplication;
 import com.reactnativenavigation.bridge.NavigationReactPackage;
+import com.wix.RNCameraKit.RNCameraKitPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,6 +40,7 @@ public class MainApplication extends NavigationApplication {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
             new NavigationReactPackage(),
+            new RNCameraKitPackage(),
             new RNDeviceInfo(),
             new RNFirebasePackage(),
             new RNFirebaseAnalyticsPackage(),

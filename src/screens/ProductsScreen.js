@@ -143,7 +143,7 @@ export default class ProductsScreen extends Component<Props> {
       return <LoadingView />;
     }
 
-    if (this.state.products.count === 0) {
+    if (this.state.products.length === 0) {
       return <NoContentView image={imgAppCloud} title={i18n.t('products.noContent')} />;
     }
 

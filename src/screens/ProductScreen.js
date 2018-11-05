@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
-import { navigatorPop } from './';
-import { Button, KeyboardView, ImageButton, Input, LoadingView } from '../components';
+import { dismissLightBox, navigatorPop, showLightBox } from './';
+import { Button, KeyboardView, ImageButton, Input } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
@@ -24,7 +24,6 @@ export default class ProductScreen extends Component<Props> {
   }
 
   state = {
-    isLoading: false,
     id: '',
     imageUrl: '',
     name: '',
@@ -41,11 +40,11 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onConfirmDelete() {
-    this.setState({ isLoading: true });
+    showLightBox(this.props.navigator);
 
     ProductBusiness.deleteProduct(this.state.id)
       .then(() => {
-        this.setState({ isLoading: false });
+        dismissLightBox(this.props.navigator);
 
         Alert.alert(
           i18n.t('app.success'),
@@ -55,7 +54,7 @@ export default class ProductScreen extends Component<Props> {
         );
       })
       .catch(() => {
-        this.setState({ isLoading: false });
+        dismissLightBox(this.props.navigator);
 
         Alert.alert(
           i18n.t('app.attention'),
@@ -80,13 +79,13 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onPressSave() {
-    this.setState({ isLoading: true });
+    showLightBox(this.props.navigator);
 
     const { id, name, price, color, size } = this.state;
 
     ProductBusiness.saveProduct(id, name, price, color, size)
       .then(() => {
-        this.setState({ isLoading: false });
+        dismissLightBox(this.props.navigator);
 
         Alert.alert(
           i18n.t('app.success'),
@@ -96,7 +95,7 @@ export default class ProductScreen extends Component<Props> {
         );
       })
       .catch(() => {
-        this.setState({ isLoading: false });
+        dismissLightBox(this.props.navigator);
 
         Alert.alert(
           i18n.t('app.attention'),
@@ -186,8 +185,6 @@ export default class ProductScreen extends Component<Props> {
             />
           </View>
         </ScrollView>
-
-        {this.state.isLoading ? <LoadingView overlay /> : null}
       </KeyboardView>
     );
   }

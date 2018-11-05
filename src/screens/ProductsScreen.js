@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, FlatList, StyleSheet } from 'react-native';
+import { Alert, FlatList, StyleSheet, View } from 'react-native';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
 import { LoadingView, ProductItem } from '../components';
 import colors from '../colors';
@@ -45,7 +45,15 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   onConfirmDelete(id) {
-    ProductsBusiness.deleteProduct(id);
+    ProductsBusiness.deleteProduct(id)
+      .catch(() => {
+        Alert.alert(
+          i18n.t('app.attention'),
+          i18n.t('app.deleteFailureMessage'),
+          [{ text: i18n.t('app.ok') }],
+          { cancelable: false }
+        );
+      });
   }
 
   onConfirmLogout() {
@@ -111,20 +119,21 @@ export default class ProductsScreen extends Component<Props> {
     } = styles;
 
     return (
-      <FlatList
-        style={containerStyle}
-        contentContainerStyle={flatListContainerStyle}
-        data={this.state.products}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) =>
-          <ProductItem
-            margin={padding}
-            item={item}
-            onPress={() => this.onPressItem(item)}
-            onPressDelete={() => this.onPressItemDelete(item)}
-          />
-        }
-      />
+      <View style={containerStyle}>
+        <FlatList
+          contentContainerStyle={flatListContainerStyle}
+          data={this.state.products}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) =>
+            <ProductItem
+              margin={padding}
+              item={item}
+              onPress={() => this.onPressItem(item)}
+              onPressDelete={() => this.onPressItemDelete(item)}
+            />
+          }
+        />
+      </View>
     );
   }
 

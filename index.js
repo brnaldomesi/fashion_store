@@ -1,12 +1,18 @@
-import { Navigation } from 'react-native-navigation';
-import { registerScreens, screenUniqueName } from './src/screens';
+import {
+  LOGIN_SCREEN,
+  PRODUCTS_SCREEN,
+  registerScreens, startSingleScreenApp
+} from './src/screens';
+
+import AppBusiness from './src/business/AppBusiness';
 
 registerScreens();
 
-Navigation.startSingleScreenApp({
-  screen: {
-    screen: screenUniqueName('LoginScreen'),
-    title: 'Login'
-  },
-  animationType: 'none'
-});
+AppBusiness.configure();
+AppBusiness.signInSilentlyIfNeeded()
+  .then(() => {
+    startSingleScreenApp(PRODUCTS_SCREEN, 'none');
+  })
+  .catch(() => {
+    startSingleScreenApp(LOGIN_SCREEN, 'none');
+  });

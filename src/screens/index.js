@@ -56,6 +56,20 @@ export function navigatorPop(navigator) {
   });
 }
 
+export function showModal(navigator, screen, passProps = {}) {
+  navigator.showModal({
+    screen,
+    passProps,
+    animationType: 'slide-up'
+  });
+}
+
+export function dismissModal(navigator) {
+  navigator.dismissModal({
+    animationType: 'slide-down'
+  });
+}
+
 export function showLightBox(navigator, tapBackgroundToDismiss = false) {
   navigator.showLightBox({
     screen: LOADING_SCREEN,

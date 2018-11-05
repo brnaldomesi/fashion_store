@@ -25,6 +25,7 @@ export default class ProductScreen extends Component<Props> {
 
   state = {
     id: '',
+    thumbnailUrl: '',
     imageUrl: '',
     name: '',
     price: -1,
@@ -35,8 +36,8 @@ export default class ProductScreen extends Component<Props> {
   componentWillMount() {
     this.props.navigator.setTitle({ title: i18n.t('product.title') });
 
-    const { id, imageUrl, name, price, color, size } = this.props;
-    this.setState({ id, imageUrl, name, price, color, size });
+    const { id, thumbnailUrl, imageUrl, name, price, color, size } = this.props;
+    this.setState({ id, thumbnailUrl, imageUrl, name, price, color, size });
   }
 
   onConfirmDelete() {
@@ -81,9 +82,9 @@ export default class ProductScreen extends Component<Props> {
   onPressSave() {
     showLightBox(this.props.navigator);
 
-    const { id, name, price, color, size } = this.state;
+    const { id, thumbnailUrl, imageUrl, name, price, color, size } = this.state;
 
-    ProductBusiness.saveProduct(id, name, price, color, size)
+    ProductBusiness.saveProduct(id, name, price, color, size, thumbnailUrl, imageUrl)
       .then(() => {
         dismissLightBox(this.props.navigator);
 

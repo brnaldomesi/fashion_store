@@ -11,12 +11,12 @@ export default class FirebaseService {
     return await firebase.auth().signOut();
   }
 
-  static addProduct(name, price, color, size) {
-    return productsCollection.add({ name, price, color, size });
+  static addProduct(name, price, color, size, thumbnailUrl, imageUrl) {
+    return productsCollection.add({ name, price, color, size, thumbnailUrl, imageUrl });
   }
 
-  static setProduct(id, name, price, color, size) {
-    return productsCollection.doc(id).set({ name, price, color, size });
+  static setProduct(id, name, price, color, size, thumbnailUrl, imageUrl) {
+    return productsCollection.doc(id).set({ name, price, color, size, thumbnailUrl, imageUrl });
   }
 
   static deleteProduct(id) {

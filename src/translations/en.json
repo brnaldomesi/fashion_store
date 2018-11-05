@@ -1,3 +1,47 @@
 {
-  "title": "FastBuy"
+  "app": {
+    "attention": "Attention",
+    "success": "Success",
+    "deleteMessage": "Do you really want to delete?",
+    "deleteSuccessMessage": "The product has been deleted.",
+    "deleteFailureMessage": "The product could not be deleted.",
+    "ok": "Ok",
+    "deleteOk": "Yes, delete",
+    "cancel": "Cancel"
+  },
+  "login": {
+    "title": "Login",
+    "welcome": "Welcome to FastBuy",
+    "button": "Connect with Google",
+    "enter": {
+      "message": "Could not log in. Try again later."
+    }
+  },
+  "product": {
+    "title": "Product",
+    "form": {
+      "product_name": "Product Name",
+      "price": "Price",
+      "color": "Color",
+      "size": "Size",
+      "save": "Save"
+    },
+    "save": {
+      "successMessage": "The product has been saved.",
+      "failureMessage": "The product could not be saved.",
+    }
+  },
+  "productItem": {
+    "color": "Color",
+    "size": "Size"
+  },
+  "products": {
+    "title": "Products",
+    "noContent": "No products have been added yet.",
+    "logout": {
+      "title": "What a pity...",
+      "message": "Do you really want to exit?",
+      "ok": "Yes, exit"
+    }
+  }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B61CD95C7C19A87791DB15 /* libPods-fastbuyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DE3FED3DFA91821AC48982 /* libPods-fastbuyTests.a */; };
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
@@ -23,14 +24,17 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		23B546867701EF204F3974D8 /* libPods-fastbuyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC5079C2B3F2DE622BA8B07 /* libPods-fastbuyTests.a */; };
+		5F8AA0313C79F6817FD9AF70 /* libPods-fastbuy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 916582EC5C6FC02EDCD9CD42 /* libPods-fastbuy.a */; };
 		782F3D075F76486B907FECA3 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFD37719FC64057B90C36E5 /* libRNDeviceInfo.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8BDF14E10E5647B6BC30378A /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47218356F57A4EB480F383CA /* Exo-Regular.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B9406E0B5A89493480F8A339 /* libRNLanguages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 216DC72E28C04BDEAF8375FB /* libRNLanguages.a */; };
+		E09D2263A0FB4B0CB6A7E07C /* Exo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9326419F2284405B92E8C167 /* Exo-Bold.ttf */; };
+		E37283A49208432A9800DBC4 /* Exo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2A8191212E1450294D6FA9F /* Exo-Light.ttf */; };
 		EB4DA0CD01B6458187EF2FE1 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C547753F741F47C5B9A07B6F /* libRNFirebase.a */; };
-		F0452156008227D81D69D66B /* libPods-fastbuy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1FDFD1A3B868B872324C18C /* libPods-fastbuy.a */; };
 		F82A2048218CD5C5000E89E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */; };
+		F8AF54C6218F2E97008B0E90 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AF54C3218F2E7A008B0E90 /* libRNGoogleSignin.a */; };
 		F8F04DAC218CABB60073B832 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F04DAB218CAB850073B832 /* libReactNativeNavigation.a */; };
 /* End PBXBuildFile section */
 
@@ -308,6 +312,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFirebase;
 		};
+		F8AF54C2218F2E7A008B0E90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8AF5495218F2E7A008B0E90 /* RNGoogleSignin.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
+			remoteInfo = RNGoogleSignin;
+		};
 		F8F04DA2218C97C70073B832 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */;
@@ -366,22 +377,30 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = fastbuy/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		216DC72E28C04BDEAF8375FB /* libRNLanguages.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNLanguages.a; sourceTree = "<group>"; };
-		270F44B83B17EAFFCA68A591 /* Pods-fastbuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuyTests/Pods-fastbuyTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		43A0114BEBD71CE2F19C65C3 /* Pods-fastbuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy.debug.xcconfig"; sourceTree = "<group>"; };
-		45163C6FA3B8206CC2919363 /* Pods-fastbuyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuyTests/Pods-fastbuyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		42DE3FED3DFA91821AC48982 /* libPods-fastbuyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fastbuyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47218356F57A4EB480F383CA /* Exo-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo-Regular.ttf"; path = "../assets/fonts/Exo-Regular.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		60A812DCCAB27B4B6E3B49C3 /* Pods-fastbuyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuyTests/Pods-fastbuyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		83FBC6E08585D7789368ABBD /* Pods-fastbuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuy.release.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy.release.xcconfig"; sourceTree = "<group>"; };
 		84A0819FD2E6481F95971B96 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
-		ABC5079C2B3F2DE622BA8B07 /* libPods-fastbuyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fastbuyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5D1C7F60ADA87C3DAAC3FE /* Pods-fastbuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuyTests/Pods-fastbuyTests.release.xcconfig"; sourceTree = "<group>"; };
+		90B8AEC77C444094291DDBD3 /* Pods-fastbuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy.debug.xcconfig"; sourceTree = "<group>"; };
+		916582EC5C6FC02EDCD9CD42 /* libPods-fastbuy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fastbuy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9326419F2284405B92E8C167 /* Exo-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo-Bold.ttf"; path = "../assets/fonts/Exo-Bold.ttf"; sourceTree = "<group>"; };
+		A2A8191212E1450294D6FA9F /* Exo-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Exo-Light.ttf"; path = "../assets/fonts/Exo-Light.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B6309E08929F4735B652CFE1 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
-		C1FDFD1A3B868B872324C18C /* libPods-fastbuy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fastbuy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C547753F741F47C5B9A07B6F /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
+		DCB35374FD80F294F08EB10F /* Pods-fastbuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuy.release.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy.release.xcconfig"; sourceTree = "<group>"; };
 		EEFD37719FC64057B90C36E5 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8AF5495218F2E7A008B0E90 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
+		F8AF54C7218F2EC9008B0E90 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		F8AF54C9218F2ED0008B0E90 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		F8AF54CB218F2EDA008B0E90 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F8AF54CD218F2EE4008B0E90 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F8F04DA6218CAB850073B832 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNLanguages.xcodeproj; path = "../node_modules/react-native-languages/ios/RNLanguages.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -392,7 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				23B546867701EF204F3974D8 /* libPods-fastbuyTests.a in Frameworks */,
+				00B61CD95C7C19A87791DB15 /* libPods-fastbuyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +419,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8AF54C6218F2E97008B0E90 /* libRNGoogleSignin.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -416,7 +436,7 @@
 				F8F04DAC218CABB60073B832 /* libReactNativeNavigation.a in Frameworks */,
 				782F3D075F76486B907FECA3 /* libRNDeviceInfo.a in Frameworks */,
 				EB4DA0CD01B6458187EF2FE1 /* libRNFirebase.a in Frameworks */,
-				F0452156008227D81D69D66B /* libPods-fastbuy.a in Frameworks */,
+				5F8AA0313C79F6817FD9AF70 /* libPods-fastbuy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,9 +563,13 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8AF54CD218F2EE4008B0E90 /* libz.tbd */,
+				F8AF54CB218F2EDA008B0E90 /* SystemConfiguration.framework */,
+				F8AF54C9218F2ED0008B0E90 /* SafariServices.framework */,
+				F8AF54C7218F2EC9008B0E90 /* AddressBook.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				C1FDFD1A3B868B872324C18C /* libPods-fastbuy.a */,
-				ABC5079C2B3F2DE622BA8B07 /* libPods-fastbuyTests.a */,
+				916582EC5C6FC02EDCD9CD42 /* libPods-fastbuy.a */,
+				42DE3FED3DFA91821AC48982 /* libPods-fastbuyTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -557,6 +581,16 @@
 				5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		63A674DD17D94E0F94520E78 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9326419F2284405B92E8C167 /* Exo-Bold.ttf */,
+				A2A8191212E1450294D6FA9F /* Exo-Light.ttf */,
+				47218356F57A4EB480F383CA /* Exo-Regular.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -571,6 +605,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F8AF5495218F2E7A008B0E90 /* RNGoogleSignin.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -609,7 +644,8 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				F8F04D78218C97C50073B832 /* Recovered References */,
-				93980375FF8087ACC40492AB /* Pods */,
+				63A674DD17D94E0F94520E78 /* Resources */,
+				C51C8E5C946DCB30CDCE221F /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -625,17 +661,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		93980375FF8087ACC40492AB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				43A0114BEBD71CE2F19C65C3 /* Pods-fastbuy.debug.xcconfig */,
-				83FBC6E08585D7789368ABBD /* Pods-fastbuy.release.xcconfig */,
-				45163C6FA3B8206CC2919363 /* Pods-fastbuyTests.debug.xcconfig */,
-				270F44B83B17EAFFCA68A591 /* Pods-fastbuyTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		ADBDB9201DFEBF0600ED6528 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,10 +670,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C51C8E5C946DCB30CDCE221F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90B8AEC77C444094291DDBD3 /* Pods-fastbuy.debug.xcconfig */,
+				DCB35374FD80F294F08EB10F /* Pods-fastbuy.release.xcconfig */,
+				60A812DCCAB27B4B6E3B49C3 /* Pods-fastbuyTests.debug.xcconfig */,
+				8D5D1C7F60ADA87C3DAAC3FE /* Pods-fastbuyTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F8609A16218CCB6500A72C5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				F8609A1A218CCB6500A72C5B /* libRNFirebase.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8AF5496218F2E7A008B0E90 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8AF54C3218F2E7A008B0E90 /* libRNGoogleSignin.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -696,7 +740,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "fastbuyTests" */;
 			buildPhases = (
-				872E5D810EFE21A36BE5C958 /* [CP] Check Pods Manifest.lock */,
+				BD1CE407A75B9990B7C06EC2 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -715,11 +759,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "fastbuy" */;
 			buildPhases = (
-				F445A7ADC97BF76C449034B4 /* [CP] Check Pods Manifest.lock */,
+				86F5818BFF90959CFE8FEFEE /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				F8D22469218DD1240044F2AE /* Google Firebase Crashlytics Script */,
+				E7CDDF62FA5CC95D5A964798 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -816,6 +862,10 @@
 				{
 					ProductGroup = F8609A16218CCB6500A72C5B /* Products */;
 					ProjectRef = B6309E08929F4735B652CFE1 /* RNFirebase.xcodeproj */;
+				},
+				{
+					ProductGroup = F8AF5496218F2E7A008B0E90 /* Products */;
+					ProjectRef = F8AF5495218F2E7A008B0E90 /* RNGoogleSignin.xcodeproj */;
 				},
 				{
 					ProductGroup = F8F04D9E218C97C70073B832 /* Products */;
@@ -1097,6 +1147,13 @@
 			remoteRef = F8609A19218CCB6500A72C5B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F8AF54C3218F2E7A008B0E90 /* libRNGoogleSignin.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGoogleSignin.a;
+			remoteRef = F8AF54C2218F2E7A008B0E90 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F8F04DA3218C97C70073B832 /* libRNLanguages.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1149,6 +1206,9 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				F82A2048218CD5C5000E89E0 /* GoogleService-Info.plist in Resources */,
+				E09D2263A0FB4B0CB6A7E07C /* Exo-Bold.ttf in Resources */,
+				E37283A49208432A9800DBC4 /* Exo-Light.ttf in Resources */,
+				8BDF14E10E5647B6BC30378A /* Exo-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1169,7 +1229,29 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		872E5D810EFE21A36BE5C958 /* [CP] Check Pods Manifest.lock */ = {
+		86F5818BFF90959CFE8FEFEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fastbuy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD1CE407A75B9990B7C06EC2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1191,7 +1273,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F445A7ADC97BF76C449034B4 /* [CP] Check Pods Manifest.lock */ = {
+		E7CDDF62FA5CC95D5A964798 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1199,19 +1281,41 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${SRCROOT}/Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy-resources.sh",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-fastbuy-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F8D22469218DD1240044F2AE /* Google Firebase Crashlytics Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Google Firebase Crashlytics Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1258,7 +1362,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45163C6FA3B8206CC2919363 /* Pods-fastbuyTests.debug.xcconfig */;
+			baseConfigurationReference = 60A812DCCAB27B4B6E3B49C3 /* Pods-fastbuyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1294,7 +1398,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 270F44B83B17EAFFCA68A591 /* Pods-fastbuyTests.release.xcconfig */;
+			baseConfigurationReference = 8D5D1C7F60ADA87C3DAAC3FE /* Pods-fastbuyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1327,7 +1431,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43A0114BEBD71CE2F19C65C3 /* Pods-fastbuy.debug.xcconfig */;
+			baseConfigurationReference = 90B8AEC77C444094291DDBD3 /* Pods-fastbuy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1353,7 +1457,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83FBC6E08585D7789368ABBD /* Pods-fastbuy.release.xcconfig */;
+			baseConfigurationReference = DCB35374FD80F294F08EB10F /* Pods-fastbuy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1422,8 +1526,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1469,8 +1576,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-navigation/ios/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

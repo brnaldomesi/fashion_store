@@ -5,11 +5,18 @@ import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import com.facebook.react.ReactPackage;
 import com.reactnativenavigation.NavigationApplication;
+import com.reactnativenavigation.bridge.NavigationReactPackage;
 
 import java.util.Arrays;
 import java.util.List;
 
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
+import io.invertase.firebase.perf.RNFirebasePerformancePackage;
 
 public class MainApplication extends NavigationApplication {
 
@@ -31,8 +38,15 @@ public class MainApplication extends NavigationApplication {
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new NavigationReactPackage(),
             new RNDeviceInfo(),
             new RNFirebasePackage(),
+            new RNFirebaseAnalyticsPackage(),
+            new RNFirebaseAuthPackage(),
+            new RNFirebaseCrashlyticsPackage(),
+            new RNFirebaseFirestorePackage(),
+            new RNFirebasePerformancePackage(),
+            new RNGoogleSigninPackage(),
             new RNLanguagesPackage()
     );
   }

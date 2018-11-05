@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://firebasestorage.googleapis.com/v0/b/fastbuy-fd9d7.appspot.com/o/logo.png?alt=media&token=9674cbb6-49fe-4ed3-9778-352c1fbdd076" alt="FastBuy" title="FastBuy">
+  <img src="https://fastbuy-fd9d7.firebaseapp.com/images/cover.png" alt="FastBuy" title="FastBuy">
 </p>
 
 [![React Native][react_native-badge]][react_native-url]

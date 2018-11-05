@@ -2,6 +2,7 @@ import DeviceInfo from 'react-native-device-info';
 import { Navigation } from 'react-native-navigation';
 
 import CameraScreen from './CameraScreen';
+import GalleryScreen from './GalleryScreen';
 import LoadingScreen from './LoadingScreen';
 import LoginScreen from './LoginScreen';
 import ProductScreen from './ProductScreen';
@@ -15,6 +16,7 @@ import imgAppBack from '../../assets/images/app-back.png';
 // Public
 
 export const CAMERA_SCREEN = screenUniqueName('CameraScreen');
+export const GALLERY_SCREEN = screenUniqueName('GalleryScreen');
 export const LOADING_SCREEN = screenUniqueName('LoadingScreen');
 export const LOGIN_SCREEN = screenUniqueName('LoginScreen');
 export const PRODUCT_SCREEN = screenUniqueName('ProductScreen');
@@ -22,6 +24,7 @@ export const PRODUCTS_SCREEN = screenUniqueName('ProductsScreen');
 
 export function registerScreens() {
   Navigation.registerComponent(CAMERA_SCREEN, () => CameraScreen);
+  Navigation.registerComponent(GALLERY_SCREEN, () => GalleryScreen);
   Navigation.registerComponent(LOADING_SCREEN, () => LoadingScreen);
   Navigation.registerComponent(LOGIN_SCREEN, () => LoginScreen);
   Navigation.registerComponent(PRODUCT_SCREEN, () => ProductScreen);
@@ -60,6 +63,7 @@ export function showModal(navigator, screen, passProps = {}) {
   navigator.showModal({
     screen,
     passProps,
+    navigatorStyle,
     animationType: 'slide-up'
   });
 }

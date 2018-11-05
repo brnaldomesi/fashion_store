@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
-import { CAMERA_SCREEN, dismissLightBox, navigatorPop, showModal, showLightBox } from './';
+import {
+  CAMERA_SCREEN, GALLERY_SCREEN,
+  dismissLightBox, navigatorPop, showModal, showLightBox
+} from './';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
@@ -76,7 +79,23 @@ export default class ProductScreen extends Component<Props> {
     }
   }
 
-  onPressAddPhoto() {
+  onPressAddPhotoAlbum() {
+    ProductBusiness.checkDevicePhotosAuthorizationStatus()
+      .then(success => {
+        if (success) {
+          showModal(this.props.navigator, GALLERY_SCREEN);
+        } else {
+          Alert.alert(
+            i18n.t('permissions.titleFailure'),
+            i18n.t('permissions.galleryFailureMessage'),
+            [{ text: i18n.t('app.ok') }],
+            { cancelable: true }
+          );
+        }
+      });
+  }
+
+  onPressAddPhotoCamera() {
     if (ProductBusiness.isSimulator()) {
       Alert.alert(
         i18n.t('permissions.titleFailure'),
@@ -163,7 +182,7 @@ export default class ProductScreen extends Component<Props> {
               style={imageButtonStyle}
               size={45}
               source={imgAppAddPhoto}
-              onPress={() => this.onPressAddPhoto()}
+              onPress={() => this.onPressAddPhotoAlbum()}
             />
           </ImageBackground>
 

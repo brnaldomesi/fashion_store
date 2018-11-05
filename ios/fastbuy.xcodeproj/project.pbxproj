@@ -34,6 +34,7 @@
 		E37283A49208432A9800DBC4 /* Exo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2A8191212E1450294D6FA9F /* Exo-Light.ttf */; };
 		EB4DA0CD01B6458187EF2FE1 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C547753F741F47C5B9A07B6F /* libRNFirebase.a */; };
 		F82A2048218CD5C5000E89E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */; };
+		F84417482190D0C000416828 /* libReactNativeCameraKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F84417402190D0A600416828 /* libReactNativeCameraKit.a */; };
 		F8AF54C6218F2E97008B0E90 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AF54C3218F2E7A008B0E90 /* libRNGoogleSignin.a */; };
 		F8F04DAC218CABB60073B832 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F04DAB218CAB850073B832 /* libReactNativeNavigation.a */; };
 /* End PBXBuildFile section */
@@ -305,6 +306,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		F844173F2190D0A600416828 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84417162190D0A600416828 /* ReactNativeCameraKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2646934E1CFB2A6B00F3A740;
+			remoteInfo = ReactNativeCameraKit;
+		};
 		F8609A19218CCB6500A72C5B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B6309E08929F4735B652CFE1 /* RNFirebase.xcodeproj */;
@@ -396,6 +404,7 @@
 		DCB35374FD80F294F08EB10F /* Pods-fastbuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuy.release.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy.release.xcconfig"; sourceTree = "<group>"; };
 		EEFD37719FC64057B90C36E5 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F84417162190D0A600416828 /* ReactNativeCameraKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeCameraKit.xcodeproj; path = "../node_modules/react-native-camera-kit/ios/lib/ReactNativeCameraKit.xcodeproj"; sourceTree = "<group>"; };
 		F8AF5495218F2E7A008B0E90 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
 		F8AF54C7218F2EC9008B0E90 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		F8AF54C9218F2ED0008B0E90 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -419,6 +428,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84417482190D0C000416828 /* libReactNativeCameraKit.a in Frameworks */,
 				F8AF54C6218F2E97008B0E90 /* libRNGoogleSignin.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
@@ -605,6 +615,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F84417162190D0A600416828 /* ReactNativeCameraKit.xcodeproj */,
 				F8AF5495218F2E7A008B0E90 /* RNGoogleSignin.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -679,6 +690,14 @@
 				8D5D1C7F60ADA87C3DAAC3FE /* Pods-fastbuyTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F84417172190D0A600416828 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F84417402190D0A600416828 /* libReactNativeCameraKit.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F8609A16218CCB6500A72C5B /* Products */ = {
@@ -850,6 +869,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = F84417172190D0A600416828 /* Products */;
+					ProjectRef = F84417162190D0A600416828 /* ReactNativeCameraKit.xcodeproj */;
 				},
 				{
 					ProductGroup = F8F04DA7218CAB850073B832 /* Products */;
@@ -1138,6 +1161,13 @@
 			fileType = archive.ar;
 			path = libRCTBlob.a;
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F84417402190D0A600416828 /* libReactNativeCameraKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeCameraKit.a;
+			remoteRef = F844173F2190D0A600416828 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F8609A1A218CCB6500A72C5B /* libRNFirebase.a */ = {

@@ -66,6 +66,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>The app requires to access camera for uploading product images.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The app requires to access photo library for uploading product images.</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

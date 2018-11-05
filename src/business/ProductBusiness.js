@@ -2,16 +2,15 @@ import FirebaseService from '../services/FirebaseService';
 
 export default class ProductBusiness {
 
-  static addProduct(name, price, color, size) {
-    FirebaseService.addProduct(name, price, color, size);
-  }
-
-  static setProduct(id, name, price, color, size) {
-    FirebaseService.setProduct(id, name, price, color, size);
+  static saveProduct(id = null, name, price, color, size) {
+    if (id === null) {
+      return FirebaseService.addProduct(name, price, color, size);
+    }
+    return FirebaseService.setProduct(id, name, price, color, size);
   }
 
   static deleteProduct(id) {
-    FirebaseService.deleteProduct(id);
+    return FirebaseService.deleteProduct(id);
   }
 
 

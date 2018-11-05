@@ -12,15 +12,15 @@ export default class FirebaseService {
   }
 
   static addProduct(name, price, color, size) {
-    productsCollection.add({ name, price, color, size });
+    return productsCollection.add({ name, price, color, size });
   }
 
   static setProduct(id, name, price, color, size) {
-    productsCollection.doc(id).set({ name, price, color, size });
+    return productsCollection.doc(id).set({ name, price, color, size });
   }
 
   static deleteProduct(id) {
-    productsCollection.doc(id).delete();
+    return productsCollection.doc(id).delete();
   }
 
   static productsCollection() {

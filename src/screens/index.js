@@ -59,8 +59,7 @@ export function showLightBox(navigator, tapBackgroundToDismiss = false) {
     style: {
       backgroundBlur: 'dark',
       tapBackgroundToDismiss
-    },
-
+    }
   });
 }
 

@@ -37,6 +37,7 @@
   },
   "products": {
     "title": "Products",
+    "noContent": "No products have been added yet.",
     "logout": {
       "title": "What a pity...",
       "message": "Do you really want to exit?",

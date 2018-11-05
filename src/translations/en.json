@@ -2,6 +2,7 @@
   "app": {
     "attention": "Attention",
     "deleteMessage": "Do you really want to delete?",
+    "deleteFailureMessage": "The product could not be deleted.",
     "ok": "Ok",
     "deleteOk": "Yes, delete",
     "cancel": "Cancel"

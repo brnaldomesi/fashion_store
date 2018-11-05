@@ -20,7 +20,7 @@ export default class FirebaseService {
   }
 
   static deleteProduct(id) {
-    productsCollection.doc(id).delete();
+    return productsCollection.doc(id).delete();
   }
 
   static productsCollection() {

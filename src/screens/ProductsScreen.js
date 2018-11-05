@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Alert, FlatList, StyleSheet, View } from 'react-native';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
-import { LoadingView, ProductItem } from '../components';
+import { LoadingView, NoContentView, ProductItem } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAdd from '../../assets/images/app-add.png';
 import imgAppLogout from '../../assets/images/app-logout.png';
+import imgAppCloud from '../../assets/images/app-cloud.png';
 
 import ProductsBusiness from '../business/ProductsBusiness';
 
@@ -138,9 +139,15 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   render() {
-    return (
-      this.state.isLoading ? <LoadingView /> : this.renderList()
-    );
+    if (this.state.isLoading) {
+      return <LoadingView />;
+    }
+
+    if (this.state.products.count === 0) {
+      return <NoContentView image={imgAppCloud} title={i18n.t('products.noContent')} />;
+    }
+
+    return this.renderList();
   }
 
 }

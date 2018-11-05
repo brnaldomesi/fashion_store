@@ -17,6 +17,11 @@
       "message": "Could not log in. Try again later."
     }
   },
+  "permissions": {
+    "titleFailure": "No Permission",
+    "cameraFailureMessage": "The app requires to access camera for uploading product images.",
+    "simulatorFailureMessage": "Use a real device to access this feature."
+  },
   "product": {
     "title": "Product",
     "form": {

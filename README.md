@@ -12,6 +12,7 @@
 [![Xcode][xcode-badge]][xcode-url]
 [![Android Platform][android_platform-badge]][android_platform-url]
 [![Android Studio][android_studio-badge]][android_studio-url]
+[![Codebeat][codebeat-badge]][codebeat-url]
 
 
 ## Requirements
@@ -120,3 +121,5 @@ This code is distributed under the terms and conditions of the [MIT](https://git
 [android_platform-url]: https://developer.android.com/index.html
 [android_studio-badge]: https://img.shields.io/badge/Android%20Studio-3.2.1+-green.svg
 [android_studio-url]: https://developer.android.com/studio/install
+[codebeat-badge]: https://codebeat.co/badges/a475759f-3347-45d2-b869-5dde93854303
+[codebeat-url]: https://codebeat.co/projects/github-com-bruno-furtado-fastbuy-app-master

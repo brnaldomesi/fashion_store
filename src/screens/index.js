@@ -44,6 +44,12 @@ export function navigatorPush(navigator, screen, passProps = {}) {
   });
 }
 
+export function navigatorPop(navigator) {
+  navigator.pop({
+    animated: true
+  });
+}
+
 // Private
 
 function screenUniqueName(name) {

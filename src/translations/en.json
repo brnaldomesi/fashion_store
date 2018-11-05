@@ -1,7 +1,9 @@
 {
   "app": {
     "attention": "Attention",
+    "success": "Success",
     "deleteMessage": "Do you really want to delete?",
+    "deleteSuccessMessage": "The product has been deleted.",
     "deleteFailureMessage": "The product could not be deleted.",
     "ok": "Ok",
     "deleteOk": "Yes, delete",
@@ -23,6 +25,10 @@
       "color": "Color",
       "size": "Size",
       "save": "Save"
+    },
+    "save": {
+      "successMessage": "The product has been saved.",
+      "failureMessage": "The product could not be saved.",
     }
   },
   "productItem": {

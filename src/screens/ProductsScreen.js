@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Alert, FlatList, StyleSheet } from 'react-native';
+import { Alert, FlatList, StyleSheet, View } from 'react-native';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
-import { ProductItem } from '../components';
+import { LoadingView, NoContentView, ProductItem } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAdd from '../../assets/images/app-add.png';
 import imgAppLogout from '../../assets/images/app-logout.png';
+import imgAppCloud from '../../assets/images/app-cloud.png';
 
 import ProductsBusiness from '../business/ProductsBusiness';
 
@@ -22,20 +23,18 @@ export default class ProductsScreen extends Component<Props> {
 
   constructor(props) {
     super(props);
-
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     this.collection = ProductsBusiness.productsCollection();
     this.unsubscribe = null;
-
-    this.state = {
-        products: []
-    };
   }
 
+  state = {
+      isLoading: true,
+      products: []
+  };
+
   componentWillMount() {
-    this.props.navigator.setTitle({
-      title: i18n.t('products.title')
-    });
+    this.props.navigator.setTitle({ title: i18n.t('products.title') });
   }
 
   componentDidMount() {
@@ -47,7 +46,15 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   onConfirmDelete(id) {
-    ProductsBusiness.deleteProduct(id);
+    ProductsBusiness.deleteProduct(id)
+      .catch(() => {
+        Alert.alert(
+          i18n.t('app.attention'),
+          i18n.t('app.deleteFailureMessage'),
+          [{ text: i18n.t('app.ok') }],
+          { cancelable: true }
+        );
+      });
   }
 
   onConfirmLogout() {
@@ -57,7 +64,10 @@ export default class ProductsScreen extends Component<Props> {
 
   onCollectionUpdate = (querySnapshot) => {
     const products = ProductsBusiness.onProductsCollectionUpdate(querySnapshot);
-    this.setState({ products });
+    this.setState({
+      isLoading: false,
+      products
+    });
   }
 
   onNavigatorEvent(event) {
@@ -103,28 +113,41 @@ export default class ProductsScreen extends Component<Props> {
     );
   }
 
-  render() {
+  renderList() {
     const {
       containerStyle,
       flatListContainerStyle
     } = styles;
 
     return (
-      <FlatList
-        style={containerStyle}
-        contentContainerStyle={flatListContainerStyle}
-        data={this.state.products}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) =>
-          <ProductItem
-            margin={padding}
-            item={item}
-            onPress={() => this.onPressItem(item)}
-            onPressDelete={() => this.onPressItemDelete(item)}
-          />
-        }
-      />
+      <View style={containerStyle}>
+        <FlatList
+          contentContainerStyle={flatListContainerStyle}
+          data={this.state.products}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) =>
+            <ProductItem
+              margin={padding}
+              item={item}
+              onPress={() => this.onPressItem(item)}
+              onPressDelete={() => this.onPressItemDelete(item)}
+            />
+          }
+        />
+      </View>
     );
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      return <LoadingView />;
+    }
+
+    if (this.state.products.count === 0) {
+      return <NoContentView image={imgAppCloud} title={i18n.t('products.noContent')} />;
+    }
+
+    return this.renderList();
   }
 
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, StyleSheet, Image, Text, View } from 'react-native';
 import { PRODUCTS_SCREEN, startSingleScreenApp } from './';
-import { SocialButton } from '../components';
+import { LoadingView, SocialButton } from '../components';
 import colors from '../colors';
 import fonts from '../fonts';
 import i18n from '../i18n';
@@ -17,10 +17,20 @@ export default class LoginScreen extends Component<Props> {
     navBarHidden: true
   };
 
+  state = {
+    isLoading: false
+  };
+
   onPressButton() {
+    this.setState({ isLoading: true });
+
     LoginBusiness.signIn()
-      .then(() => startSingleScreenApp(PRODUCTS_SCREEN, 'fade'))
+      .then(() => {
+        startSingleScreenApp(PRODUCTS_SCREEN, 'fade');
+      })
       .catch(error => {
+        this.setState({ isLoading: false });
+
         if (error) {
           Alert.alert(
             i18n.t('app.attention'),
@@ -32,7 +42,7 @@ export default class LoginScreen extends Component<Props> {
       });
   }
 
-  render() {
+  renderWelcome() {
     const {
       containerStyle,
       welcomeViewStyle,
@@ -59,6 +69,12 @@ export default class LoginScreen extends Component<Props> {
           onPress={() => this.onPressButton()}
         />
       </View>
+    );
+  }
+
+  render() {
+    return (
+      this.state.isLoading ? <LoadingView /> : this.renderWelcome()
     );
   }
 

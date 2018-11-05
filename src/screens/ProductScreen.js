@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import { dismissLightBox, navigatorPop, showLightBox } from './';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
@@ -22,6 +23,15 @@ export default class ProductScreen extends Component<Props> {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
+  state = {
+    id: '',
+    imageUrl: '',
+    name: '',
+    price: -1,
+    color: '',
+    size: ''
+  };
+
   componentWillMount() {
     this.props.navigator.setTitle({ title: i18n.t('product.title') });
 
@@ -30,7 +40,29 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onConfirmDelete() {
-    ProductBusiness.deleteProduct(this.state.id);
+    showLightBox(this.props.navigator);
+
+    ProductBusiness.deleteProduct(this.state.id)
+      .then(() => {
+        dismissLightBox(this.props.navigator);
+
+        Alert.alert(
+          i18n.t('app.success'),
+          i18n.t('app.deleteSuccessMessage'),
+          [{ text: i18n.t('app.ok'), onPress: () => navigatorPop(this.props.navigator) }],
+          { cancelable: false }
+        );
+      })
+      .catch(() => {
+        dismissLightBox(this.props.navigator);
+
+        Alert.alert(
+          i18n.t('app.attention'),
+          i18n.t('app.deleteFailureMessage'),
+          [{ text: i18n.t('app.ok') }],
+          { cancelable: true }
+        );
+      });
   }
 
   onNavigatorEvent(event) {
@@ -47,12 +79,31 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onPressSave() {
+    showLightBox(this.props.navigator);
+
     const { id, name, price, color, size } = this.state;
-    if (id === null) {
-      ProductBusiness.addProduct(name, price, color, size);
-    } else {
-      ProductBusiness.setProduct(id, name, price, color, size);
-    }
+
+    ProductBusiness.saveProduct(id, name, price, color, size)
+      .then(() => {
+        dismissLightBox(this.props.navigator);
+
+        Alert.alert(
+          i18n.t('app.success'),
+          i18n.t('product.save.successMessage'),
+          [{ text: i18n.t('app.ok'), onPress: () => navigatorPop(this.props.navigator) }],
+          { cancelable: false }
+        );
+      })
+      .catch(() => {
+        dismissLightBox(this.props.navigator);
+
+        Alert.alert(
+          i18n.t('app.attention'),
+          i18n.t('product.save.failureMessage'),
+          [{ text: i18n.t('app.ok') }],
+          { cancelable: true }
+        );
+      });
   }
 
   onPressDelete() {
@@ -103,7 +154,7 @@ export default class ProductScreen extends Component<Props> {
             <Input
               style={inputStyle}
               title={i18n.t('product.form.price')}
-              value={`${price}`}
+              value={(price >= 0) ? `${price}` : null}
               keyboardType={'numeric'}
               onChangeText={text => this.setState({ price: text })}
             />

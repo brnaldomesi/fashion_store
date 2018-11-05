@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
-import { Button, KeyboardView, ImageButton, Input } from '../components';
+import { navigatorPop } from './';
+import { Button, KeyboardView, ImageButton, Input, LoadingView } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
@@ -22,6 +23,16 @@ export default class ProductScreen extends Component<Props> {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
+  state = {
+    isLoading: false,
+    id: '',
+    imageUrl: '',
+    name: '',
+    price: -1,
+    color: '',
+    size: ''
+  };
+
   componentWillMount() {
     this.props.navigator.setTitle({ title: i18n.t('product.title') });
 
@@ -30,7 +41,20 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onConfirmDelete() {
-    ProductBusiness.deleteProduct(this.state.id);
+    this.setState({ isLoading: true });
+
+    ProductBusiness.deleteProduct(this.state.id)
+      .then(() => { navigatorPop(this.props.navigator); })
+      .catch(() => {
+        this.setState({ isLoading: false });
+
+        Alert.alert(
+          i18n.t('app.attention'),
+          i18n.t('app.deleteFailureMessage'),
+          [{ text: i18n.t('app.ok') }],
+          { cancelable: false }
+        );
+      });
   }
 
   onNavigatorEvent(event) {
@@ -47,6 +71,8 @@ export default class ProductScreen extends Component<Props> {
   }
 
   onPressSave() {
+    this.setState({ isLoading: true });
+
     const { id, name, price, color, size } = this.state;
     if (id === null) {
       ProductBusiness.addProduct(name, price, color, size);
@@ -103,7 +129,7 @@ export default class ProductScreen extends Component<Props> {
             <Input
               style={inputStyle}
               title={i18n.t('product.form.price')}
-              value={`${price}`}
+              value={(price >= 0) ? `${price}` : null}
               keyboardType={'numeric'}
               onChangeText={text => this.setState({ price: text })}
             />
@@ -134,6 +160,8 @@ export default class ProductScreen extends Component<Props> {
             />
           </View>
         </ScrollView>
+
+        {this.state.isLoading ? <LoadingView overlay /> : null}
       </KeyboardView>
     );
   }

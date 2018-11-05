@@ -88,6 +88,17 @@ react-native run-android
 ```
 > For the first build, you must enable the overlay permission.
 
+## Todolist
+
+- [x] Sign Up and Authentication
+- [x] Create a Product
+- [x] Product List
+- [x] Delete a Product
+- [x] Edit a Product
+- [ ] Camera
+- [ ] Redux framework
+- [x] Firebase Integration (Analytics, Auth, Database, Crashlytics and Performance)
+- [x] Translation (with [react-native-languages](https://github.com/react-community/react-native-languages))
 
 ## Change-log
 

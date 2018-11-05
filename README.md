@@ -1,5 +1,10 @@
 <p align="center">
-  <img src="https://firebasestorage.googleapis.com/v0/b/fastbuy-fd9d7.appspot.com/o/logo.png?alt=media&token=9674cbb6-49fe-4ed3-9778-352c1fbdd076" alt="FastBuy" title="FastBuy">
+  <img src="https://fastbuy-fd9d7.firebaseapp.com/images/cover.png" alt="FastBuy" title="FastBuy">
+</p>
+
+<p align="center">
+  👉👉 <a href="https://youtu.be/mxLl_HvANt8">Click to view a video demonstration.</a> 👈👈
+  <br/><br/><br/>
 </p>
 
 [![React Native][react_native-badge]][react_native-url]
@@ -83,6 +88,17 @@ react-native run-android
 ```
 > For the first build, you must enable the overlay permission.
 
+## Todolist
+
+- [x] Sign Up and Authentication
+- [x] Create a Product
+- [x] Product List
+- [x] Delete a Product
+- [x] Edit a Product
+- [ ] Camera
+- [ ] Redux framework
+- [x] Firebase Integration (Analytics, Auth, Database, Crashlytics and Performance)
+- [x] Translation (with [react-native-languages](https://github.com/react-community/react-native-languages))
 
 ## Change-log
 

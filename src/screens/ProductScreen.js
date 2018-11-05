@@ -44,7 +44,16 @@ export default class ProductScreen extends Component<Props> {
     this.setState({ isLoading: true });
 
     ProductBusiness.deleteProduct(this.state.id)
-      .then(() => { navigatorPop(this.props.navigator); })
+      .then(() => {
+        this.setState({ isLoading: false });
+
+        Alert.alert(
+          i18n.t('app.success'),
+          i18n.t('app.deleteSuccessMessage'),
+          [{ text: i18n.t('app.ok'), onPress: () => navigatorPop(this.props.navigator) }],
+          { cancelable: false }
+        );
+      })
       .catch(() => {
         this.setState({ isLoading: false });
 
@@ -52,7 +61,7 @@ export default class ProductScreen extends Component<Props> {
           i18n.t('app.attention'),
           i18n.t('app.deleteFailureMessage'),
           [{ text: i18n.t('app.ok') }],
-          { cancelable: false }
+          { cancelable: true }
         );
       });
   }
@@ -74,11 +83,28 @@ export default class ProductScreen extends Component<Props> {
     this.setState({ isLoading: true });
 
     const { id, name, price, color, size } = this.state;
-    if (id === null) {
-      ProductBusiness.addProduct(name, price, color, size);
-    } else {
-      ProductBusiness.setProduct(id, name, price, color, size);
-    }
+
+    ProductBusiness.saveProduct(id, name, price, color, size)
+      .then(() => {
+        this.setState({ isLoading: false });
+
+        Alert.alert(
+          i18n.t('app.success'),
+          i18n.t('product.save.successMessage'),
+          [{ text: i18n.t('app.ok'), onPress: () => navigatorPop(this.props.navigator) }],
+          { cancelable: false }
+        );
+      })
+      .catch(() => {
+        this.setState({ isLoading: false });
+
+        Alert.alert(
+          i18n.t('app.attention'),
+          i18n.t('product.save.failureMessage'),
+          [{ text: i18n.t('app.ok') }],
+          { cancelable: true }
+        );
+      });
   }
 
   onPressDelete() {

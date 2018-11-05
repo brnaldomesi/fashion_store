@@ -51,7 +51,7 @@ export default class ProductsScreen extends Component<Props> {
           i18n.t('app.attention'),
           i18n.t('app.deleteFailureMessage'),
           [{ text: i18n.t('app.ok') }],
-          { cancelable: false }
+          { cancelable: true }
         );
       });
   }

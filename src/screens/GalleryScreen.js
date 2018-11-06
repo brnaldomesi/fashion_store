@@ -5,8 +5,6 @@ import { dismissModal } from './';
 import i18n from '../i18n';
 import imgAppClose from '../../assets/images/app-close.png';
 
-import GalleryBusiness from '../business/GalleryBusiness';
-
 const CLOSE_BUTTON_ID = 'close';
 type Props = {};
 export default class GalleryScreen extends Component<Props> {
@@ -24,12 +22,6 @@ export default class GalleryScreen extends Component<Props> {
     this.props.navigator.setTitle({ title: i18n.t('gallery.title') });
   }
 
-  componentDidMount() {
-    if (!GalleryBusiness.checkDeviceAuthorizationStatus()) {
-      dismissModal(this.props.navigator);
-    }
-  }
-
   onNavigatorEvent(event) {
     if (event.type !== 'NavBarButtonPress') {
       return;
@@ -45,9 +37,10 @@ export default class GalleryScreen extends Component<Props> {
     return (
       <CameraKitGalleryView
         style={containerStyle}
-        minimumInteritemSpacing={7}
-        minimumLineSpacing={7}
+        minimumInteritemSpacing={1}
+        minimumLineSpacing={1}
         columnCount={3}
+        onTapImage={() => { dismissModal(this.props.navigator); }}
       />
     );
   }
@@ -57,7 +50,6 @@ export default class GalleryScreen extends Component<Props> {
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
-    margin: 7,
-    marginTop: 14
+    margin: 0
   }
 });

@@ -5,6 +5,7 @@ import { dismissModal } from './';
 import i18n from '../i18n';
 import imgAppClose from '../../assets/images/app-close.png';
 
+import GalleryBusiness from '../business/GalleryBusiness';
 
 const CLOSE_BUTTON_ID = 'close';
 type Props = {};
@@ -21,6 +22,12 @@ export default class GalleryScreen extends Component<Props> {
 
   componentWillMount() {
     this.props.navigator.setTitle({ title: i18n.t('gallery.title') });
+  }
+
+  componentDidMount() {
+    if (!GalleryBusiness.checkDeviceAuthorizationStatus()) {
+      dismissModal(this.props.navigator);
+    }
   }
 
   onNavigatorEvent(event) {

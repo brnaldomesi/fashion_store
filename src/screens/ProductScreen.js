@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  Dimensions, Platform,
+  ActionSheetIOS, Alert, ImageBackground, ScrollView, StyleSheet, View
+} from 'react-native';
 import {
   CAMERA_SCREEN, GALLERY_SCREEN,
   dismissLightBox, navigatorPop, showModal, showLightBox
@@ -76,6 +79,37 @@ export default class ProductScreen extends Component<Props> {
 
     if (event.id === DELETE_BUTTON_ID) {
       this.onPressDelete();
+    }
+  }
+
+  onPressAddPhoto() {
+    const cancel = i18n.t('app.cancel');
+    const title = i18n.t('product.addPhoto.title');
+    const takePicture = i18n.t('product.addPhoto.takePicture');
+    const photoLibrary = i18n.t('product.addPhoto.photoLibrary');
+
+    if (Platform.OS === 'ios') {
+      ActionSheetIOS.showActionSheetWithOptions({
+        title,
+        options: [cancel, takePicture, photoLibrary],
+        cancelButtonIndex: 0
+      },
+      (buttonIndex) => {
+        if (buttonIndex === 1) {
+          this.onPressAddPhotoCamera();
+        } else if (buttonIndex === 2) {
+          this.onPressAddPhotoAlbum();
+        }
+      });
+    } else {
+      Alert.alert(
+        title, null,
+        [
+          { text: takePicture, onPress: () => this.onPressAddPhotoCamera() },
+          { text: photoLibrary, onPress: () => this.onPressAddPhotoAlbum() }
+        ],
+        { cancelable: true }
+      );
     }
   }
 
@@ -182,7 +216,7 @@ export default class ProductScreen extends Component<Props> {
               style={imageButtonStyle}
               size={45}
               source={imgAppAddPhoto}
-              onPress={() => this.onPressAddPhotoAlbum()}
+              onPress={() => this.onPressAddPhoto()}
             />
           </ImageBackground>
 

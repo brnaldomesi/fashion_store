@@ -1,9 +1,6 @@
 import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-
-import CameraService from '../services/CameraService';
-import GalleryService from '../services/GalleryService';
-import FirebaseService from '../services/FirebaseService';
+import { CameraService, GalleryService, FirebaseService } from '../services';
 
 class ProductBusiness {
 

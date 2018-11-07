@@ -1,9 +1,11 @@
 import { CameraKitCamera } from 'react-native-camera-kit';
 
-export default class CameraService {
+class CameraService {
 
   static checkDeviceAuthorizationStatus() {
     return CameraKitCamera.checkDeviceCameraAuthorizationStatus();
   }
 
 }
+
+export { CameraService };

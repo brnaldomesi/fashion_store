@@ -1,6 +1,6 @@
 import firebase from 'react-native-firebase';
 
-export default class FirebaseService {
+class FirebaseService {
 
   static async signIn(idToken, accessToken) {
     const credential = firebase.auth.GoogleAuthProvider.credential(idToken, accessToken);
@@ -30,3 +30,5 @@ export default class FirebaseService {
 }
 
 const productsCollection = firebase.firestore().collection('products');
+
+export { FirebaseService };

@@ -1,5 +1,4 @@
-import GoogleService from '../services/GoogleService';
-import FirebaseService from '../services/FirebaseService';
+import { GoogleService, FirebaseService } from '../services';
 
 class LoginBusiness {
 

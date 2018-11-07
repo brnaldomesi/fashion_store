@@ -1,7 +1,7 @@
 import GoogleService from '../services/GoogleService';
 import FirebaseService from '../services/FirebaseService';
 
-export default class AppBusiness {
+class AppBusiness {
 
   static configure() {
     GoogleService.configure();
@@ -23,3 +23,5 @@ export default class AppBusiness {
   }
 
 }
+
+export { AppBusiness };

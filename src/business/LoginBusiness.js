@@ -1,7 +1,7 @@
 import GoogleService from '../services/GoogleService';
 import FirebaseService from '../services/FirebaseService';
 
-export default class LoginBusiness {
+class LoginBusiness {
 
   static signIn() {
     return new Promise((resolve, reject) => {
@@ -19,3 +19,5 @@ export default class LoginBusiness {
   }
 
 }
+
+export { LoginBusiness };

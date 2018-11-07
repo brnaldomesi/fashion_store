@@ -8,12 +8,11 @@ import {
   dismissLightBox, navigatorPop, showModal, showLightBox
 } from './';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
+import { ProductBusiness } from '../business';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
 import imgAppDelete from '../../assets/images/app-delete.png';
-
-import ProductBusiness from '../business/ProductBusiness';
 
 
 const DELETE_BUTTON_ID = 'delete';

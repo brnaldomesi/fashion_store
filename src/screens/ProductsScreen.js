@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Alert, FlatList, StyleSheet, View } from 'react-native';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
 import { LoadingView, NoContentView, ProductItem } from '../components';
+import { ProductsBusiness } from '../business';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAdd from '../../assets/images/app-add.png';
 import imgAppLogout from '../../assets/images/app-logout.png';
 import imgAppCloud from '../../assets/images/app-cloud.png';
-
-import ProductsBusiness from '../business/ProductsBusiness';
 
 
 const LOGOUT_BUTTON_ID = 'logout';

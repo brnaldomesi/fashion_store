@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import { CameraKitGalleryView } from 'react-native-camera-kit';
 import { dismissModal } from './';
 import i18n from '../i18n';
+import colors from '../colors';
 import imgAppClose from '../../assets/images/app-close.png';
 
 const CLOSE_BUTTON_ID = 'close';
@@ -50,6 +51,7 @@ export default class GalleryScreen extends Component<Props> {
 const styles = StyleSheet.create({
   containerStyle: {
     flex: 1,
+    backgroundColor: colors.white,
     margin: 0
   }
 });

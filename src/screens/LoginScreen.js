@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Alert, StyleSheet, Image, Text, View } from 'react-native';
 import { PRODUCTS_SCREEN, startSingleScreenApp } from './';
 import { LoadingView, SocialButton } from '../components';
+import { LoginBusiness } from '../business';
 import colors from '../colors';
 import fonts from '../fonts';
 import i18n from '../i18n';
 import imgAppIcon from '../../assets/images/app-icon.png';
 import imgGoogleIcon from '../../assets/images/google-icon.png';
-
-import LoginBusiness from '../business/LoginBusiness';
 
 type Props = {};
 export default class LoginScreen extends Component<Props> {

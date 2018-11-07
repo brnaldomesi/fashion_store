@@ -5,7 +5,7 @@ import CameraService from '../services/CameraService';
 import GalleryService from '../services/GalleryService';
 import FirebaseService from '../services/FirebaseService';
 
-export default class ProductBusiness {
+class ProductBusiness {
 
   static checkDeviceCameraAuthorizationStatus() {
     return CameraService.checkDeviceAuthorizationStatus();
@@ -34,3 +34,5 @@ export default class ProductBusiness {
   }
 
 }
+
+export { ProductBusiness };

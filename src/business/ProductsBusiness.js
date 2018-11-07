@@ -1,7 +1,7 @@
 import GoogleService from '../services/GoogleService';
 import FirebaseService from '../services/FirebaseService';
 
-export default class ProductBusiness {
+class ProductsBusiness {
 
   static deleteProduct(id) {
     return FirebaseService.deleteProduct(id);
@@ -28,3 +28,5 @@ export default class ProductBusiness {
   }
 
 }
+
+export { ProductsBusiness };

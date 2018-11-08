@@ -39,8 +39,6 @@ export default class ProductScreen extends Component<Props> {
   };
 
   componentWillMount() {
-    this.props.navigator.setTitle({ title: i18n.t('product.title') });
-
     const { id, thumbnailUrl, imageUrl, name, price, color, size } = this.props;
     this.setState({ id, thumbnailUrl, imageUrl, name, price, color, size });
   }
@@ -116,7 +114,7 @@ export default class ProductScreen extends Component<Props> {
     ProductBusiness.checkDevicePhotosAuthorizationStatus()
       .then(success => {
         if (success) {
-          showModal(this.props.navigator, GALLERY_SCREEN);
+          showModal(this.props.navigator, GALLERY_SCREEN, i18n.t('gallery.title'));
         } else {
           Alert.alert(
             i18n.t('permissions.titleFailure'),

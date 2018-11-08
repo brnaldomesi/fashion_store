@@ -19,10 +19,6 @@ export default class CameraScreen extends Component<Props> {
     statusBarTextColorSchemeSingleScreen: 'light'
   };
 
-  componentDidMount() {
-
-  }
-
   onButtonPressed(event) {
     if (event.type === 'left') {
       dismissModal(this.props.navigator);

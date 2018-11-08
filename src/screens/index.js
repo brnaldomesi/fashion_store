@@ -22,19 +22,20 @@ export const LOGIN_SCREEN = screenUniqueName('LoginScreen');
 export const PRODUCT_SCREEN = screenUniqueName('ProductScreen');
 export const PRODUCTS_SCREEN = screenUniqueName('ProductsScreen');
 
-export function registerScreens() {
-  Navigation.registerComponent(CAMERA_SCREEN, () => CameraScreen);
-  Navigation.registerComponent(GALLERY_SCREEN, () => GalleryScreen);
-  Navigation.registerComponent(LOADING_SCREEN, () => LoadingScreen);
-  Navigation.registerComponent(LOGIN_SCREEN, () => LoginScreen);
-  Navigation.registerComponent(PRODUCT_SCREEN, () => ProductScreen);
-  Navigation.registerComponent(PRODUCTS_SCREEN, () => ProductsScreen);
+export function registerScreens(store, Provider) {
+  Navigation.registerComponent(CAMERA_SCREEN, () => CameraScreen, store, Provider);
+  Navigation.registerComponent(GALLERY_SCREEN, () => GalleryScreen, store, Provider);
+  Navigation.registerComponent(LOADING_SCREEN, () => LoadingScreen, store, Provider);
+  Navigation.registerComponent(LOGIN_SCREEN, () => LoginScreen, store, Provider);
+  Navigation.registerComponent(PRODUCT_SCREEN, () => ProductScreen, store, Provider);
+  Navigation.registerComponent(PRODUCTS_SCREEN, () => ProductsScreen, store, Provider);
 }
 
-export function startSingleScreenApp(screenName, animationType = 'slide-down') {
+export function startSingleScreenApp(screenName, animationType = 'slide-down', title = null) {
   Navigation.startSingleScreenApp({
     screen: {
       screen: screenName,
+      title,
       navigatorStyle
     },
     appStyle: {
@@ -44,9 +45,10 @@ export function startSingleScreenApp(screenName, animationType = 'slide-down') {
   });
 }
 
-export function navigatorPush(navigator, screen, passProps = {}) {
+export function navigatorPush(navigator, screen, title, passProps = {}) {
   navigator.push({
     screen,
+    title,
     navigatorStyle,
     backButtonTitle: '',
     passProps
@@ -59,9 +61,10 @@ export function navigatorPop(navigator) {
   });
 }
 
-export function showModal(navigator, screen, passProps = {}) {
+export function showModal(navigator, screen, title, passProps = {}) {
   navigator.showModal({
     screen,
+    title,
     passProps,
     navigatorStyle,
     animationType: 'slide-up'

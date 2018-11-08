@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Alert, StyleSheet, Image, Text, View } from 'react-native';
+import { connect } from 'react-redux';
 import { PRODUCTS_SCREEN, startSingleScreenApp } from './';
 import { LoadingView, SocialButton } from '../components';
-import { LoginBusiness } from '../business';
+import { login } from '../actions';
 import colors from '../colors';
 import fonts from '../fonts';
 import i18n from '../i18n';
@@ -10,22 +11,21 @@ import imgAppIcon from '../../assets/images/app-icon.png';
 import imgGoogleIcon from '../../assets/images/google-icon.png';
 
 type Props = {};
-export default class LoginScreen extends Component<Props> {
+class LoginScreen extends Component<Props> {
 
   static navigatorStyle = {
     navBarHidden: true
   };
 
-  state = {
-    isLoading: false
-  };
-
   onPressButton() {
+    this.props.login();
+
+    /*
     this.setState({ isLoading: true });
 
     LoginBusiness.signIn()
       .then(() => {
-        startSingleScreenApp(PRODUCTS_SCREEN, 'fade');
+        startSingleScreenApp(PRODUCTS_SCREEN, 'fade', i18n.t('products.title'));
       })
       .catch(error => {
         this.setState({ isLoading: false });
@@ -39,6 +39,11 @@ export default class LoginScreen extends Component<Props> {
           );
         }
       });
+      */
+  }
+
+  renderLoading() {
+    return <LoadingView />;
   }
 
   renderWelcome() {
@@ -65,16 +70,17 @@ export default class LoginScreen extends Component<Props> {
           color={colors.red}
           icon={imgGoogleIcon}
           title={i18n.t('login.button')}
-          onPress={() => this.onPressButton()}
+          onPress={this.onPressButton.bind(this)}
         />
       </View>
     );
   }
 
   render() {
-    return (
-      this.state.isLoading ? <LoadingView /> : this.renderWelcome()
-    );
+    if (this.props.loading) {
+      return this.renderLoading();
+    }
+    return this.renderWelcome();
   }
 
 }
@@ -108,3 +114,10 @@ const styles = StyleSheet.create({
     bottom: 0
   }
 });
+
+const mapStateToProps = state => {
+  const { loading, errorMessage } = state.login;
+  return { loading, errorMessage };
+};
+
+export default connect(mapStateToProps, { login })(LoginScreen);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
 import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
 import { LoadingView, NoContentView, ProductItem } from '../components';
 import { ProductsBusiness } from '../business';
@@ -13,7 +14,7 @@ import imgAppCloud from '../../assets/images/app-cloud.png';
 const LOGOUT_BUTTON_ID = 'logout';
 const ADD_BUTTON_ID = 'add';
 type Props = {};
-export default class ProductsScreen extends Component<Props> {
+class ProductsScreen extends Component<Props> {
 
   static navigatorButtons = {
     leftButtons: [{ id: LOGOUT_BUTTON_ID, icon: imgAppLogout }],
@@ -31,10 +32,6 @@ export default class ProductsScreen extends Component<Props> {
       isLoading: true,
       products: []
   };
-
-  componentWillMount() {
-    this.props.navigator.setTitle({ title: i18n.t('products.title') });
-  }
 
   componentDidMount() {
     this.unsubscribe = this.collection.onSnapshot(this.onCollectionUpdate);
@@ -82,7 +79,7 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   onPressAdd() {
-    navigatorPush(this.props.navigator, PRODUCT_SCREEN);
+    navigatorPush(this.props.navigator, PRODUCT_SCREEN, i18n.t('product.title'));
   }
 
   onPressLogout() {
@@ -97,7 +94,7 @@ export default class ProductsScreen extends Component<Props> {
   }
 
   onPressItem(item) {
-    navigatorPush(this.props.navigator, PRODUCT_SCREEN, item);
+    navigatorPush(this.props.navigator, PRODUCT_SCREEN, i18n.t('product.title'), item);
   }
 
   onPressItemDelete(item) {
@@ -164,3 +161,7 @@ const styles = StyleSheet.create({
     paddingRight: padding
   }
 });
+
+const mapStateToProps = state => ({ products: state.products });
+
+export default connect(mapStateToProps)(ProductsScreen);

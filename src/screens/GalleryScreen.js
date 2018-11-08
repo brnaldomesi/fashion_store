@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { CameraKitGalleryView } from 'react-native-camera-kit';
 import { dismissModal } from './';
-import i18n from '../i18n';
 import colors from '../colors';
 import imgAppClose from '../../assets/images/app-close.png';
 
@@ -17,10 +16,6 @@ export default class GalleryScreen extends Component<Props> {
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-  }
-
-  componentWillMount() {
-    this.props.navigator.setTitle({ title: i18n.t('gallery.title') });
   }
 
   onNavigatorEvent(event) {

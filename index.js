@@ -1,18 +1,3 @@
-import {
-  LOGIN_SCREEN,
-  PRODUCTS_SCREEN,
-  registerScreens, startSingleScreenApp
-} from './src/screens';
+import App from './src/App';
 
-import AppBusiness from './src/business/AppBusiness';
-
-registerScreens();
-
-AppBusiness.configure();
-AppBusiness.signInSilentlyIfNeeded()
-  .then(() => {
-    startSingleScreenApp(PRODUCTS_SCREEN, 'none');
-  })
-  .catch(() => {
-    startSingleScreenApp(LOGIN_SCREEN, 'none');
-  });
+const app = new App(); // eslint-disable-line no-unused-vars

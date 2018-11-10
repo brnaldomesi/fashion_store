@@ -1,26 +1,25 @@
-export default () => [
-  {
-    color: 'Blue',
-    imageUrl: 'https://fastbuy-fd9d7.firebaseapp.com/images/1000/11.jpg',
-    name: 'Asymmetrical-Hem Sweater',
-    price: 31.32,
-    size: 'Large',
-    thumbnailUrl: 'https://fastbuy-fd9d7.firebaseapp.com/images/270/11.jpg'
-  },
-  {
-    color: 'Blue',
-    imageUrl: 'https://fastbuy-fd9d7.firebaseapp.com/images/1000/11.jpg',
-    name: 'Asymmetrical-Hem Sweater',
-    price: 31.32,
-    size: 'Large',
-    thumbnailUrl: 'https://fastbuy-fd9d7.firebaseapp.com/images/270/11.jpg'
-  },
-  {
-    color: 'Blue',
-    imageUrl: 'https://fastbuy-fd9d7.firebaseapp.com/images/1000/11.jpg',
-    name: 'Asymmetrical-Hem Sweater',
-    price: 31.32,
-    size: 'Large',
-    thumbnailUrl: 'https://fastbuy-fd9d7.firebaseapp.com/images/270/11.jpg'
+import { PRODUCTS_DELETE, PRODUCTS_FETCH, PRODUCTS_FETCH_SUCCESS } from '../actions/types';
+
+const INITIAL_STATE = {
+  loading: true,
+  products: []
+};
+
+export default (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case PRODUCTS_DELETE:
+      return state;
+
+    case PRODUCTS_FETCH:
+      return INITIAL_STATE;
+
+    case PRODUCTS_FETCH_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload
+      };
+
+    default:
+      return state;
   }
-];
+};

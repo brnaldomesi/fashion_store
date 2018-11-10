@@ -11,26 +11,20 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LOGIN:
       return {
-        ...state,
-        loading: true,
-        user: null,
-        errorMessage: ''
+        ...INITIAL_STATE,
+        loading: true
       };
 
     case LOGIN_FAIL:
       return {
-        ...state,
-        loading: false,
-        user: null,
+        ...INITIAL_STATE,
         errorMessage: i18n.t('login.enter.message')
       };
 
     case LOGIN_SUCCESS:
       return {
-        ...state,
-        loading: false,
-        user: action.payload,
-        errorMessage: ''
+        ...INITIAL_STATE,
+        user: action.payload
       };
 
     default:

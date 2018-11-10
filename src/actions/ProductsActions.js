@@ -14,7 +14,7 @@ export const productsFetch = () => {
   return (dispatch) => {
     dispatch({ type: PRODUCTS_FETCH });
 
-    FirebaseService.productsCollection()
+    FirebaseService.productsCollection().orderBy('name')
       .onSnapshot((querySnapshot) => {
         const products = [];
 

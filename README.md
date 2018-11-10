@@ -87,7 +87,7 @@ react-native run-ios --simulator "My Simulator (12.1)"
 ```
 react-native run-android
 ```
-> For the first build, you must enable the overlay permission.
+
 
 ## Todolist
 

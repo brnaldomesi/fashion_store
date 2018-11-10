@@ -52,7 +52,7 @@ class ProductsScreen extends Component<Props> {
               margin={padding}
               item={item}
               onPress={() => Actions.product({ product: item })}
-              onPressDelete={() => this.props.productsDelete({ id: item.id })}
+              onPressDelete={() => this.props.productsDelete({ item })}
             />
           }
         />

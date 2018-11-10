@@ -23,8 +23,8 @@ class ProductScreen extends Component<Props> {
   }
 
   onPressDelete() {
-    const { id } = this.props;
-    this.props.productDelete({ id });
+    const { id, name } = this.props;
+    this.props.productDelete({ id, name });
   }
 
   onPressSave() {

@@ -1,10 +1,42 @@
-import { Alert } from 'react-native';
+import { ActionSheetIOS, Alert, Platform } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { FirebaseService } from '../services';
 import { PRODUCT_CLEAN, PRODUCT_DELETE, PRODUCT_SAVE, PRODUCT_UPDATE } from './types';
 import i18n from '../i18n';
 
 // Public
+
+export const addPhoto = () => {
+  return () => {
+    const optionText = i18n.t('product.addPhoto.option');
+    const takePictureAction = i18n.t('product.addPhoto.takePicture');
+    const photoLibraryAction = i18n.t('product.addPhoto.photoLibrary');
+
+    if (Platform.OS === 'ios') {
+      ActionSheetIOS.showActionSheetWithOptions({
+        optionText,
+        options: ['Cancel', takePictureAction, photoLibraryAction],
+        cancelButtonIndex: 0,
+      },
+      (buttonIndex) => {
+        if (buttonIndex === 1) {
+          Actions.cameraModal();
+        } else if (buttonIndex === 2) {
+          Actions.galleryModal();
+        }
+      });
+    } else {
+      Alert.alert(
+         null, optionText,
+         [
+           { text: takePictureAction, onPress: () => Actions.cameraModal() },
+           { text: photoLibraryAction, onPress: () => Actions.galleryModal(), style: 'cancel' }
+         ],
+         { cancelable: true }
+       );
+    }
+  };
+};
 
 export const productClean = () => {
     return {
@@ -48,8 +80,8 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
     result
       .then(() => {
         dispatch({ type: PRODUCT_SAVE });
-        Actions.pop();
-        Actions.pop();
+        Actions.pop(); // pop the lightbox
+        Actions.pop(); // back to products list
       })
       .catch(() => {
         Actions.pop();
@@ -72,8 +104,8 @@ const onPressProductDelete = (dispatch, id) => {
   FirebaseService.deleteProduct(id)
     .then(() => {
       dispatch({ type: PRODUCT_DELETE });
-      Actions.pop();
-      Actions.pop();
+      Actions.pop(); // pop the lightbox
+      Actions.pop(); // back to products list
     })
     .catch(() => {
       Actions.pop();

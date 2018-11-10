@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { Actions, ActionConst, Scene, Stack, Router } from 'react-native-router-flux';
+import { ActionConst, Scene, Stack, Router } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { addProduct, logout } from './actions';
 import i18n from './i18n';
 import colors from './colors';
 import fonts from './fonts';
@@ -44,9 +46,9 @@ class RouterComponent extends Component<Props> {
               title={i18n.t('products.title')}
               hideNavBar={false}
               leftButtonImage={imgAppLogout}
-              onLeft={() => { Actions.mainLogin(); }}
+              onLeft={() => this.props.logout()}
               rightButtonImage={imgAppAdd}
-              onRight={() => { Actions.product(); }}
+              onRight={() => this.props.addProduct()}
             />
             <Scene
               key='product'
@@ -81,4 +83,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default RouterComponent;
+export default connect(null, { addProduct, logout })(RouterComponent);

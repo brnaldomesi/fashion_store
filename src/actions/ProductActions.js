@@ -43,10 +43,19 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
       result = FirebaseService.setProduct(id, imageUrl, name, price, color, size);
     }
 
-    result.then(() => {
-      dispatch({ type: PRODUCT_SAVE });
-      Actions.pop();
-    });
+    result
+      .then(() => {
+        dispatch({ type: PRODUCT_SAVE });
+        Actions.pop();
+      })
+      .catch(() => {
+        Alert.alert(
+          i18n.t('app.attention'),
+          i18n.t('product.save.failureMessage'),
+          [{ text: i18n.t('app.ok') }],
+          { cancelable: true }
+        );
+      });
   };
 };
 

@@ -13,6 +13,9 @@
   "gallery": {
     "title": "Gallery"
   },
+  "launch": {
+    "loading": "Loading...",
+  },
   "login": {
     "title": "Login",
     "welcome": "Welcome to FastBuy",

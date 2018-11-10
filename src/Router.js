@@ -25,26 +25,23 @@ class RouterComponent extends Component<Props> {
       <Router sceneStyle={sceneStyle}>
 
         <Stack key='root'>
-          <Stack key='mainLaunch' hideNavBar>
-            <Scene key='launch' component={LaunchScreen} />
+          <Stack hideNavBar>
+            <Scene component={LaunchScreen} />
           </Stack>
 
-          <Stack key='mainLogin' type={ActionConst.REPLACE} hideNavBar>
-            <Scene key='login' component={LoginScreen} />
+          <Stack key='login' type={ActionConst.REPLACE} hideNavBar>
+            <Scene component={LoginScreen} />
           </Stack>
 
-          <Lightbox key="lightbox" hideNavBar>
+          <Lightbox key='main' type={ActionConst.REPLACE} hideNavBar>
             <Stack
-              key='main'
               navigationBarStyle={navigationBarStyle}
               titleStyle={navigationBarTitleStyle}
               headerLayoutPreset='center'
               backButtonImage={imgAppIcon}
-              type={ActionConst.REPLACE}
               hideNavBar
             >
               <Scene
-                key='products'
                 component={ProductsScreen}
                 title={i18n.t('products.title')}
                 hideNavBar={false}

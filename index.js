@@ -1,18 +1,5 @@
-import {
-  LOGIN_SCREEN,
-  PRODUCTS_SCREEN,
-  registerScreens, startSingleScreenApp
-} from './src/screens';
+import { AppRegistry } from 'react-native';
+import App from './src/App';
+import { name as appName } from './app.json';
 
-import AppBusiness from './src/business/AppBusiness';
-
-registerScreens();
-
-AppBusiness.configure();
-AppBusiness.signInSilentlyIfNeeded()
-  .then(() => {
-    startSingleScreenApp(PRODUCTS_SCREEN, 'none');
-  })
-  .catch(() => {
-    startSingleScreenApp(LOGIN_SCREEN, 'none');
-  });
+AppRegistry.registerComponent(appName, () => App);

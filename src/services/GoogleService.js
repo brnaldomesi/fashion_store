@@ -1,6 +1,6 @@
 import { GoogleSignin, statusCodes } from 'react-native-google-signin';
 
-export default class GoogleService {
+class GoogleService {
 
   static configure() {
     GoogleSignin.configure();
@@ -34,3 +34,5 @@ export default class GoogleService {
   }
 
 }
+
+export { GoogleService };

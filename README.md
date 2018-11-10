@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  👉👉 <a href="https://youtu.be/mxLl_HvANt8">Click to view a video demonstration.</a> 👈👈
+  <a href="https://youtu.be/mxLl_HvANt8">Click to view a video demonstration.</a>
   <br/><br/><br/>
 </p>
 
@@ -97,7 +97,7 @@ react-native run-android
 - [x] Delete a Product
 - [x] Edit a Product
 - [ ] Camera
-- [ ] Redux framework
+- [x] Redux framework
 - [x] Firebase Integration (Analytics, Auth, Database, Crashlytics and Performance)
 - [x] Translation (with [react-native-languages](https://github.com/react-community/react-native-languages))
 

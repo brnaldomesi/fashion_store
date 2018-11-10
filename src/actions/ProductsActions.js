@@ -14,7 +14,7 @@ export const productsFetch = () => {
   return (dispatch) => {
     dispatch({ type: PRODUCTS_FETCH });
 
-    FirebaseService.productsCollection().orderBy('name')
+    const unsubscribe = FirebaseService.productsCollection().orderBy('name')
       .onSnapshot((querySnapshot) => {
         const products = [];
 
@@ -23,7 +23,10 @@ export const productsFetch = () => {
           products.push({ id: doc.id, imageUrl, name, price, color, size });
         });
 
-        dispatch({ type: PRODUCTS_FETCH_SUCCESS, payload: products });
+        dispatch({
+          type: PRODUCTS_FETCH_SUCCESS,
+          payload: { products, unsubscribe }
+        });
       });
   };
 };

@@ -16,6 +16,10 @@ class ProductsScreen extends Component<Props> {
     this.props.productsFetch();
   }
 
+  componentWillUnmount() {
+    this.props.unsubscribe();
+  }
+
   renderLoading() {
     return (
       <LoadingView />
@@ -85,8 +89,8 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  const { loading, products } = state.products;
-  return { loading, products };
+  const { loading, products, unsubscribe } = state.products;
+  return { loading, products, unsubscribe };
 };
 
 export default connect(mapStateToProps, {

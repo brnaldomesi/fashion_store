@@ -1,11 +1,13 @@
 package me.furtado.fastbuy;
 
-import com.facebook.react.shell.MainReactPackage;
-import com.learnium.RNDeviceInfo.RNDeviceInfo;
-import com.reactcommunity.rnlanguages.RNLanguagesPackage;
+import android.app.Application;
+
+import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.reactnativenavigation.NavigationApplication;
-import com.reactnativenavigation.bridge.NavigationReactPackage;
+import com.facebook.react.shell.MainReactPackage;
+import com.facebook.soloader.SoLoader;
+import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import com.wix.RNCameraKit.RNCameraKitPackage;
 
 import java.util.Arrays;
@@ -19,38 +21,44 @@ import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
 import io.invertase.firebase.perf.RNFirebasePerformancePackage;
 
-public class MainApplication extends NavigationApplication {
+public class MainApplication extends Application implements ReactApplication {
+
+  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+    @Override
+    public boolean getUseDeveloperSupport() {
+      return BuildConfig.DEBUG;
+    }
+
+    @Override
+    protected List<ReactPackage> getPackages() {
+      return Arrays.<ReactPackage>asList(
+              new MainReactPackage(),
+              new RNCameraKitPackage(),
+              new RNFirebasePackage(),
+              new RNFirebaseAnalyticsPackage(),
+              new RNFirebaseAuthPackage(),
+              new RNFirebaseCrashlyticsPackage(),
+              new RNFirebaseFirestorePackage(),
+              new RNFirebasePerformancePackage(),
+              new RNGoogleSigninPackage(),
+              new RNLanguagesPackage()
+      );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
+    }
+  };
 
   @Override
-  public boolean isDebug() {
-    return BuildConfig.DEBUG;
+  public ReactNativeHost getReactNativeHost() {
+    return mReactNativeHost;
   }
 
   @Override
-  public List<ReactPackage> createAdditionalReactPackages() {
-    return getPackages();
+  public void onCreate() {
+    super.onCreate();
+    SoLoader.init(this, false);
   }
-
-  @Override
-  public String getJSMainModuleName() {
-    return "index";
-  }
-
-  protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new NavigationReactPackage(),
-            new RNCameraKitPackage(),
-            new RNDeviceInfo(),
-            new RNFirebasePackage(),
-            new RNFirebaseAnalyticsPackage(),
-            new RNFirebaseAuthPackage(),
-            new RNFirebaseCrashlyticsPackage(),
-            new RNFirebaseFirestorePackage(),
-            new RNFirebasePerformancePackage(),
-            new RNGoogleSigninPackage(),
-            new RNLanguagesPackage()
-    );
-  }
-
 }

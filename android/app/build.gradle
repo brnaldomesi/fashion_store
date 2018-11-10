@@ -149,15 +149,8 @@ android {
 
 dependencies {
     implementation project(":rncamerakit")
-    implementation project(':react-native-navigation')
     implementation project(':react-native-languages')
     implementation project(':react-native-firebase')
-    implementation project(':react-native-device-info')
-    implementation project(':react-native-firebase')
-    implementation project(':react-native-firebase')
-    implementation project(':react-native-device-info')
-    implementation project(':react-native-languages')
-    implementation project(':react-native-navigation')
     implementation(project(":react-native-google-signin")) {
         exclude group: "com.google.android.gms"
     }

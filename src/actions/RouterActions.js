@@ -29,5 +29,5 @@ export const addProduct = () => {
 const onPressLogout = () => {
   GoogleService.signOut();
   FirebaseService.signOut();
-  Actions.mainLogin();
+  Actions.login();
 };

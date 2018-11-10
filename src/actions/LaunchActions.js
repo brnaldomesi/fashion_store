@@ -11,9 +11,9 @@ export const tryToSignInSilently = () => {
           .then(() => Actions.main())
           .catch(() => {
             GoogleService.signOut();
-            Actions.mainLogin();
+            Actions.login();
           });
       })
-      .catch(() => Actions.mainLogin());
+      .catch(() => Actions.login());
   };
 };

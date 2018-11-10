@@ -34,7 +34,8 @@
       "price": "Price",
       "color": "Color",
       "size": "Size",
-      "save": "Save"
+      "save": "Save",
+      "delete": "Delete"
     },
     "save": {
       "successMessage": "The product has been saved.",

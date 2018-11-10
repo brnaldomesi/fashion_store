@@ -47,5 +47,13 @@ const onPressProductsDelete = (dispatch, id) => {
   FirebaseService.deleteProduct(id)
     .then(() => {
       dispatch({ type: PRODUCTS_DELETE });
+    })
+    .catch(() => {
+      Alert.alert(
+        i18n.t('app.attention'),
+        i18n.t('app.deleteFailureMessage'),
+        [{ text: i18n.t('app.ok') }],
+        { cancelable: true }
+      );
     });
 };

@@ -57,5 +57,13 @@ const onPressProductDelete = (dispatch, id) => {
     .then(() => {
       dispatch({ type: PRODUCT_DELETE });
       Actions.pop();
+    })
+    .catch(() => {
+      Alert.alert(
+        i18n.t('app.attention'),
+        i18n.t('app.deleteFailureMessage'),
+        [{ text: i18n.t('app.ok') }],
+        { cancelable: true }
+      );
     });
 };

@@ -1,6 +1,10 @@
+import { Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { FirebaseService } from '../services';
 import { PRODUCT_CLEAN, PRODUCT_DELETE, PRODUCT_SAVE, PRODUCT_UPDATE } from './types';
+import i18n from '../i18n';
+
+// Public
 
 export const productClean = () => {
     return {
@@ -8,13 +12,17 @@ export const productClean = () => {
     };
 };
 
-export const productDelete = ({ id }) => {
+export const productDelete = ({ id, name }) => {
   return (dispatch) => {
-    FirebaseService.deleteProduct(id)
-      .then(() => {
-        dispatch({ type: PRODUCT_DELETE });
-        Actions.pop();
-      });
+    Alert.alert(
+       i18n.t('app.deleteMessage'),
+       name,
+       [
+         { text: i18n.t('app.yes'), onPress: () => onPressProductDelete(dispatch, id) },
+         { text: i18n.t('app.cancel'), style: 'cancel' }
+       ],
+       { cancelable: true }
+     );
   };
 };
 
@@ -40,4 +48,14 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
       Actions.pop();
     });
   };
+};
+
+// Private
+
+const onPressProductDelete = (dispatch, id) => {
+  FirebaseService.deleteProduct(id)
+    .then(() => {
+      dispatch({ type: PRODUCT_DELETE });
+      Actions.pop();
+    });
 };

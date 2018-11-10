@@ -1,12 +1,21 @@
+import { Alert } from 'react-native';
 import { FirebaseService } from '../services';
 import { PRODUCTS_DELETE, PRODUCTS_FETCH, PRODUCTS_FETCH_SUCCESS } from './types';
+import i18n from '../i18n';
 
-export const productsDelete = ({ id }) => {
+// Public
+
+export const productsDelete = ({ item }) => {
   return (dispatch) => {
-    FirebaseService.deleteProduct(id)
-      .then(() => {
-        dispatch({ type: PRODUCTS_DELETE });
-      });
+    Alert.alert(
+       i18n.t('app.deleteMessage'),
+       item.name,
+       [
+         { text: i18n.t('app.yes'), onPress: () => onPressProductsDelete(dispatch, item.id) },
+         { text: i18n.t('app.cancel'), style: 'cancel' }
+       ],
+       { cancelable: true }
+     );
   };
 };
 
@@ -29,4 +38,14 @@ export const productsFetch = () => {
         });
       });
   };
+};
+
+// Private
+
+
+const onPressProductsDelete = (dispatch, id) => {
+  FirebaseService.deleteProduct(id)
+    .then(() => {
+      dispatch({ type: PRODUCTS_DELETE });
+    });
 };

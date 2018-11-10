@@ -25,7 +25,7 @@ const ProductItem = ({ item, margin, onPress, onPressDelete }) => {
   return (
     <View style={{ marginTop: margin / 2, marginBottom: margin / 2 }}>
       <TouchableOpacity style={containerStyle} onPress={onPress}>
-        <Image style={[{ marginRight: margin }, imageStyle]} source={{ uri: item.thumbnailUrl }} />
+        <Image style={[{ marginRight: margin }, imageStyle]} source={{ uri: item.imageUrl }} />
 
         <View style={productViewStyle}>
           <Text style={nameTextStyle}>{item.name}</Text>
@@ -65,7 +65,7 @@ const styles = {
   },
 
   imageStyle: {
-    backgroundColor: colors.grayLight,
+    backgroundColor: colors.grayUltraLight,
     width: 90,
     height: 90,
     borderRadius: 5,

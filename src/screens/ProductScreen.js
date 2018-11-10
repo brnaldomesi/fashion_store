@@ -1,127 +1,49 @@
 import React, { Component } from 'react';
-import { Alert, Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
-import { dismissLightBox, navigatorPop, showLightBox } from './';
+import { Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
+import { productClean, productDelete, productSave, productUpdate } from '../actions';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
-import imgAppDelete from '../../assets/images/app-delete.png';
 
-import ProductBusiness from '../business/ProductBusiness';
-
-
-const DELETE_BUTTON_ID = 'delete';
 type Props = {};
-export default class ProductScreen extends Component<Props> {
-
-  static navigatorButtons = {
-    rightButtons: [{ id: DELETE_BUTTON_ID, icon: imgAppDelete }]
-  };
-
-  constructor(props) {
-    super(props);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-  }
-
-  state = {
-    id: '',
-    thumbnailUrl: '',
-    imageUrl: '',
-    name: '',
-    price: -1,
-    color: '',
-    size: ''
-  };
+class ProductScreen extends Component<Props> {
 
   componentWillMount() {
-    this.props.navigator.setTitle({ title: i18n.t('product.title') });
+    this.props.productClean();
 
-    const { id, thumbnailUrl, imageUrl, name, price, color, size } = this.props;
-    this.setState({ id, thumbnailUrl, imageUrl, name, price, color, size });
-  }
-
-  onConfirmDelete() {
-    showLightBox(this.props.navigator);
-
-    ProductBusiness.deleteProduct(this.state.id)
-      .then(() => {
-        dismissLightBox(this.props.navigator);
-
-        Alert.alert(
-          i18n.t('app.success'),
-          i18n.t('app.deleteSuccessMessage'),
-          [{ text: i18n.t('app.ok'), onPress: () => navigatorPop(this.props.navigator) }],
-          { cancelable: false }
-        );
-      })
-      .catch(() => {
-        dismissLightBox(this.props.navigator);
-
-        Alert.alert(
-          i18n.t('app.attention'),
-          i18n.t('app.deleteFailureMessage'),
-          [{ text: i18n.t('app.ok') }],
-          { cancelable: true }
-        );
+    const { product } = this.props;
+    if (product) {
+      Object.keys(product).forEach((prop) => {
+        const value = product[prop];
+        this.props.productUpdate({ prop, value });
       });
-  }
-
-  onNavigatorEvent(event) {
-    if (event.type !== 'NavBarButtonPress') {
-      return;
     }
-
-    if (event.id === DELETE_BUTTON_ID) {
-      this.onPressDelete();
-    }
-  }
-
-  onPressAddPhoto() {
-  }
-
-  onPressSave() {
-    showLightBox(this.props.navigator);
-
-    const { id, thumbnailUrl, imageUrl, name, price, color, size } = this.state;
-
-    ProductBusiness.saveProduct(id, name, price, color, size, thumbnailUrl, imageUrl)
-      .then(() => {
-        dismissLightBox(this.props.navigator);
-
-        Alert.alert(
-          i18n.t('app.success'),
-          i18n.t('product.save.successMessage'),
-          [{ text: i18n.t('app.ok'), onPress: () => navigatorPop(this.props.navigator) }],
-          { cancelable: false }
-        );
-      })
-      .catch(() => {
-        dismissLightBox(this.props.navigator);
-
-        Alert.alert(
-          i18n.t('app.attention'),
-          i18n.t('product.save.failureMessage'),
-          [{ text: i18n.t('app.ok') }],
-          { cancelable: true }
-        );
-      });
   }
 
   onPressDelete() {
-    Alert.alert(
-      i18n.t('app.attention'),
-      i18n.t('app.deleteMessage'),
-      [
-        { text: i18n.t('app.deleteOk'), onPress: () => this.onConfirmDelete() },
-        { text: i18n.t('app.cancel'), style: 'cancel' }
-      ],
-      { cancelable: true }
+    const { id, name } = this.props;
+    this.props.productDelete({ id, name });
+  }
+
+  onPressSave() {
+    const { id, imageUrl, name, price, color, size } = this.props;
+    this.props.productSave({ id, imageUrl, name, price, color, size });
+  }
+
+  renderDelete() {
+    return (
+      <Button
+        backgroundColor={colors.transparent}
+        textColor={colors.purple}
+        title={i18n.t('product.form.delete')}
+        onPress={this.onPressDelete.bind(this)}
+      />
     );
   }
 
   render() {
-    const { imageUrl, name, price, color, size } = this.state;
-
     const {
       containerStyle,
       backgroundImageStyle,
@@ -135,12 +57,15 @@ export default class ProductScreen extends Component<Props> {
     return (
       <KeyboardView style={containerStyle}>
         <ScrollView>
-          <ImageBackground style={backgroundImageStyle} source={{ uri: imageUrl }}>
+          <ImageBackground
+            style={backgroundImageStyle}
+            source={{ uri: this.props.imageUrl }}
+          >
             <ImageButton
               style={imageButtonStyle}
               size={45}
               source={imgAppAddPhoto}
-              onPress={() => this.onPressAddPhoto()}
+              onPress={() => {}}
             />
           </ImageBackground>
 
@@ -148,24 +73,24 @@ export default class ProductScreen extends Component<Props> {
             <Input
               style={inputStyle}
               title={i18n.t('product.form.product_name')}
-              value={name}
-              onChangeText={text => this.setState({ name: text })}
+              value={this.props.name}
+              onChangeText={value => this.props.productUpdate({ prop: 'name', value })}
             />
 
             <Input
               style={inputStyle}
               title={i18n.t('product.form.price')}
-              value={(price >= 0) ? `${price}` : null}
+              value={`${this.props.price}`}
               keyboardType={'numeric'}
-              onChangeText={text => this.setState({ price: text })}
+              onChangeText={value => this.props.productUpdate({ prop: 'price', value })}
             />
 
             <View style={subFormStyle}>
               <Input
                 style={inputStyle}
                 title={i18n.t('product.form.color')}
-                value={color}
-                onChangeText={text => this.setState({ color: text })}
+                value={this.props.color}
+                onChangeText={value => this.props.productUpdate({ prop: 'color', value })}
               />
 
               <View style={spaceViewStyle} />
@@ -173,8 +98,8 @@ export default class ProductScreen extends Component<Props> {
               <Input
                 style={inputStyle}
                 title={i18n.t('product.form.size')}
-                value={size}
-                onChangeText={text => this.setState({ size: text })}
+                value={this.props.size}
+                onChangeText={text => this.props.productUpdate({ prop: 'size', value: text })}
               />
             </View>
 
@@ -182,8 +107,10 @@ export default class ProductScreen extends Component<Props> {
               backgroundColor={colors.purple}
               textColor={colors.white}
               title={i18n.t('product.form.save')}
-              onPress={() => this.onPressSave()}
+              onPress={this.onPressSave.bind(this)}
             />
+
+            {this.props.id ? this.renderDelete() : null}
           </View>
         </ScrollView>
       </KeyboardView>
@@ -200,8 +127,8 @@ const styles = StyleSheet.create({
   },
 
   backgroundImageStyle: {
-    backgroundColor: colors.grayLight,
-    height: width * (3 / 4),
+    backgroundColor: colors.grayUltraLight,
+    height: width,
     width
   },
   imageButtonStyle: {
@@ -224,3 +151,12 @@ const styles = StyleSheet.create({
     margin: margin / 2
   }
 });
+
+const mapStateToProps = (state) => {
+  const { id, imageUrl, name, price, color, size } = state.product;
+  return { id, imageUrl, name, price, color, size };
+};
+
+export default connect(mapStateToProps, {
+  productClean, productDelete, productSave, productUpdate
+})(ProductScreen);

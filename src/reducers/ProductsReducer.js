@@ -9,7 +9,7 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case PRODUCTS_DELETE:
-      return INITIAL_STATE;
+      return state;
 
     case PRODUCTS_FETCH:
       return INITIAL_STATE;

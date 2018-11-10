@@ -25,7 +25,6 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		5F8AA0313C79F6817FD9AF70 /* libPods-fastbuy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 916582EC5C6FC02EDCD9CD42 /* libPods-fastbuy.a */; };
-		782F3D075F76486B907FECA3 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFD37719FC64057B90C36E5 /* libRNDeviceInfo.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8BDF14E10E5647B6BC30378A /* Exo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47218356F57A4EB480F383CA /* Exo-Regular.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -36,7 +35,6 @@
 		F82A2048218CD5C5000E89E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */; };
 		F84417482190D0C000416828 /* libReactNativeCameraKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F84417402190D0A600416828 /* libReactNativeCameraKit.a */; };
 		F8AF54C6218F2E97008B0E90 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AF54C3218F2E7A008B0E90 /* libRNGoogleSignin.a */; };
-		F8F04DAC218CABB60073B832 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F04DAB218CAB850073B832 /* libReactNativeNavigation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,27 +339,6 @@
 			remoteGlobalIDString = 2D2A28471D9B043800D4039D;
 			remoteInfo = "RNLanguages-tvOS";
 		};
-		F8F04DAA218CAB850073B832 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8F04DA6218CAB850073B832 /* ReactNativeNavigation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D8AFADBD1BEE6F3F00A4592D;
-			remoteInfo = ReactNativeNavigation;
-		};
-		F8F04DE7218CB0E30073B832 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A0819FD2E6481F95971B96 /* RNDeviceInfo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DA5891D81BA9A9FC002B4DB2;
-			remoteInfo = RNDeviceInfo;
-		};
-		F8F04DE9218CB0E30073B832 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84A0819FD2E6481F95971B96 /* RNDeviceInfo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E72EC1401F7ABB5A0001BC90;
-			remoteInfo = "RNDeviceInfo-tvOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -392,7 +369,6 @@
 		60A812DCCAB27B4B6E3B49C3 /* Pods-fastbuyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuyTests/Pods-fastbuyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		84A0819FD2E6481F95971B96 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		8D5D1C7F60ADA87C3DAAC3FE /* Pods-fastbuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuyTests/Pods-fastbuyTests.release.xcconfig"; sourceTree = "<group>"; };
 		90B8AEC77C444094291DDBD3 /* Pods-fastbuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastbuy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fastbuy/Pods-fastbuy.debug.xcconfig"; sourceTree = "<group>"; };
 		916582EC5C6FC02EDCD9CD42 /* libPods-fastbuy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fastbuy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -410,7 +386,6 @@
 		F8AF54C9218F2ED0008B0E90 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		F8AF54CB218F2EDA008B0E90 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F8AF54CD218F2EE4008B0E90 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		F8F04DA6218CAB850073B832 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNLanguages.xcodeproj; path = "../node_modules/react-native-languages/ios/RNLanguages.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -443,8 +418,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				B9406E0B5A89493480F8A339 /* libRNLanguages.a in Frameworks */,
-				F8F04DAC218CABB60073B832 /* libReactNativeNavigation.a in Frameworks */,
-				782F3D075F76486B907FECA3 /* libRNDeviceInfo.a in Frameworks */,
 				EB4DA0CD01B6458187EF2FE1 /* libRNFirebase.a in Frameworks */,
 				5F8AA0313C79F6817FD9AF70 /* libPods-fastbuy.a in Frameworks */,
 			);
@@ -629,9 +602,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				84A0819FD2E6481F95971B96 /* RNDeviceInfo.xcodeproj */,
 				FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */,
-				F8F04DA6218CAB850073B832 /* ReactNativeNavigation.xcodeproj */,
 				B6309E08929F4735B652CFE1 /* RNFirebase.xcodeproj */,
 			);
 			name = Libraries;
@@ -731,23 +702,6 @@
 			children = (
 				F8F04DA3218C97C70073B832 /* libRNLanguages.a */,
 				F8F04DA5218C97C70073B832 /* libRNLanguages-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F8F04DA7218CAB850073B832 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F8F04DAB218CAB850073B832 /* libReactNativeNavigation.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F8F04DE3218CB0E30073B832 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F8F04DE8218CB0E30073B832 /* libRNDeviceInfo.a */,
-				F8F04DEA218CB0E30073B832 /* libRNDeviceInfo-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -873,14 +827,6 @@
 				{
 					ProductGroup = F84417172190D0A600416828 /* Products */;
 					ProjectRef = F84417162190D0A600416828 /* ReactNativeCameraKit.xcodeproj */;
-				},
-				{
-					ProductGroup = F8F04DA7218CAB850073B832 /* Products */;
-					ProjectRef = F8F04DA6218CAB850073B832 /* ReactNativeNavigation.xcodeproj */;
-				},
-				{
-					ProductGroup = F8F04DE3218CB0E30073B832 /* Products */;
-					ProjectRef = 84A0819FD2E6481F95971B96 /* RNDeviceInfo.xcodeproj */;
 				},
 				{
 					ProductGroup = F8609A16218CCB6500A72C5B /* Products */;
@@ -1198,27 +1144,6 @@
 			remoteRef = F8F04DA4218C97C70073B832 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F8F04DAB218CAB850073B832 /* libReactNativeNavigation.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReactNativeNavigation.a;
-			remoteRef = F8F04DAA218CAB850073B832 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F8F04DE8218CB0E30073B832 /* libRNDeviceInfo.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNDeviceInfo.a;
-			remoteRef = F8F04DE7218CB0E30073B832 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F8F04DEA218CB0E30073B832 /* libRNDeviceInfo-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libRNDeviceInfo-tvOS.a";
-			remoteRef = F8F04DE9218CB0E30073B832 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1402,7 +1327,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-languages/ios",
-					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = fastbuyTests/Info.plist;
@@ -1435,7 +1359,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-languages/ios",
-					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = fastbuyTests/Info.plist;
@@ -1469,7 +1392,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-languages/ios",
-					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = fastbuy/Info.plist;
@@ -1494,7 +1416,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-languages/ios",
-					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = fastbuy/Info.plist;
@@ -1556,10 +1477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
-				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1606,10 +1524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
-				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

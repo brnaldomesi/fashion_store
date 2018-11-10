@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { CameraKitCameraScreen } from 'react-native-camera-kit';
-import { dismissModal } from './';
 import i18n from '../i18n';
 import colors from '../colors';
 import imgCameraCapture from '../../assets/images/camera-capture.png';
@@ -13,15 +12,8 @@ import imgCameraFlip from '../../assets/images/camera-flip.png';
 type Props = {};
 export default class CameraScreen extends Component<Props> {
 
-  static navigatorStyle = {
-    navBarHidden: true,
-    // iOS only
-    statusBarTextColorSchemeSingleScreen: 'light'
-  };
-
   onButtonPressed(event) {
     if (event.type === 'left') {
-      dismissModal(this.props.navigator);
       return;
     }
 

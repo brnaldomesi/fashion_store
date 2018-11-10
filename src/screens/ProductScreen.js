@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   },
 
   backgroundImageStyle: {
-    backgroundColor: colors.grayLight,
+    backgroundColor: colors.grayUltraLight,
     height: width,
     width
   },

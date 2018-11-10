@@ -65,7 +65,7 @@ const styles = {
   },
 
   imageStyle: {
-    backgroundColor: colors.grayLight,
+    backgroundColor: colors.grayUltraLight,
     width: 90,
     height: 90,
     borderRadius: 5,

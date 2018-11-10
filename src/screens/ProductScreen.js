@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
-import { productClean, productDelete, productSave, productUpdate } from '../actions';
+import { addPhoto, productClean, productDelete, productSave, productUpdate } from '../actions';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
@@ -65,7 +65,7 @@ class ProductScreen extends Component<Props> {
               style={imageButtonStyle}
               size={45}
               source={imgAppAddPhoto}
-              onPress={() => {}}
+              onPress={() => this.props.addPhoto()}
             />
           </ImageBackground>
 
@@ -158,5 +158,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  productClean, productDelete, productSave, productUpdate
+  addPhoto, productClean, productDelete, productSave, productUpdate
 })(ProductScreen);

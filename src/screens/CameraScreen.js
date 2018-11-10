@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { CameraKitCameraScreen } from 'react-native-camera-kit';
 import i18n from '../i18n';
 import colors from '../colors';
@@ -14,6 +15,7 @@ export default class CameraScreen extends Component<Props> {
 
   onButtonPressed(event) {
     if (event.type === 'left') {
+      Actions.pop();
       return;
     }
 

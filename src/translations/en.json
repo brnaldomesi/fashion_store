@@ -45,7 +45,7 @@
       "failureMessage": "The product could not be saved.",
     },
     "addPhoto": {
-      "title": "New Photo",
+      "option": "Select an option:",
       "photoLibrary": "Photo Library",
       "takePicture": "Take Picture"
     },

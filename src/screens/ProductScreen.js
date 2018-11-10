@@ -1,200 +1,49 @@
 import React, { Component } from 'react';
-import {
-  Dimensions, Platform,
-  ActionSheetIOS, Alert, ImageBackground, ScrollView, StyleSheet, View
-} from 'react-native';
-import {
-  CAMERA_SCREEN, GALLERY_SCREEN,
-  dismissLightBox, navigatorPop, showModal, showLightBox
-} from './';
+import { Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
+import { productClean, productDelete, productSave, productUpdate } from '../actions';
 import { Button, KeyboardView, ImageButton, Input } from '../components';
-import { ProductBusiness } from '../business';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
-import imgAppDelete from '../../assets/images/app-delete.png';
 
-
-const DELETE_BUTTON_ID = 'delete';
 type Props = {};
-export default class ProductScreen extends Component<Props> {
-
-  static navigatorButtons = {
-    rightButtons: [{ id: DELETE_BUTTON_ID, icon: imgAppDelete }]
-  };
-
-  constructor(props) {
-    super(props);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-  }
-
-  state = {
-    id: '',
-    thumbnailUrl: '',
-    imageUrl: '',
-    name: '',
-    price: -1,
-    color: '',
-    size: ''
-  };
+class ProductScreen extends Component<Props> {
 
   componentWillMount() {
-    const { id, thumbnailUrl, imageUrl, name, price, color, size } = this.props;
-    this.setState({ id, thumbnailUrl, imageUrl, name, price, color, size });
-  }
+    this.props.productClean();
 
-  onConfirmDelete() {
-    showLightBox(this.props.navigator);
-
-    ProductBusiness.deleteProduct(this.state.id)
-      .then(() => {
-        dismissLightBox(this.props.navigator);
-
-        Alert.alert(
-          i18n.t('app.success'),
-          i18n.t('app.deleteSuccessMessage'),
-          [{ text: i18n.t('app.ok'), onPress: () => navigatorPop(this.props.navigator) }],
-          { cancelable: false }
-        );
-      })
-      .catch(() => {
-        dismissLightBox(this.props.navigator);
-
-        Alert.alert(
-          i18n.t('app.attention'),
-          i18n.t('app.deleteFailureMessage'),
-          [{ text: i18n.t('app.ok') }],
-          { cancelable: true }
-        );
+    const { product } = this.props;
+    if (product) {
+      Object.keys(product).forEach((prop) => {
+        const value = product[prop];
+        this.props.productUpdate({ prop, value });
       });
-  }
-
-  onNavigatorEvent(event) {
-    if (event.type !== 'NavBarButtonPress') {
-      return;
     }
-
-    if (event.id === DELETE_BUTTON_ID) {
-      this.onPressDelete();
-    }
-  }
-
-  onPressAddPhoto() {
-    const cancel = i18n.t('app.cancel');
-    const title = i18n.t('product.addPhoto.title');
-    const takePicture = i18n.t('product.addPhoto.takePicture');
-    const photoLibrary = i18n.t('product.addPhoto.photoLibrary');
-
-    if (Platform.OS === 'ios') {
-      ActionSheetIOS.showActionSheetWithOptions({
-        title,
-        options: [cancel, takePicture, photoLibrary],
-        cancelButtonIndex: 0
-      },
-      (buttonIndex) => {
-        if (buttonIndex === 1) {
-          this.onPressAddPhotoCamera();
-        } else if (buttonIndex === 2) {
-          this.onPressAddPhotoAlbum();
-        }
-      });
-    } else {
-      Alert.alert(
-        title, null,
-        [
-          { text: takePicture, onPress: () => this.onPressAddPhotoCamera() },
-          { text: photoLibrary, onPress: () => this.onPressAddPhotoAlbum() }
-        ],
-        { cancelable: true }
-      );
-    }
-  }
-
-  onPressAddPhotoAlbum() {
-    ProductBusiness.checkDevicePhotosAuthorizationStatus()
-      .then(success => {
-        if (success) {
-          showModal(this.props.navigator, GALLERY_SCREEN, i18n.t('gallery.title'));
-        } else {
-          Alert.alert(
-            i18n.t('permissions.titleFailure'),
-            i18n.t('permissions.galleryFailureMessage'),
-            [{ text: i18n.t('app.ok') }],
-            { cancelable: true }
-          );
-        }
-      });
-  }
-
-  onPressAddPhotoCamera() {
-    if (ProductBusiness.isSimulator()) {
-      Alert.alert(
-        i18n.t('permissions.titleFailure'),
-        i18n.t('permissions.simulatorFailureMessage'),
-        [{ text: i18n.t('app.ok') }],
-        { cancelable: true }
-      );
-      return;
-    }
-
-    ProductBusiness.checkDeviceCameraAuthorizationStatus()
-      .then(success => {
-        if (success) {
-          showModal(this.props.navigator, CAMERA_SCREEN);
-        } else {
-          Alert.alert(
-            i18n.t('permissions.titleFailure'),
-            i18n.t('permissions.cameraFailureMessage'),
-            [{ text: i18n.t('app.ok') }],
-            { cancelable: true }
-          );
-        }
-      });
-  }
-
-  onPressSave() {
-    showLightBox(this.props.navigator);
-
-    const { id, thumbnailUrl, imageUrl, name, price, color, size } = this.state;
-
-    ProductBusiness.saveProduct(id, name, price, color, size, thumbnailUrl, imageUrl)
-      .then(() => {
-        dismissLightBox(this.props.navigator);
-
-        Alert.alert(
-          i18n.t('app.success'),
-          i18n.t('product.save.successMessage'),
-          [{ text: i18n.t('app.ok'), onPress: () => navigatorPop(this.props.navigator) }],
-          { cancelable: false }
-        );
-      })
-      .catch(() => {
-        dismissLightBox(this.props.navigator);
-
-        Alert.alert(
-          i18n.t('app.attention'),
-          i18n.t('product.save.failureMessage'),
-          [{ text: i18n.t('app.ok') }],
-          { cancelable: true }
-        );
-      });
   }
 
   onPressDelete() {
-    Alert.alert(
-      i18n.t('app.attention'),
-      i18n.t('app.deleteMessage'),
-      [
-        { text: i18n.t('app.deleteOk'), onPress: () => this.onConfirmDelete() },
-        { text: i18n.t('app.cancel'), style: 'cancel' }
-      ],
-      { cancelable: true }
+    const { id } = this.props;
+    this.props.productDelete({ id });
+  }
+
+  onPressSave() {
+    const { id, imageUrl, name, price, color, size } = this.props;
+    this.props.productSave({ id, imageUrl, name, price, color, size });
+  }
+
+  renderDelete() {
+    return (
+      <Button
+        backgroundColor={colors.transparent}
+        textColor={colors.purple}
+        title={i18n.t('product.form.delete')}
+        onPress={this.onPressDelete.bind(this)}
+      />
     );
   }
 
   render() {
-    const { imageUrl, name, price, color, size } = this.state;
-
     const {
       containerStyle,
       backgroundImageStyle,
@@ -208,12 +57,15 @@ export default class ProductScreen extends Component<Props> {
     return (
       <KeyboardView style={containerStyle}>
         <ScrollView>
-          <ImageBackground style={backgroundImageStyle} source={{ uri: imageUrl }}>
+          <ImageBackground
+            style={backgroundImageStyle}
+            source={{ uri: this.props.imageUrl }}
+          >
             <ImageButton
               style={imageButtonStyle}
               size={45}
               source={imgAppAddPhoto}
-              onPress={() => this.onPressAddPhoto()}
+              onPress={() => {}}
             />
           </ImageBackground>
 
@@ -221,24 +73,24 @@ export default class ProductScreen extends Component<Props> {
             <Input
               style={inputStyle}
               title={i18n.t('product.form.product_name')}
-              value={name}
-              onChangeText={text => this.setState({ name: text })}
+              value={this.props.name}
+              onChangeText={value => this.props.productUpdate({ prop: 'name', value })}
             />
 
             <Input
               style={inputStyle}
               title={i18n.t('product.form.price')}
-              value={(price >= 0) ? `${price}` : null}
+              value={`${this.props.price}`}
               keyboardType={'numeric'}
-              onChangeText={text => this.setState({ price: text })}
+              onChangeText={value => this.props.productUpdate({ prop: 'price', value })}
             />
 
             <View style={subFormStyle}>
               <Input
                 style={inputStyle}
                 title={i18n.t('product.form.color')}
-                value={color}
-                onChangeText={text => this.setState({ color: text })}
+                value={this.props.color}
+                onChangeText={value => this.props.productUpdate({ prop: 'color', value })}
               />
 
               <View style={spaceViewStyle} />
@@ -246,8 +98,8 @@ export default class ProductScreen extends Component<Props> {
               <Input
                 style={inputStyle}
                 title={i18n.t('product.form.size')}
-                value={size}
-                onChangeText={text => this.setState({ size: text })}
+                value={this.props.size}
+                onChangeText={text => this.props.productUpdate({ prop: 'size', value: text })}
               />
             </View>
 
@@ -255,8 +107,10 @@ export default class ProductScreen extends Component<Props> {
               backgroundColor={colors.purple}
               textColor={colors.white}
               title={i18n.t('product.form.save')}
-              onPress={() => this.onPressSave()}
+              onPress={this.onPressSave.bind(this)}
             />
+
+            {this.props.id ? this.renderDelete() : null}
           </View>
         </ScrollView>
       </KeyboardView>
@@ -274,7 +128,7 @@ const styles = StyleSheet.create({
 
   backgroundImageStyle: {
     backgroundColor: colors.grayLight,
-    height: width * (3 / 4),
+    height: width,
     width
   },
   imageButtonStyle: {
@@ -297,3 +151,12 @@ const styles = StyleSheet.create({
     margin: margin / 2
   }
 });
+
+const mapStateToProps = (state) => {
+  const { id, imageUrl, name, price, color, size } = state.product;
+  return { id, imageUrl, name, price, color, size };
+};
+
+export default connect(mapStateToProps, {
+  productClean, productDelete, productSave, productUpdate
+})(ProductScreen);

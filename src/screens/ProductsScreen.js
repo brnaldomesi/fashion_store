@@ -1,111 +1,33 @@
 import React, { Component } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { LOGIN_SCREEN, PRODUCT_SCREEN, navigatorPush, startSingleScreenApp } from './';
+import { productsDelete, productsFetch } from '../actions';
 import { LoadingView, NoContentView, ProductItem } from '../components';
-import { ProductsBusiness } from '../business';
 import colors from '../colors';
 import i18n from '../i18n';
-import imgAppAdd from '../../assets/images/app-add.png';
-import imgAppLogout from '../../assets/images/app-logout.png';
 import imgAppCloud from '../../assets/images/app-cloud.png';
 
 
-const LOGOUT_BUTTON_ID = 'logout';
-const ADD_BUTTON_ID = 'add';
 type Props = {};
 class ProductsScreen extends Component<Props> {
 
-  static navigatorButtons = {
-    leftButtons: [{ id: LOGOUT_BUTTON_ID, icon: imgAppLogout }],
-    rightButtons: [{ id: ADD_BUTTON_ID, icon: imgAppAdd }]
-  };
-
-  constructor(props) {
-    super(props);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-    this.collection = ProductsBusiness.productsCollection();
-    this.unsubscribe = null;
+  componentWillMount() {
+    this.props.productsFetch();
   }
 
-  state = {
-      isLoading: true,
-      products: []
-  };
-
-  componentDidMount() {
-    this.unsubscribe = this.collection.onSnapshot(this.onCollectionUpdate);
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  onConfirmDelete(id) {
-    ProductsBusiness.deleteProduct(id)
-      .catch(() => {
-        Alert.alert(
-          i18n.t('app.attention'),
-          i18n.t('app.deleteFailureMessage'),
-          [{ text: i18n.t('app.ok') }],
-          { cancelable: true }
-        );
-      });
-  }
-
-  onConfirmLogout() {
-    ProductsBusiness.signOut();
-    startSingleScreenApp(LOGIN_SCREEN, 'fade');
-  }
-
-  onCollectionUpdate = (querySnapshot) => {
-    const products = ProductsBusiness.onProductsCollectionUpdate(querySnapshot);
-    this.setState({
-      isLoading: false,
-      products
-    });
-  }
-
-  onNavigatorEvent(event) {
-    if (event.type !== 'NavBarButtonPress') {
-      return;
-    }
-
-    if (event.id === LOGOUT_BUTTON_ID) {
-      this.onPressLogout();
-    } else if (event.id === ADD_BUTTON_ID) {
-      this.onPressAdd();
-    }
-  }
-
-  onPressAdd() {
-    navigatorPush(this.props.navigator, PRODUCT_SCREEN, i18n.t('product.title'));
-  }
-
-  onPressLogout() {
-    Alert.alert(
-      i18n.t('products.logout.title'),
-      i18n.t('products.logout.message'),
-      [
-        { text: i18n.t('products.logout.ok'), onPress: () => this.onConfirmLogout() },
-        { text: i18n.t('app.cancel'), style: 'cancel' }
-      ], { cancelable: true }
+  renderLoading() {
+    return (
+      <LoadingView />
     );
   }
 
-  onPressItem(item) {
-    navigatorPush(this.props.navigator, PRODUCT_SCREEN, i18n.t('product.title'), item);
-  }
-
-  onPressItemDelete(item) {
-    Alert.alert(
-      i18n.t('app.deleteMessage'),
-      item.name,
-      [
-        { text: i18n.t('app.deleteOk'), onPress: () => this.onConfirmDelete(item.id) },
-        { text: i18n.t('app.cancel'), style: 'cancel' }
-      ],
-      { cancelable: true }
+  renderNoContent() {
+    return (
+      <NoContentView
+        image={imgAppCloud}
+        title={i18n.t('products.noContent')}
+      />
     );
   }
 
@@ -119,14 +41,14 @@ class ProductsScreen extends Component<Props> {
       <View style={containerStyle}>
         <FlatList
           contentContainerStyle={flatListContainerStyle}
-          data={this.state.products}
+          data={this.props.products}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) =>
             <ProductItem
               margin={padding}
               item={item}
-              onPress={() => this.onPressItem(item)}
-              onPressDelete={() => this.onPressItemDelete(item)}
+              onPress={() => Actions.product({ product: item })}
+              onPressDelete={() => this.props.productsDelete({ id: item.id })}
             />
           }
         />
@@ -135,12 +57,12 @@ class ProductsScreen extends Component<Props> {
   }
 
   render() {
-    if (this.state.isLoading) {
-      return <LoadingView />;
+    if (this.props.loading) {
+      return this.renderLoading();
     }
 
-    if (this.state.products.length === 0) {
-      return <NoContentView image={imgAppCloud} title={i18n.t('products.noContent')} />;
+    if (this.props.products.length === 0) {
+      return this.renderNoContent();
     }
 
     return this.renderList();
@@ -162,6 +84,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => ({ products: state.products });
+const mapStateToProps = state => {
+  const { loading, products } = state.products;
+  return { loading, products };
+};
 
-export default connect(mapStateToProps)(ProductsScreen);
+export default connect(mapStateToProps, {
+  productsDelete, productsFetch
+})(ProductsScreen);

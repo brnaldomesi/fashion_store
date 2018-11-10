@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, Image, Text, View } from 'react-native';
+import { StyleSheet, Image, Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import { PRODUCTS_SCREEN, startSingleScreenApp } from './';
 import { LoadingView, SocialButton } from '../components';
 import { login } from '../actions';
 import colors from '../colors';
@@ -13,33 +12,8 @@ import imgGoogleIcon from '../../assets/images/google-icon.png';
 type Props = {};
 class LoginScreen extends Component<Props> {
 
-  static navigatorStyle = {
-    navBarHidden: true
-  };
-
   onPressButton() {
     this.props.login();
-
-    /*
-    this.setState({ isLoading: true });
-
-    LoginBusiness.signIn()
-      .then(() => {
-        startSingleScreenApp(PRODUCTS_SCREEN, 'fade', i18n.t('products.title'));
-      })
-      .catch(error => {
-        this.setState({ isLoading: false });
-
-        if (error) {
-          Alert.alert(
-            i18n.t('app.attention'),
-            i18n.t('login.enter.message'),
-            [{ text: i18n.t('app.ok') }],
-            { cancelable: true }
-          );
-        }
-      });
-      */
   }
 
   renderLoading() {
@@ -80,6 +54,7 @@ class LoginScreen extends Component<Props> {
     if (this.props.loading) {
       return this.renderLoading();
     }
+
     return this.renderWelcome();
   }
 

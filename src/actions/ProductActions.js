@@ -35,6 +35,8 @@ export const productUpdate = ({ prop, value }) => {
 
 export const productSave = ({ id = null, imageUrl, name, price, color, size }) => {
   return (dispatch) => {
+    Actions.loadingLightbox();
+
     let result;
 
     if (id === null) {
@@ -47,8 +49,11 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
       .then(() => {
         dispatch({ type: PRODUCT_SAVE });
         Actions.pop();
+        Actions.pop();
       })
       .catch(() => {
+        Actions.pop();
+
         Alert.alert(
           i18n.t('app.attention'),
           i18n.t('product.save.failureMessage'),
@@ -62,12 +67,17 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
 // Private
 
 const onPressProductDelete = (dispatch, id) => {
+  Actions.loadingLightbox();
+
   FirebaseService.deleteProduct(id)
     .then(() => {
       dispatch({ type: PRODUCT_DELETE });
       Actions.pop();
+      Actions.pop();
     })
     .catch(() => {
+      Actions.pop();
+
       Alert.alert(
         i18n.t('app.attention'),
         i18n.t('app.deleteFailureMessage'),

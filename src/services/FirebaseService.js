@@ -1,3 +1,5 @@
+import md5 from 'md5';
+import DeviceInfo from 'react-native-device-info';
 import firebase from 'react-native-firebase';
 
 class FirebaseService {
@@ -27,6 +29,19 @@ class FirebaseService {
     return firebase.firestore().collection('products');
   }
 
+  static uploadImage(path) {
+    const id = imageId();
+    return firebase.storage().ref(`/products/images/${id}.jpg`).putFile(path);
+  }
+
+}
+
+// used only to generate a unique id
+// ideally, the server would generate this unique id
+function imageId() {
+  const uniqueID = DeviceInfo.getUniqueID();
+  const date = Date.parse(Date());
+  return md5(`${uniqueID}-${date}`);
 }
 
 export { FirebaseService };

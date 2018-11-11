@@ -35,6 +35,7 @@
 		F82A2048218CD5C5000E89E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F82A201C218CD5C5000E89E0 /* GoogleService-Info.plist */; };
 		F84417482190D0C000416828 /* libReactNativeCameraKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F84417402190D0A600416828 /* libReactNativeCameraKit.a */; };
 		F8AF54C6218F2E97008B0E90 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8AF54C3218F2E7A008B0E90 /* libRNGoogleSignin.a */; };
+		F8B5CB7A219871C600F45916 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B5CB73219871AF00F45916 /* libRNDeviceInfo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,6 +326,20 @@
 			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
 			remoteInfo = RNGoogleSignin;
 		};
+		F8B5CB72219871AF00F45916 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8B5CB47219871AF00F45916 /* RNDeviceInfo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DA5891D81BA9A9FC002B4DB2;
+			remoteInfo = RNDeviceInfo;
+		};
+		F8B5CB74219871AF00F45916 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8B5CB47219871AF00F45916 /* RNDeviceInfo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E72EC1401F7ABB5A0001BC90;
+			remoteInfo = "RNDeviceInfo-tvOS";
+		};
 		F8F04DA2218C97C70073B832 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */;
@@ -386,6 +401,7 @@
 		F8AF54C9218F2ED0008B0E90 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		F8AF54CB218F2EDA008B0E90 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F8AF54CD218F2EE4008B0E90 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F8B5CB47219871AF00F45916 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNLanguages.xcodeproj; path = "../node_modules/react-native-languages/ios/RNLanguages.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -403,6 +419,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8B5CB7A219871C600F45916 /* libRNDeviceInfo.a in Frameworks */,
 				F84417482190D0C000416828 /* libReactNativeCameraKit.a in Frameworks */,
 				F8AF54C6218F2E97008B0E90 /* libRNGoogleSignin.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -588,11 +605,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				F84417162190D0A600416828 /* ReactNativeCameraKit.xcodeproj */,
-				F8AF5495218F2E7A008B0E90 /* RNGoogleSignin.xcodeproj */,
-				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
-				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
+				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
 				00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */,
@@ -602,8 +616,12 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */,
+				146833FF1AC3E56700842450 /* React.xcodeproj */,
+				F84417162190D0A600416828 /* ReactNativeCameraKit.xcodeproj */,
+				F8B5CB47219871AF00F45916 /* RNDeviceInfo.xcodeproj */,
 				B6309E08929F4735B652CFE1 /* RNFirebase.xcodeproj */,
+				F8AF5495218F2E7A008B0E90 /* RNGoogleSignin.xcodeproj */,
+				FF4DD206F6F845D39DBF7CD9 /* RNLanguages.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -683,6 +701,15 @@
 			isa = PBXGroup;
 			children = (
 				F8AF54C3218F2E7A008B0E90 /* libRNGoogleSignin.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8B5CB48219871AF00F45916 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8B5CB73219871AF00F45916 /* libRNDeviceInfo.a */,
+				F8B5CB75219871AF00F45916 /* libRNDeviceInfo-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -827,6 +854,10 @@
 				{
 					ProductGroup = F84417172190D0A600416828 /* Products */;
 					ProjectRef = F84417162190D0A600416828 /* ReactNativeCameraKit.xcodeproj */;
+				},
+				{
+					ProductGroup = F8B5CB48219871AF00F45916 /* Products */;
+					ProjectRef = F8B5CB47219871AF00F45916 /* RNDeviceInfo.xcodeproj */;
 				},
 				{
 					ProductGroup = F8609A16218CCB6500A72C5B /* Products */;
@@ -1128,6 +1159,20 @@
 			fileType = archive.ar;
 			path = libRNGoogleSignin.a;
 			remoteRef = F8AF54C2218F2E7A008B0E90 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8B5CB73219871AF00F45916 /* libRNDeviceInfo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNDeviceInfo.a;
+			remoteRef = F8B5CB72219871AF00F45916 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8B5CB75219871AF00F45916 /* libRNDeviceInfo-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNDeviceInfo-tvOS.a";
+			remoteRef = F8B5CB74219871AF00F45916 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F8F04DA3218C97C70073B832 /* libRNLanguages.a */ = {

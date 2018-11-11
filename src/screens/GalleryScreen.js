@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { CameraKitGalleryView } from 'react-native-camera-kit';
+import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { CameraKitGallery, CameraKitGalleryView } from 'react-native-camera-kit';
+import { productUpdate } from '../actions';
 import colors from '../colors';
 
 type Props = {};
-export default class GalleryScreen extends Component<Props> {
+class GalleryScreen extends Component<Props> {
+
+  onTapImage(event) {
+    Actions.loadingLightbox();
+    CameraKitGallery.getImageForTapEvent(event.nativeEvent)
+      .then((image) => {
+        this.props.productUpdate({ prop: 'imageUrl', value: image.imageUri });
+        Actions.pop(); // pop the lightbox
+        Actions.pop(); // back to product screen
+      });
+  }
 
   render() {
     const { containerStyle } = styles;
@@ -14,7 +27,7 @@ export default class GalleryScreen extends Component<Props> {
         minimumInteritemSpacing={1}
         minimumLineSpacing={1}
         columnCount={3}
-        onTapImage={() => { }}
+        onTapImage={event => this.onTapImage(event)}
       />
     );
   }
@@ -28,3 +41,5 @@ const styles = StyleSheet.create({
     margin: 0
   }
 });
+
+export default connect(null, { productUpdate })(GalleryScreen);

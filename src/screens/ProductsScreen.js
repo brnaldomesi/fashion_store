@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { productsDelete, productsFetch } from '../actions';
+import { askForGalleryPermission, productsDelete, productsFetch } from '../actions';
 import { LoadingView, NoContentView, ProductItem } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
@@ -13,6 +13,7 @@ type Props = {};
 class ProductsScreen extends Component<Props> {
 
   componentWillMount() {
+    this.props.askForGalleryPermission();
     this.props.productsFetch();
   }
 
@@ -94,5 +95,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  productsDelete, productsFetch
+  askForGalleryPermission, productsDelete, productsFetch
 })(ProductsScreen);

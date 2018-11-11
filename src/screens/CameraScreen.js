@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 import { CameraKitCameraScreen } from 'react-native-camera-kit';
+import { productUpdate } from '../actions';
 import i18n from '../i18n';
 import colors from '../colors';
 import imgCameraCapture from '../../assets/images/camera-capture.png';
@@ -11,7 +13,7 @@ import imgCameraFlashOn from '../../assets/images/camera-flash-on.png';
 import imgCameraFlip from '../../assets/images/camera-flip.png';
 
 type Props = {};
-export default class CameraScreen extends Component<Props> {
+class CameraScreen extends Component<Props> {
 
   onButtonPressed(event) {
     if (event.type === 'left') {
@@ -23,7 +25,13 @@ export default class CameraScreen extends Component<Props> {
       return;
     }
 
-    //const captureImages = JSON.stringify(event.captureImages);
+    Actions.loadingLightbox();
+
+    const image = event.captureImages[0];
+    this.props.productUpdate({ prop: 'imageUrl', value: image.uri });
+
+    Actions.pop(); // pop the lightbox
+    Actions.pop(); // back to product screen
   }
 
   render() {
@@ -31,9 +39,6 @@ export default class CameraScreen extends Component<Props> {
     return (
       <CameraKitCameraScreen
         style={containerStyle}
-        cameraOptions={{
-          ratioOverlayColor: colors.black
-        }}
         actions={{
           rightButtonText: i18n.t('app.done'),
           leftButtonText: i18n.t('app.cancel')
@@ -58,3 +63,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black
   }
 });
+
+export default connect(null, { productUpdate })(CameraScreen);

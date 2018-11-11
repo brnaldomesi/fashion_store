@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import fonts from '../../fonts';
 
-const Button = ({ style, backgroundColor, textColor, title, onPress }) => {
+const Button = ({ style, backgroundColor, textColor, title, enable = true, onPress }) => {
   const {
     containerStyle,
     textStyle
@@ -11,7 +11,11 @@ const Button = ({ style, backgroundColor, textColor, title, onPress }) => {
 
   return (
     <TouchableOpacity
-        style={[{ backgroundColor }, containerStyle, style]}
+        style={[{
+          opacity: enable ? 1 : 0.3,
+          backgroundColor
+        }, containerStyle, style]}
+        disabled={!enable}
         onPress={onPress}
     >
       <Text style={[{ color: textColor }, textStyle]}>

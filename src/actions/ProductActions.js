@@ -67,25 +67,19 @@ export const productUpdate = ({ prop, value }) => {
 
 export const productSave = ({ id = null, imageUrl, name, price, color, size }) => {
   return (dispatch) => {
-    Actions.loadingLightbox();
-
-    let result;
-
-    if (id === null) {
-      result = FirebaseService.addProduct(imageUrl, name, price, color, size);
-    } else {
-      result = FirebaseService.setProduct(id, imageUrl, name, price, color, size);
+    if (!imageUrl.startsWith('file://')) {
+      productSaveWithImage(dispatch, { id, imageUrl, name, price, color, size });
+      return;
     }
 
-    result
-      .then(() => {
-        dispatch({ type: PRODUCT_SAVE });
-        Actions.pop(); // pop the lightbox
-        Actions.pop(); // back to products list
+    Actions.loadingLightbox();
+    FirebaseService.uploadImage(imageUrl)
+      .then(uploadedFile => {
+        Actions.pop();
+        const url = uploadedFile.downloadURL;
+        productSaveWithImage(dispatch, { id, imageUrl: url, name, price, color, size });
       })
       .catch(() => {
-        Actions.pop();
-
         Alert.alert(
           i18n.t('app.attention'),
           i18n.t('product.save.failureMessage'),
@@ -139,6 +133,31 @@ const onPressProductDelete = (dispatch, id) => {
       Alert.alert(
         i18n.t('app.attention'),
         i18n.t('app.deleteFailureMessage'),
+        [{ text: i18n.t('app.ok') }],
+        { cancelable: true }
+      );
+    });
+};
+
+const productSaveWithImage = (dispatch, { id = null, imageUrl, name, price, color, size }) => {
+  let result;
+
+  if (id === null) {
+    result = FirebaseService.addProduct(imageUrl, name, price, color, size);
+  } else {
+    result = FirebaseService.setProduct(id, imageUrl, name, price, color, size);
+  }
+
+  result
+    .then(() => {
+      dispatch({ type: PRODUCT_SAVE });
+      Actions.pop(); // pop the lightbox
+      Actions.pop(); // back to products list
+    })
+    .catch(() => {
+      Alert.alert(
+        i18n.t('app.attention'),
+        i18n.t('product.save.failureMessage'),
         [{ text: i18n.t('app.ok') }],
         { cancelable: true }
       );

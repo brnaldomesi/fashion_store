@@ -66,8 +66,6 @@ export const productUpdate = ({ prop, value }) => {
 };
 
 export const productSave = ({ id = null, imageUrl, name, price, color, size }) => {
-  console.log(price);
-
   return (dispatch) => {
     if (!imageUrl.startsWith('file://')) {
       productSaveWithImage(dispatch, { id, imageUrl, name, price, color, size });

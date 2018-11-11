@@ -1,6 +1,6 @@
 import { ActionSheetIOS, Alert, Platform } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { FirebaseService } from '../services';
+import { FirebaseService, GalleryService } from '../services';
 import { PRODUCT_CLEAN, PRODUCT_DELETE, PRODUCT_SAVE, PRODUCT_UPDATE } from './types';
 import i18n from '../i18n';
 
@@ -20,17 +20,17 @@ export const addPhoto = () => {
       },
       (buttonIndex) => {
         if (buttonIndex === 1) {
-          Actions.cameraModal();
+          //onOpenCamera();
         } else if (buttonIndex === 2) {
-          Actions.galleryModal();
+          onOpenGallery();
         }
       });
     } else {
       Alert.alert(
          null, optionText,
          [
-           { text: takePictureAction, onPress: () => Actions.cameraModal() },
-           { text: photoLibraryAction, onPress: () => Actions.galleryModal(), style: 'cancel' }
+           { text: takePictureAction, onPress: () => {} },
+           { text: photoLibraryAction, onPress: () => onOpenGallery() }
          ],
          { cancelable: true }
        );
@@ -97,6 +97,19 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
 };
 
 // Private
+
+const onOpenGallery = () => {
+  GalleryService.requestDeviceAuthorizationIfNeeded()
+    .then(() => Actions.galleryModal())
+    .catch(() => {
+      Alert.alert(
+        i18n.t('permissions.titleFailure'),
+        i18n.t('permissions.galleryFailureMessage'),
+        [{ text: i18n.t('app.ok') }],
+        { cancelable: true }
+      );
+    });
+};
 
 const onPressProductDelete = (dispatch, id) => {
   Actions.loadingLightbox();

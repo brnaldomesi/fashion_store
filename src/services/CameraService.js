@@ -6,7 +6,7 @@ class CameraService {
     return new Promise((resolve, reject) => {
       CameraKitCamera.checkDeviceCameraAuthorizationStatus()
         .then((isAuthorizedPrevious) => {
-          if (isAuthorizedPrevious === 1) {
+          if (isAuthorizedPrevious === true) {
             resolve();
             return;
           }

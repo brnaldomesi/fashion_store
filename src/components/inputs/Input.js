@@ -1,28 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import colors from '../../colors';
 import fonts from '../../fonts';
 
 
-const Input = ({ style, title, onChangeText, value, keyboardType = 'default' }) => {
+const Input = ({ style, title, children }) => {
   const {
     containerStyle,
-    textStyle,
-    textInputStyle
+    textStyle
   } = styles;
 
   return (
     <View style={[containerStyle, style]}>
       <Text style={textStyle}>{title}</Text>
-
-      <TextInput
-        style={textInputStyle}
-        onChangeText={onChangeText}
-        value={value}
-        keyboardType={keyboardType}
-        clearButtonMode={'always'}
-      />
+      {children}
     </View>
   );
 };
@@ -49,4 +41,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export { Input };
+export default Input;

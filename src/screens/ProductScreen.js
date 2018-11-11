@@ -32,6 +32,17 @@ class ProductScreen extends Component<Props> {
     this.props.productSave({ id, imageUrl, name, price, color, size });
   }
 
+  enableSaveButton() {
+    const { name, price, color, size } = this.props;
+
+    if (name === null || name.length === 0) return false;
+    if (price === null || price.length === 0) return false;
+    if (color === null || color.length === 0) return false;
+    if (size === null || size.length === 0) return false;
+
+    return true;
+  }
+
   renderDelete() {
     return (
       <Button
@@ -106,6 +117,7 @@ class ProductScreen extends Component<Props> {
               backgroundColor={colors.purple}
               textColor={colors.white}
               title={i18n.t('product.form.save')}
+              enable={this.enableSaveButton()}
               onPress={this.onPressSave.bind(this)}
             />
 

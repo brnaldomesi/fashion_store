@@ -1,9 +1,17 @@
 import { Alert } from 'react-native';
-import { FirebaseService } from '../services';
+import { FirebaseService, GalleryService } from '../services';
 import { PRODUCTS_DELETE, PRODUCTS_FETCH, PRODUCTS_FETCH_SUCCESS } from './types';
 import i18n from '../i18n';
 
 // Public
+
+export const askForGalleryPermission = () => {
+  return () => {
+    GalleryService.requestDeviceAuthorizationIfNeeded()
+      .then(() => {})
+      .catch(() => {});
+  };
+};
 
 export const productsDelete = ({ item }) => {
   return (dispatch) => {
@@ -41,7 +49,6 @@ export const productsFetch = () => {
 };
 
 // Private
-
 
 const onPressProductsDelete = (dispatch, id) => {
   FirebaseService.deleteProduct(id)

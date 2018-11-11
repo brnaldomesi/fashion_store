@@ -9,7 +9,7 @@ const Input = ({ style, title, children }) => {
   const {
     containerStyle,
     textStyle
-  } = styles;
+  } = inputStyles;
 
   return (
     <View style={[containerStyle, style]}>
@@ -20,7 +20,7 @@ const Input = ({ style, title, children }) => {
 };
 
 const margin = 7;
-const styles = StyleSheet.create({
+export const inputStyles = StyleSheet.create({
   containerStyle: {
     flex: 1,
     margin

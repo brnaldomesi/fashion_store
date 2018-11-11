@@ -66,6 +66,8 @@ export const productUpdate = ({ prop, value }) => {
 };
 
 export const productSave = ({ id = null, imageUrl, name, price, color, size }) => {
+  console.log(price);
+
   return (dispatch) => {
     if (!imageUrl.startsWith('file://')) {
       productSaveWithImage(dispatch, { id, imageUrl, name, price, color, size });
@@ -97,8 +99,8 @@ const onOpenCamera = () => {
     .then(() => Actions.cameraModal())
     .catch(() => {
       Alert.alert(
-        i18n.t('permissions.titleFailure'),
-        i18n.t('permissions.cameraFailureMessage'),
+        i18n.t('app.permissions.titleFailure'),
+        i18n.t('app.permissions.cameraFailureMessage'),
         [{ text: i18n.t('app.ok') }],
         { cancelable: true }
       );
@@ -110,8 +112,8 @@ const onOpenGallery = () => {
     .then(() => Actions.galleryModal())
     .catch(() => {
       Alert.alert(
-        i18n.t('permissions.titleFailure'),
-        i18n.t('permissions.galleryFailureMessage'),
+        i18n.t('app.permissions.titleFailure'),
+        i18n.t('app.permissions.galleryFailureMessage'),
         [{ text: i18n.t('app.ok') }],
         { cancelable: true }
       );

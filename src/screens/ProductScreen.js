@@ -74,7 +74,7 @@ class ProductScreen extends Component<Props> {
           >
             <ImageButton
               style={imageButtonStyle}
-              size={45}
+              size={60}
               source={imgAppAddPhoto}
               onPress={() => this.props.addPhoto()}
             />
@@ -144,8 +144,8 @@ const styles = StyleSheet.create({
   },
   imageButtonStyle: {
     position: 'absolute',
-    bottom: 20,
-    right: 20
+    bottom: 10,
+    right: 10
   },
 
   formStyle: {

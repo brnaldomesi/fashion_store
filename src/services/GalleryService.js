@@ -6,7 +6,7 @@ class GalleryService {
     return new Promise((resolve, reject) => {
       CameraKitGallery.checkDevicePhotosAuthorizationStatus()
         .then((isAuthorizedPrevious) => {
-          if (isAuthorizedPrevious) {
+          if (isAuthorizedPrevious === true) {
             resolve();
             return;
           }

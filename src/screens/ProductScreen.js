@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import { addPhoto, productClean, productDelete, productSave, productUpdate } from '../actions';
-import { Button, KeyboardView, ImageButton, Input } from '../components';
+import { Button, KeyboardView, ImageButton, InputMoney, InputText } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
@@ -70,23 +70,22 @@ class ProductScreen extends Component<Props> {
           </ImageBackground>
 
           <View style={formStyle}>
-            <Input
+            <InputText
               style={inputStyle}
               title={i18n.t('product.form.product_name')}
               value={this.props.name}
               onChangeText={value => this.props.productUpdate({ prop: 'name', value })}
             />
 
-            <Input
+            <InputMoney
               style={inputStyle}
               title={i18n.t('product.form.price')}
-              value={`${this.props.price}`}
-              keyboardType={'numeric'}
+              value={this.props.price}
               onChangeText={value => this.props.productUpdate({ prop: 'price', value })}
             />
 
             <View style={subFormStyle}>
-              <Input
+              <InputText
                 style={inputStyle}
                 title={i18n.t('product.form.color')}
                 value={this.props.color}
@@ -95,7 +94,7 @@ class ProductScreen extends Component<Props> {
 
               <View style={spaceViewStyle} />
 
-              <Input
+              <InputText
                 style={inputStyle}
                 title={i18n.t('product.form.size')}
                 value={this.props.size}

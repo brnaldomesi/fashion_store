@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { CameraKitCameraScreen } from 'react-native-camera-kit';
@@ -37,21 +37,23 @@ class CameraScreen extends Component<Props> {
   render() {
     const { containerStyle } = styles;
     return (
-      <CameraKitCameraScreen
-        style={containerStyle}
-        actions={{
-          rightButtonText: i18n.t('app.done'),
-          leftButtonText: i18n.t('app.cancel')
-        }}
-        flashImages={{
-          auto: imgCameraFlashAuto,
-          off: imgCameraFlashOff,
-          on: imgCameraFlashOn
-        }}
-        cameraFlipImage={imgCameraFlip}
-        captureButtonImage={imgCameraCapture}
-        onBottomButtonPressed={(event) => this.onButtonPressed(event)}
-      />
+      <View style={containerStyle}>
+        <StatusBar barStyle='light-content' backgroundColor={colors.purple} />
+        <CameraKitCameraScreen
+          actions={{
+            rightButtonText: i18n.t('app.done'),
+            leftButtonText: i18n.t('app.cancel')
+          }}
+          flashImages={{
+            auto: imgCameraFlashAuto,
+            off: imgCameraFlashOff,
+            on: imgCameraFlashOn
+          }}
+          cameraFlipImage={imgCameraFlip}
+          captureButtonImage={imgCameraCapture}
+          onBottomButtonPressed={(event) => this.onButtonPressed(event)}
+        />
+      </View>
     );
   }
 

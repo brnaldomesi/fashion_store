@@ -27,8 +27,7 @@
   "permissions": {
     "titleFailure": "No Permission",
     "cameraFailureMessage": "The app requires to access camera for uploading product images.",
-    "galleryFailureMessage": "The app requires to photo gallery for uploading product images.",
-    "simulatorFailureMessage": "Use a real device to access this feature."
+    "galleryFailureMessage": "The app requires to photo gallery for uploading product images."
   },
   "product": {
     "title": "Product",

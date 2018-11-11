@@ -8,7 +8,17 @@
     "ok": "Ok",
     "yes": "Yes",
     "cancel": "Cancel",
-    "done": "Done"
+    "done": "Done",
+    "formatter": {
+      "numberSeparator": ".",
+      "numberDelimiter": ",",
+      "unit": "$"
+    },
+    "permissions": {
+      "titleFailure": "No Permission",
+      "cameraFailureMessage": "The app requires to access camera for uploading product images.",
+      "galleryFailureMessage": "The app requires to photo gallery for uploading product images."
+    }
   },
   "gallery": {
     "title": "Gallery"
@@ -23,11 +33,6 @@
     "enter": {
       "message": "Could not log in. Try again later."
     }
-  },
-  "permissions": {
-    "titleFailure": "No Permission",
-    "cameraFailureMessage": "The app requires to access camera for uploading product images.",
-    "galleryFailureMessage": "The app requires to photo gallery for uploading product images."
   },
   "product": {
     "title": "Product",

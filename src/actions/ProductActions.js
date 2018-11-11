@@ -93,29 +93,19 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
 // Private
 
 const onOpenCamera = () => {
-  CameraService.requestDeviceAuthorizationIfNeeded()
-    .then(() => Actions.cameraModal())
-    .catch(() => {
-      Alert.alert(
-        i18n.t('app.permissions.titleFailure'),
-        i18n.t('app.permissions.cameraFailureMessage'),
-        [{ text: i18n.t('app.ok') }],
-        { cancelable: true }
-      );
-    });
+  GalleryService.checkDeviceAuthorization()
+    .then(() => {
+      CameraService.requestDeviceAuthorizationIfNeeded()
+        .then(() => Actions.cameraModal())
+        .catch(() => showNoPermissionAlert());
+    })
+    .catch(() => showNoPermissionAlert());
 };
 
 const onOpenGallery = () => {
-  GalleryService.requestDeviceAuthorizationIfNeeded()
+  GalleryService.checkDeviceAuthorization()
     .then(() => Actions.galleryModal())
-    .catch(() => {
-      Alert.alert(
-        i18n.t('app.permissions.titleFailure'),
-        i18n.t('app.permissions.galleryFailureMessage'),
-        [{ text: i18n.t('app.ok') }],
-        { cancelable: true }
-      );
-    });
+    .catch(() => showNoPermissionAlert());
 };
 
 const onPressProductDelete = (dispatch, id) => {
@@ -163,3 +153,12 @@ const productSaveWithImage = (dispatch, { id = null, imageUrl, name, price, colo
       );
     });
 };
+
+function showNoPermissionAlert() {
+  Alert.alert(
+    i18n.t('app.permissions.titleFailure'),
+    i18n.t('app.permissions.cameraGalleryFailureMessage'),
+    [{ text: i18n.t('app.ok') }],
+    { cancelable: true }
+  );
+}

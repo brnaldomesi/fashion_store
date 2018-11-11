@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Dimensions, ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
-import { productClean, productDelete, productSave, productUpdate } from '../actions';
-import { Button, KeyboardView, ImageButton, Input } from '../components';
+import { addPhoto, productClean, productDelete, productSave, productUpdate } from '../actions';
+import { Button, KeyboardView, ImageButton, InputMoney, InputText } from '../components';
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
@@ -32,6 +32,17 @@ class ProductScreen extends Component<Props> {
     this.props.productSave({ id, imageUrl, name, price, color, size });
   }
 
+  enableSaveButton() {
+    const { name, price, color, size } = this.props;
+
+    if (name === null || name.length === 0) return false;
+    if (price === null || price.length === 0) return false;
+    if (color === null || color.length === 0) return false;
+    if (size === null || size.length === 0) return false;
+
+    return true;
+  }
+
   renderDelete() {
     return (
       <Button
@@ -56,37 +67,36 @@ class ProductScreen extends Component<Props> {
 
     return (
       <KeyboardView style={containerStyle}>
-        <ScrollView>
+        <ScrollView keyboardShouldPersistTaps={'handled'}>
           <ImageBackground
             style={backgroundImageStyle}
-            source={{ uri: this.props.imageUrl }}
+            source={this.props.imageUrl ? { uri: this.props.imageUrl } : null}
           >
             <ImageButton
               style={imageButtonStyle}
-              size={45}
+              size={60}
               source={imgAppAddPhoto}
-              onPress={() => {}}
+              onPress={() => this.props.addPhoto()}
             />
           </ImageBackground>
 
           <View style={formStyle}>
-            <Input
+            <InputText
               style={inputStyle}
               title={i18n.t('product.form.product_name')}
               value={this.props.name}
               onChangeText={value => this.props.productUpdate({ prop: 'name', value })}
             />
 
-            <Input
+            <InputMoney
               style={inputStyle}
               title={i18n.t('product.form.price')}
-              value={`${this.props.price}`}
-              keyboardType={'numeric'}
+              value={this.props.price}
               onChangeText={value => this.props.productUpdate({ prop: 'price', value })}
             />
 
             <View style={subFormStyle}>
-              <Input
+              <InputText
                 style={inputStyle}
                 title={i18n.t('product.form.color')}
                 value={this.props.color}
@@ -95,7 +105,7 @@ class ProductScreen extends Component<Props> {
 
               <View style={spaceViewStyle} />
 
-              <Input
+              <InputText
                 style={inputStyle}
                 title={i18n.t('product.form.size')}
                 value={this.props.size}
@@ -107,6 +117,7 @@ class ProductScreen extends Component<Props> {
               backgroundColor={colors.purple}
               textColor={colors.white}
               title={i18n.t('product.form.save')}
+              enable={this.enableSaveButton()}
               onPress={this.onPressSave.bind(this)}
             />
 
@@ -133,8 +144,8 @@ const styles = StyleSheet.create({
   },
   imageButtonStyle: {
     position: 'absolute',
-    bottom: 20,
-    right: 20
+    bottom: 10,
+    right: 10
   },
 
   formStyle: {
@@ -158,5 +169,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  productClean, productDelete, productSave, productUpdate
+  addPhoto, productClean, productDelete, productSave, productUpdate
 })(ProductScreen);

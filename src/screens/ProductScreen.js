@@ -67,7 +67,7 @@ class ProductScreen extends Component<Props> {
 
     return (
       <KeyboardView style={containerStyle}>
-        <ScrollView>
+        <ScrollView keyboardShouldPersistTaps={'handled'}>
           <ImageBackground
             style={backgroundImageStyle}
             source={this.props.imageUrl ? { uri: this.props.imageUrl } : null}

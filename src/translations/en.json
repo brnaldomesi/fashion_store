@@ -2,7 +2,7 @@
   "app": {
     "attention": "Attention",
     "success": "Success",
-    "deleteMessage": "Do you really want to delete?",
+    "deleteMessage": "Are you sure?",
     "deleteSuccessMessage": "The product has been deleted.",
     "deleteFailureMessage": "The product could not be deleted.",
     "ok": "Ok",
@@ -62,7 +62,7 @@
     "title": "Products",
     "noContent": "No products have been added yet.",
     "logout": {
-      "title": "Log Out",
+      "title": "Exit",
       "message": "Do you really want to exit?"
     }
   }

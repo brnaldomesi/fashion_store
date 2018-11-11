@@ -70,7 +70,7 @@ class ProductScreen extends Component<Props> {
         <ScrollView>
           <ImageBackground
             style={backgroundImageStyle}
-            source={{ uri: this.props.imageUrl }}
+            source={this.props.imageUrl ? { uri: this.props.imageUrl } : null}
           >
             <ImageButton
               style={imageButtonStyle}

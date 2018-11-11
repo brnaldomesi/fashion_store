@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Animated, StyleSheet, Image, Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import { tryToSignInSilently } from '../actions';
+import { configure, tryToSignInSilently } from '../actions';
 import i18n from '../i18n';
 import colors from '../colors';
 import fonts from '../fonts';
@@ -18,6 +18,7 @@ class LaunchScreen extends Component<Props> {
   }
 
   componentWillMount() {
+    this.props.configure();
     this.props.tryToSignInSilently();
   }
 
@@ -92,4 +93,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(null, { tryToSignInSilently })(LaunchScreen);
+export default connect(null, { configure, tryToSignInSilently })(LaunchScreen);

@@ -39,7 +39,7 @@ class RouterComponent extends Component<Props> {
           </Stack>
 
           {/* MAIN STACK */}
-          <Modal
+          <Lightbox
             key='main'
             type={ActionConst.REPLACE}
             navigationBarStyle={navigationBarStyle}
@@ -48,7 +48,7 @@ class RouterComponent extends Component<Props> {
             backButtonImage={imgAppClose}
             hideNavBar
           >
-            <Lightbox type={ActionConst.REPLACE} hideNavBar>
+            <Modal hideNavBar>
               <Stack backButtonImage={imgAppBack} hideNavBar>
                 <Scene
                   component={ProductsScreen}
@@ -68,18 +68,18 @@ class RouterComponent extends Component<Props> {
                 />
               </Stack>
 
-              <Scene key="loadingLightbox" component={LoadingLightbox} />
-            </Lightbox>
+              <Scene key="cameraModal" component={CameraScreen} hideNavBar />
 
-            <Scene key="cameraModal" component={CameraScreen} hideNavBar />
+              <Scene
+                key="galleryModal"
+                component={GalleryScreen}
+                title={i18n.t('gallery.title')}
+                hideNavBar={false}
+              />
+            </Modal>
 
-            <Scene
-              key="galleryModal"
-              component={GalleryScreen}
-              title={i18n.t('gallery.title')}
-              hideNavBar={false}
-            />
-          </Modal>
+            <Scene key="loadingLightbox" component={LoadingLightbox} />
+          </Lightbox>
 
         </Stack>
       </Router>

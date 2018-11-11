@@ -1,6 +1,6 @@
 import { ActionSheetIOS, Alert, Platform } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { FirebaseService, GalleryService } from '../services';
+import { CameraService, FirebaseService, GalleryService } from '../services';
 import { PRODUCT_CLEAN, PRODUCT_DELETE, PRODUCT_SAVE, PRODUCT_UPDATE } from './types';
 import i18n from '../i18n';
 
@@ -20,7 +20,7 @@ export const addPhoto = () => {
       },
       (buttonIndex) => {
         if (buttonIndex === 1) {
-          //onOpenCamera();
+          onOpenCamera();
         } else if (buttonIndex === 2) {
           onOpenGallery();
         }
@@ -29,7 +29,7 @@ export const addPhoto = () => {
       Alert.alert(
          null, optionText,
          [
-           { text: takePictureAction, onPress: () => {} },
+           { text: takePictureAction, onPress: () => onOpenCamera() },
            { text: photoLibraryAction, onPress: () => onOpenGallery() }
          ],
          { cancelable: true }
@@ -97,6 +97,19 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
 };
 
 // Private
+
+const onOpenCamera = () => {
+  CameraService.requestDeviceAuthorizationIfNeeded()
+    .then(() => Actions.cameraModal())
+    .catch(() => {
+      Alert.alert(
+        i18n.t('permissions.titleFailure'),
+        i18n.t('permissions.cameraFailureMessage'),
+        [{ text: i18n.t('app.ok') }],
+        { cancelable: true }
+      );
+    });
+};
 
 const onOpenGallery = () => {
   GalleryService.requestDeviceAuthorizationIfNeeded()

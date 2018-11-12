@@ -28,7 +28,8 @@ const ProductItem = ({ item, margin, onPress, onPressDelete }) => {
       <TouchableOpacity style={containerStyle} onPress={onPress}>
         <Image
           style={[{ marginRight: margin }, imageStyle]}
-          source={item.imageUrl ? { uri: item.imageUrl } : imgPlaceholder}
+          source={item.imageUrl ? { uri: item.imageUrl } : null}
+          defaultSource={imgPlaceholder}
         />
 
         <View style={productViewStyle}>

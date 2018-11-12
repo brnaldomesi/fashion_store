@@ -80,6 +80,7 @@ export const productSave = ({ id = null, imageUrl, name, price, color, size }) =
         productSaveWithImage(dispatch, { id, imageUrl: url, name, price, color, size });
       })
       .catch(() => {
+        Actions.pop();
         Alert.alert(
           i18n.t('app.attention'),
           i18n.t('product.save.failureMessage'),

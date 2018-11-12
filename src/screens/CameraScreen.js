@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, StatusBar, View } from 'react-native';
+import { StyleSheet, StatusBar, Platform, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { CameraKitCameraScreen } from 'react-native-camera-kit';
@@ -28,7 +28,8 @@ class CameraScreen extends Component<Props> {
     Actions.loadingLightbox();
 
     const image = event.captureImages[0];
-    this.props.productUpdate({ prop: 'imageUrl', value: image.uri });
+    const value = (Platform.OS === 'ios') ? image.uri : `file://${image.uri}`;
+    this.props.productUpdate({ prop: 'imageUrl', value });
 
     Actions.pop(); // pop the lightbox
     Actions.pop(); // back to product screen

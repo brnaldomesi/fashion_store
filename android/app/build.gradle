@@ -103,8 +103,8 @@ android {
         applicationId "me.furtado.fastbuy"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -148,27 +148,23 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-navigation')
-    implementation project(':react-native-languages')
-    implementation project(':react-native-firebase')
     implementation project(':react-native-device-info')
     implementation project(':react-native-firebase')
-    implementation project(':react-native-firebase')
-    implementation project(':react-native-device-info')
-    implementation project(':react-native-languages')
-    implementation project(':react-native-navigation')
     implementation(project(":react-native-google-signin")) {
         exclude group: "com.google.android.gms"
     }
+    implementation project(':react-native-languages')
+    implementation project(":rncamerakit")
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation "com.google.android.gms:play-services-base:16.0.1"
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation "com.google.firebase:firebase-auth:16.0.5"
-    implementation "com.google.firebase:firebase-core:16.0.4"
-    implementation "com.google.firebase:firebase-firestore:17.1.2"
+    implementation "com.google.firebase:firebase-core:16.0.5"
+    implementation "com.google.firebase:firebase-firestore:17.1.3"
     implementation "com.google.firebase:firebase-perf:16.2.0"
+    implementation "com.google.firebase:firebase-storage:16.0.5"
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.5@aar') {
         transitive = true
     }

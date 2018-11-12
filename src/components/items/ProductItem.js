@@ -6,6 +6,7 @@ import colors from '../../colors';
 import fonts from '../../fonts';
 import i18n from '../../i18n';
 import imgListDelete from '../../../assets/images/list-delete.png';
+import imgPlaceholder from '../../../assets/images/image-placeholder.png';
 
 
 const ProductItem = ({ item, margin, onPress, onPressDelete }) => {
@@ -25,7 +26,11 @@ const ProductItem = ({ item, margin, onPress, onPressDelete }) => {
   return (
     <View style={{ marginTop: margin / 2, marginBottom: margin / 2 }}>
       <TouchableOpacity style={containerStyle} onPress={onPress}>
-        <Image style={[{ marginRight: margin }, imageStyle]} source={{ uri: item.thumbnailUrl }} />
+        <Image
+          style={[{ marginRight: margin }, imageStyle]}
+          source={item.imageUrl ? { uri: item.imageUrl } : null}
+          defaultSource={imgPlaceholder}
+        />
 
         <View style={productViewStyle}>
           <Text style={nameTextStyle}>{item.name}</Text>
@@ -65,7 +70,7 @@ const styles = {
   },
 
   imageStyle: {
-    backgroundColor: colors.grayLight,
+    backgroundColor: colors.grayUltraLight,
     width: 90,
     height: 90,
     borderRadius: 5,

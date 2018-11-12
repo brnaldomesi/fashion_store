@@ -2,12 +2,28 @@
   "app": {
     "attention": "Attention",
     "success": "Success",
-    "deleteMessage": "Do you really want to delete?",
+    "deleteMessage": "Are you sure?",
     "deleteSuccessMessage": "The product has been deleted.",
     "deleteFailureMessage": "The product could not be deleted.",
     "ok": "Ok",
-    "deleteOk": "Yes, delete",
-    "cancel": "Cancel"
+    "yes": "Yes",
+    "cancel": "Cancel",
+    "done": "Done",
+    "formatter": {
+      "numberSeparator": ".",
+      "numberDelimiter": ",",
+      "unit": "$"
+    },
+    "permissions": {
+      "titleFailure": "No Permission",
+      "cameraGalleryFailureMessage": "The app requires to access camera and gallery for uploading images."
+    }
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "launch": {
+    "loading": "Loading...",
   },
   "login": {
     "title": "Login",
@@ -24,12 +40,18 @@
       "price": "Price",
       "color": "Color",
       "size": "Size",
-      "save": "Save"
+      "save": "Save",
+      "delete": "Delete"
     },
     "save": {
       "successMessage": "The product has been saved.",
       "failureMessage": "The product could not be saved.",
-    }
+    },
+    "addPhoto": {
+      "option": "Select an option:",
+      "photoLibrary": "Photo Library",
+      "takePicture": "Take Picture"
+    },
   },
   "productItem": {
     "color": "Color",
@@ -39,9 +61,8 @@
     "title": "Products",
     "noContent": "No products have been added yet.",
     "logout": {
-      "title": "What a pity...",
-      "message": "Do you really want to exit?",
-      "ok": "Yes, exit"
+      "title": "Exit",
+      "message": "Do you really want to exit?"
     }
   }
 }

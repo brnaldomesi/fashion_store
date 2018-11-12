@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="https://fastbuy-fd9d7.firebaseapp.com/images/cover.png" alt="FastBuy" title="FastBuy">
+  <img src="https://fastbuy-fd9d7.firebaseapp.com/images/cover_v2.png" alt="FastBuy" title="FastBuy">
 </p>
 
 <p align="center">
-  👉👉 <a href="https://youtu.be/mxLl_HvANt8">Click to view a video demonstration.</a> 👈👈
+  <a href="https://youtu.be/yDjooqhcNt8">Click to view a video demonstration</a>
   <br/><br/><br/>
 </p>
 
@@ -87,7 +87,12 @@ react-native run-ios --simulator "My Simulator (12.1)"
 ```
 react-native run-android
 ```
-> For the first build, you must enable the overlay permission.
+
+## Architecture
+
+<p align="center">
+  <img src="https://fastbuy-fd9d7.firebaseapp.com/images/arch.png" alt="FastBuy Architecture" title="FastBuy Architecture">
+</p>
 
 ## Todolist
 
@@ -96,8 +101,8 @@ react-native run-android
 - [x] Product List
 - [x] Delete a Product
 - [x] Edit a Product
-- [ ] Camera
-- [ ] Redux framework
+- [x] Camera
+- [x] Redux framework
 - [x] Firebase Integration (Analytics, Auth, Database, Crashlytics and Performance)
 - [x] Translation (with [react-native-languages](https://github.com/react-community/react-native-languages))
 

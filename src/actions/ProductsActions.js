@@ -31,7 +31,7 @@ export const productsFetch = () => {
   return (dispatch) => {
     dispatch({ type: PRODUCTS_FETCH });
 
-    const unsubscribe = FirebaseService.productsCollection().orderBy('name')
+    const unsubscribe = FirebaseService.productsCollection()
       .onSnapshot((querySnapshot) => {
         const products = [];
 

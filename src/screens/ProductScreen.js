@@ -6,6 +6,7 @@ import { Button, KeyboardView, ImageButton, InputMoney, InputText } from '../com
 import colors from '../colors';
 import i18n from '../i18n';
 import imgAppAddPhoto from '../../assets/images/app-add-photo.png';
+import imgPlaceholder from '../../assets/images/image-placeholder.png';
 
 type Props = {};
 class ProductScreen extends Component<Props> {
@@ -71,6 +72,7 @@ class ProductScreen extends Component<Props> {
           <ImageBackground
             style={backgroundImageStyle}
             source={this.props.imageUrl ? { uri: this.props.imageUrl } : null}
+            defaultSource={imgPlaceholder}
           >
             <ImageButton
               style={imageButtonStyle}

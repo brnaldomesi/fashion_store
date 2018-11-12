@@ -31,7 +31,8 @@ class FirebaseService {
 
   static uploadImage(path) {
     const id = imageId();
-    return firebase.storage().ref(`/products/images/${id}.jpg`).putFile(path);
+    const metadata = { cacheControl: 'public,max-age=604800', contentType: 'image/jpeg' };
+    return firebase.storage().ref(`/products/images/${id}.jpg`).putFile(path, metadata);
   }
 
 }
